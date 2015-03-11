@@ -7,9 +7,6 @@ export HISTFILESIZE="${HISTSIZE}";
 # Omit duplicates and commands that begin with a space from history.
 export HISTCONTROL='ignoreboth:erasedups'
 
-# Language
-export LANG='nl_NL.UTF-8';
-
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X';
 
