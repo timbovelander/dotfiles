@@ -1,28 +1,28 @@
-;; Base16 Tomorrow (https://github.com/chriskempson/base16)
+;; Base16 (https://github.com/chriskempson/base16)
 ;; Scheme: Chris Kempson (http://chriskempson.com)
 
-;;; base16-tomorrow-theme.el
+;;; base16-theme.el
 
 ;;; Code:
 
-(deftheme base16-tomorrow)
+(deftheme base16)
 
-(let ((background "#ffffff")
-      (current-line "#b4b7b4")
-      (selection "#c5c8c6")
-      (foreground "#373b41")
-      (comment "#b4b7b4")
-      (cursor "#e0e0e0")
-      (red "#cc6666")
-      (orange "#de935f")
-      (yellow "#f0c674")
-      (green "#b5bd68")
-      (aqua "#8abeb7")
-      (blue "#81a2be")
-      (purple "#b294bb"))
+(let ((background "#f8f8f8")
+      (current-line "#d8d8d8")
+      (selection "#d8d8d8")
+      (foreground "#383838")
+      (comment "#b8b8b8")
+      (cursor "#181818")
+      (red "#AB4642")
+      (orange "#DC9656")
+      (yellow "#F7CA88")
+      (green "#A1B56C")
+      (aqua "#86C1B9")
+      (blue "#7CAFC2")
+      (purple "#BA8BAF"))
 
   (custom-theme-set-faces
-   'base16-tomorrow
+   'base16
 
    ;; Built-in stuff (Emacs 23)
    `(default ((t (:background ,background :foreground ,foreground))))
@@ -81,7 +81,7 @@
    `(rainbow-delimiters-depth-9-face ((t (:foreground ,foreground)))))
 
   (custom-theme-set-variables
-   'base16-tomorrow
+   'base16
 
    `(ansi-color-names-vector
      ;; black, red, green, yellow, blue, magenta, cyan, white
@@ -91,6 +91,6 @@
        ;; black, red, green, yellow, blue, magenta, cyan, white
        [unspecified ,background ,red ,green ,yellow ,blue ,purple ,blue ,foreground]))))
 
-(provide-theme 'base16-tomorrow)
+(provide-theme 'base16)
 
-;;; base16-tomorrow-theme.el ends here
+;;; base16-theme.el ends here

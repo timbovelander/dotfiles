@@ -25,9 +25,9 @@
 ;; Allways show line numbers
 (global-linum-mode t)
 
-;; Load custom color themes and load base16-tomorrow-light
+;; Load custom color themes and load base16-theme
 (add-to-list 'load-path "~/.emacs.d/custom-themes")
-(require 'base16-tomorrow-theme)
+(require 'base16-theme)
 
 ;; Add editorconfig support to emacs
 (add-to-list 'load-path "~/.emacs.d/lisp")

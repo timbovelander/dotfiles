@@ -10,13 +10,13 @@ list=['a3cb4602-2b32-4d10-b3d8-52c9973139d0']
 default='a3cb4602-2b32-4d10-b3d8-52c9973139d0'
 
 [legacy/profiles:/:a3cb4602-2b32-4d10-b3d8-52c9973139d0]
-foreground-color='rgb(40,42,46)'
-visible-name='Base16 Tomorrow'
-palette=['rgb(29,31,33)', 'rgb(204,102,102)', 'rgb(181,189,104)', 'rgb(240,198,116)', 'rgb(129,162,190)', 'rgb(178,148,187)', 'rgb(138,190,183)', 'rgb(197,200,198)', 'rgb(150,152,150)', 'rgb(204,102,102)', 'rgb(181,189,104)', 'rgb(240,198,116)', 'rgb(129,162,190)', 'rgb(178,148,187)', 'rgb(138,190,183)', 'rgb(255,255,255)']
+foreground-color='rgb(24,24,24)'
+visible-name='Base16'
+palette=['rgb(24,24,24)', 'rgb(171,70,66)', 'rgb(161,181,108)', 'rgb(247,202,136)', 'rgb(124,175,194)', 'rgb(186,139,175)', 'rgb(134,193,185)', 'rgb(216,216,216)', 'rgb(56,56,56)', 'rgb(171,70,66)', 'rgb(161,181,108)', 'rgb(247,202,136)', 'rgb(124,175,194)', 'rgb(186,139,175)', 'rgb(134,193,185)', 'rgb(248,248,248)']
 login-shell=true
 default-size-columns=80
 scroll-on-output=false
 use-theme-colors=false
 bold-color-same-as-fg=true
-background-color='rgb(255,255,255)'
+background-color='rgb(248,248,248)'
 scrollbar-policy='always'
