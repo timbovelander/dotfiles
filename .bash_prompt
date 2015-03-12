@@ -80,14 +80,14 @@ prompt_git() {
 
 # Highlight the user name when logged in as root.
 if [[ "${UID}" == 0 ]]; then
-	userStyle="${reverse}${c2}";
+	userStyle="${c2}";
 else
 	userStyle="${c5}";
 fi;
 
 # Highlight the hostname when connected via SSH.
 if [[ "${SSH_TTY}" ]]; then
-	hostStyle="${reverse}${c14}";
+	hostStyle="${c10}";
 else
 	hostStyle="${c14}";
 fi;
