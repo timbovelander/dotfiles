@@ -10,22 +10,23 @@ dim="\e[2m";
 underline="\e[4m";
 reverse="\e[7m";
 default="\e[39m"
-black="\e[30m"
-red="\e[31m"
-green="\e[32m"
-yellow="\e[33m"
-blue="\e[34m"
-magenta="\e[35m"
-cyan="\e[36m"
-gray_light="\e[37m"
-gray="\e[90m"
-red_light="\e[0;91m"
-green_light="\e[92m"
-yellow_light="\e[93m"
-blue_light="\e[94m"
-magenta_light="\e[95m"
-cyan_light="\e[96m"
-white="\e[97m"
+
+c1="\e[30m"
+c2="\e[31m"
+c3="\e[32m"
+c4="\e[33m"
+c5="\e[34m"
+c6="\e[35m"
+c7="\e[36m"
+c8="\e[37m"
+c9="\e[90m"
+c10="\e[0;91m"
+c11="\e[92m"
+c12="\e[93m"
+c13="\e[94m"
+c14="\e[95m"
+c15="\e[96m"
+c16="\e[97m"
 
 prompt_git() {
   local s='';
@@ -79,31 +80,31 @@ prompt_git() {
 
 # Highlight the user name when logged in as root.
 if [[ "${UID}" == 0 ]]; then
-	userStyle="${reverse}${red}";
+	userStyle="${reverse}${c2}";
 else
-	userStyle="${red}";
+	userStyle="${c5}";
 fi;
 
 # Highlight the hostname when connected via SSH.
 if [[ "${SSH_TTY}" ]]; then
-	hostStyle="${reverse}${blue}";
+	hostStyle="${reverse}${c14}";
 else
-	hostStyle="${blue}";
+	hostStyle="${c14}";
 fi;
 
-PS1="\[\033]0;\u @ \h : \w\007\]";
+PS1="\[\033]0;\w\007\]";
 PS1+="\[${reset}\]\n";
 PS1+="\[${userStyle}\]\u"; # username
 PS1+="\[${reset}\] @ ";
 PS1+="\[${hostStyle}\]\h"; # host
 PS1+="\[${reset}\] : ";
-PS1+="\[${green}\]\w"; # working directory
-PS1+="\$(prompt_git \"${reset} - ${magenta}\")"; # Git repository details
+PS1+="\[${c7}\]\w"; # working directory
+PS1+="\$(prompt_git \"${reset} - ${c6}\")"; # Git repository details
 PS1+="\[${reset}\]\n";
-PS1+="\[${gray}\]\\$\[${reset}\] "; # `$` (and reset color)
+PS1+="\[${c4}\]\\$\[${reset}\] "; # `$` (and reset color)
 export PS1;
 
-PS2="\[${gray}\]→\[${reset}\] ";
+PS2="\[${c4}\]→\[${reset}\] ";
 export PS2;
 
 # Store and restore history so it is synced across terminals
