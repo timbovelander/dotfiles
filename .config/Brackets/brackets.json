@@ -1,0 +1,48 @@
+{
+    "brackets-editorconfig.enabled": true,
+    "closeBrackets": true,
+    "language": {
+        "javascript": {
+            "linting.prefer": [
+                "JSHint"
+            ],
+            "linting.usePreferredOnly": true
+        }
+    },
+    "linting.collapsed": false,
+    "themes.theme": "solarized-light",
+    "spaceUnits": 2,
+    "fonts.fontFamily": "'Droid Sans Mono', monospace",
+    "fonts.fontSize": "12px",
+    "brackets-git.gitPath": "git",
+    "brackets-git.stripWhitespaceFromCommits": true,
+    "brackets-git.addEndlineToTheEndOfFile": true,
+    "brackets-git.removeByteOrderMark": false,
+    "brackets-git.normalizeLineEndings": false,
+    "brackets-git.useGitGutter": true,
+    "brackets-git.markModifiedInTree": true,
+    "brackets-git.showBashButton": true,
+    "brackets-git.showReportBugButton": true,
+    "brackets-git.useCodeInspection": true,
+    "brackets-git.useGitFtp": false,
+    "brackets-git.useVerboseDiff": false,
+    "brackets-git.useDifftool": false,
+    "brackets-git.showTerminalIcon": false,
+    "brackets-git.clearWhitespaceOnSave": false,
+    "brackets-git.avatarType": "AVATAR_COLOR",
+    "brackets-git.dateMode": 1,
+    "brackets-git.dateFormat": null,
+    "brackets-git.enableAdvancedFeatures": false,
+    "brackets-git.panelShortcut": "Ctrl-Alt-G",
+    "brackets-git.commitCurrentShortcut": null,
+    "brackets-git.commitAllShortcut": null,
+    "brackets-git.bashShortcut": null,
+    "brackets-git.pushShortcut": null,
+    "brackets-git.pullShortcut": null,
+    "brackets-git.gotoPrevChangeShortcut": null,
+    "brackets-git.gotoNextChangeShortcut": null,
+    "brackets-git.gitTimeout": 30,
+    "brackets-git.terminalCommand": null,
+    "brackets-git.terminalCommandArgs": null,
+    "brackets-git.debugMode": false
+}
