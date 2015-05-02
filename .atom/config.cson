@@ -1,0 +1,17 @@
+"*":
+  "exception-reporting":
+    userId: "10a0f2b0-6c32-6c40-2144-01007727dd08"
+  welcome:
+    showOnStartup: false
+  core:
+    themes: [
+      "one-light-ui"
+      "solarized-light-syntax"
+    ]
+  "autocomplete-plus":
+    enableBuiltinProvider: false
+    defaultProvider: "Symbol"
+    confirmCompletion: "tab and enter"
+  pigments:
+    markerType: "dot"
+    extendAutocompleteToVariables: true
