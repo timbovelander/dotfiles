@@ -10,6 +10,8 @@ call vundle#begin()
 " Plugins
 Plugin 'gmarik/vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'kien/ctrlp.vim'
+Plugin 'justinmk/vim-gtfo'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'othree/html5.vim'
