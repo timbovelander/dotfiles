@@ -89,7 +89,7 @@ augroup vimrc
   autocmd Filetype javascript set omnifunc=tern#Complete
 
   " enable emmet-completion on TAB
-  autocmd FileType css,html imap <Tab> <Plug>(emmet-expand-abbr)
+  autocmd FileType css,html imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
   " set aliases
   autocmd BufRead,BufNewFile *.scss set filetype=scss.css
