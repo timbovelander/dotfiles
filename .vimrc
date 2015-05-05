@@ -63,17 +63,17 @@ nmap <CR> o<Esc>
 nmap <S-Enter> O<Esc>
 
 
-" ===== Plugin: DelimitMate
-" on enter, place cursor in the middle of brackets
-let delimitMate_expand_cr = 1
-
-
 " ===== Plugin: YouCompleteMe
 " create custom semantic triggers to show autocomplete
 let g:ycm_semantic_triggers =  {
   \  'css,scss': ['re!^\s*', 're!:\s*'],
   \  'html': ['<', 're!<.*\s'],
   \}
+
+
+" ===== Plugin: DelimitMate
+" on enter, place cursor in the middle of brackets
+let delimitMate_expand_cr = 1
 
 
 " ===== Filetype settings
@@ -87,6 +87,9 @@ augroup vimrc
   autocmd FileType css set omnifunc=csscomplete#CompleteCSS
   autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
   autocmd Filetype javascript set omnifunc=tern#Complete
+
+  " enable emmet-completion on TAB
+  autocmd FileType css,html imap <Tab> <Plug>(emmet-expand-abbr)
 
   " set aliases
   autocmd BufRead,BufNewFile *.scss set filetype=scss.css
