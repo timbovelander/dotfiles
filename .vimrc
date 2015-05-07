@@ -11,7 +11,9 @@ call vundle#begin()
 Plugin 'gmarik/vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
 Plugin 'justinmk/vim-gtfo'
+Plugin 'tpope/vim-fugitive'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'othree/html5.vim'
@@ -30,6 +32,9 @@ filetype plugin indent on
 " ===== Global
 " ignore case on file & dir completion
 set wildignorecase
+
+" always show status line
+set laststatus=2
 
 
 " ===== Theme
@@ -56,12 +61,27 @@ set showcmd
 " highlight current line
 set cursorline
 
+" do not show gui toolbar and scroll bars
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
+
 
 " ===== Custom keybindings
 " insert a newline with enter & shift-enter
 nmap <CR> o<Esc>
 nmap <S-Enter> O<Esc>
 
+" navigate buffers using ctrl-tab
+nmap <C-Tab> :bn<CR>
+
+" ===== Plugin: Airline
+" set seperators
+let g:airline_left_sep=' '
+let g:airline_right_sep=' '
+
+" enable tab line extension
+let g:airline#extensions#tabline#enabled = 1
 
 " ===== Plugin: YouCompleteMe
 " create custom semantic triggers to show autocomplete
