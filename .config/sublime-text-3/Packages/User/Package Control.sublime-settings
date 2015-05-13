@@ -1,0 +1,23 @@
+{
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"CSS3",
+		"DocBlockr",
+		"EditorConfig",
+		"Emmet",
+		"Git",
+		"GitGutter",
+		"HTML5",
+		"LESS",
+		"Package Control",
+		"Sass",
+		"Solarized Color Scheme",
+		"SublimeLinter",
+		"SublimeLinter-jshint",
+		"Terminal",
+		"tern_for_sublime"
+	]
+}
