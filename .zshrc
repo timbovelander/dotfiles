@@ -11,7 +11,7 @@ DISABLE_AUTO_UPDATE="true"
 HIST_STAMPS="dd.mm.yyyy"
 
 # enable oh-my-zsh plugins
-plugins=(bower git debian npm rvm sudo)
+plugins=(bower git npm rvm sudo)
 
 # start oh-my-zsh
 source $ZSH/oh-my-zsh.sh
