@@ -12,7 +12,6 @@ Plugin 'gmarik/vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
-Plugin 'justinmk/vim-gtfo'
 Plugin 'tpope/vim-fugitive'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'hail2u/vim-css3-syntax'
@@ -70,11 +69,11 @@ set guioptions-=L
 
 " ===== Custom keybindings
 " insert a newline with enter & shift-enter
-nmap <CR> o<Esc>
-nmap <S-Enter> O<Esc>
+nnoremap <CR> o<Esc>
+nnoremap <S-Enter> O<Esc>
 
 " navigate buffers using ctrl-tab
-nmap <C-Tab> :bn<CR>
+nnoremap <C-Tab> :bn<CR>
 
 
 " ===== Plugin: Airline
@@ -90,7 +89,7 @@ let g:airline#extensions#tabline#enabled = 1
 " create custom semantic triggers to show autocomplete
 let g:ycm_semantic_triggers =  {
   \  'css,scss': ['re!^\s*', 're!:\s*'],
-  \  'html': ['<', 're!<.*\s'],
+  \  'html': ['<', '</', 're!<.*\s'],
   \}
 
 
@@ -114,8 +113,32 @@ augroup vimrc
   " enable emmet-completion on TAB
   autocmd FileType css,html,html.mustache imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
+  " indentation fix for html
+  autocmd FileType html inoremap <expr> <CR> ExpandHtmlTag()
+
   " set aliases
   autocmd BufRead,BufNewFile *.scss set filetype=scss.css
   autocmd BufRead,BufNewFile *.mustache set filetype=html.mustache
 
 augroup END
+
+
+" ===== Functions
+" expand html tag
+function! ExpandHtmlTag()
+  let line   = getline(".")
+  let col    = col(".")
+  let first  = line[col-2]
+  let second = line[col-1]
+  let third  = line[col]
+
+  if first ==# ">"
+    if second ==# "<" && third ==# "/"
+      return "\<CR>\<C-o>==\<C-o>O"
+    else
+      return "\<CR>"
+    endif
+  else
+    return "\<CR>"
+  endif
+endfunction
