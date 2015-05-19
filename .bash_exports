@@ -1,4 +1,4 @@
-# Make emacs the default editor.
+# Make vi the default editor.
 export EDITOR='vi';
 
 # Increase Bash history size. Allow 32³ entries; the default is 500.
