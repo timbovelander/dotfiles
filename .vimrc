@@ -8,7 +8,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Plugins
-Plugin 'gmarik/vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
@@ -18,9 +18,11 @@ Plugin 'hail2u/vim-css3-syntax'
 Plugin 'othree/html5.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'mattn/emmet-vim'
-Plugin 'valloric/youcompleteme'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'marijnh/tern_for_vim'
-Plugin 'raimondi/delimitmate'
+Plugin 'Raimondi/delimitMate'
+Plugin 'Valloric/MatchTagAlways'
+Plugin 'tpope/vim-surround'
 
 " end Vundle
 call vundle#end()
@@ -35,6 +37,16 @@ set wildignorecase
 
 " always show status line
 set laststatus=2
+
+" change split behaviour, split right and below
+set splitbelow
+set splitright
+
+" find as you type search
+set incsearch
+
+" highlight search matches
+set hlsearch
 
 
 " ===== Theme
@@ -75,6 +87,26 @@ nnoremap <S-Enter> O<Esc>
 " navigate buffers using ctrl-tab
 nnoremap <C-Tab> :bn<CR>
 
+" navigate windows with ctrl-arrow
+nnoremap <C-Left> <C-W><Left>
+nnoremap <C-Right> <C-W><Right>
+nnoremap <C-Up> <C-W><Up>
+nnoremap <C-Down> <C-W><Down>
+
+" create splits with ctrl-shift-arrow
+nnoremap <C-S-Left> :topleft vnew<CR>
+nnoremap <C-S-Right> :botright vnew<CR>
+nnoremap <C-S-Up> :topleft new<CR>
+nnoremap <C-S-Down> :botright new<CR>
+
+" explorer attached to ctrl-e
+nnoremap <C-E> :Explore<CR>
+
+
+" ===== Plugin: netrw (vim default)
+" use tree view
+let g:netrw_liststyle=3
+
 
 " ===== Plugin: Airline
 " set seperators
@@ -105,6 +137,10 @@ augroup vimrc
   " clear all previous autocmd's
   autocmd!
 
+  " set aliases
+  autocmd BufRead,BufNewFile *.scss set filetype=scss.css
+  autocmd BufRead,BufNewFile *.mustache set filetype=html.mustache
+
   " enable omnifunc autocomplete
   autocmd FileType css set omnifunc=csscomplete#CompleteCSS
   autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -114,11 +150,7 @@ augroup vimrc
   autocmd FileType css,html,html.mustache imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
   " indentation fix for html
-  autocmd FileType html inoremap <expr> <CR> ExpandHtmlTag()
-
-  " set aliases
-  autocmd BufRead,BufNewFile *.scss set filetype=scss.css
-  autocmd BufRead,BufNewFile *.mustache set filetype=html.mustache
+  autocmd FileType html,html.mustache imap <expr> <CR> ExpandHtmlTag()
 
 augroup END
 
