@@ -101,6 +101,10 @@ set hlsearch
 " change background color light/dark
 map <F12> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
+" treat wrapped lines as break lines when moving the cursor
+map <Up> g<Up>
+map <Down> g<Down>
+
 " insert a newline with enter & shift-enter
 nnoremap <CR> o<Esc>
 nnoremap <S-Enter> O<Esc>
