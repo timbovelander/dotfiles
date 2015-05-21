@@ -23,30 +23,20 @@ Plugin 'marijnh/tern_for_vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-rvm'
 
 " end Vundle
 call vundle#end()
 
-" required for Vundle
+
+" ===== General
+" enable filetype plugins
 filetype plugin indent on
-
-
-" ===== Global
-" ignore case on file & dir completion
-set wildignorecase
-
-" always show status line
-set laststatus=2
 
 " change split behaviour, split right and below
 set splitbelow
 set splitright
-
-" find as you type search
-set incsearch
-
-" highlight search matches
-set hlsearch
 
 
 " ===== Theme
@@ -57,13 +47,30 @@ syntax enable
 colorscheme solarized
 set background=light
 
-" set font
 if has('gui_running')
+
+  " set font
   set guifont=Droid\ Sans\ Mono\ 10
+
+  " set linespace
+  set linespace=6
+
 endif
 
 
 " ===== UI
+" minimal number of screen lines to keep above and below the cursor
+set scrolloff=7
+
+" configure backspace to work the same as in other editors
+set backspace=2
+
+" ignore case on file & dir completion
+set wildignorecase
+
+" always show status line
+set laststatus=2
+
 " enable line number
 set number
 
@@ -78,8 +85,17 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=L
 
+" find as you type search
+set incsearch
+
+" highlight search matches
+set hlsearch
+
 
 " ===== Custom keybindings
+" change background color light/dark
+map <F12> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+
 " insert a newline with enter & shift-enter
 nnoremap <CR> o<Esc>
 nnoremap <S-Enter> O<Esc>
@@ -100,7 +116,10 @@ nnoremap <C-S-Up> :topleft new<CR>
 nnoremap <C-S-Down> :botright new<CR>
 
 " explorer attached to ctrl-e
-nnoremap <C-E> :Explore<CR>
+nnoremap <C-e> :Explore<CR>
+
+" redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 
 " ===== Plugin: netrw (vim default)
@@ -130,16 +149,24 @@ let g:ycm_semantic_triggers =  {
 let delimitMate_expand_cr = 1
 
 
-" ===== Filetype settings
+" ===== Plugin: ctrlp
+" make results scrollable
+let g:ctrlp_match_window='results:100'
+
+
+" ===== Autocmd's
 " create an augroup so autocmds are only applied once
 augroup vimrc
 
   " clear all previous autocmd's
   autocmd!
 
+  " run Rvm on startup to set rvm right
+  autocmd VimEnter * Rvm
+
   " set aliases
-  autocmd BufRead,BufNewFile *.scss set filetype=scss.css
-  autocmd BufRead,BufNewFile *.mustache set filetype=html.mustache
+  "autocmd BufRead,BufNewFile *.scss set filetype=scss.css
+  "autocmd BufRead,BufNewFile *.mustache set filetype=html.mustache
 
   " enable omnifunc autocomplete
   autocmd FileType css set omnifunc=csscomplete#CompleteCSS
