@@ -38,6 +38,11 @@ filetype plugin indent on
 set splitbelow
 set splitright
 
+" disable backup. using git & btrfs version control
+set nobackup
+set nowb
+set noswapfile
+
 
 " ===== Theme
 " enable syntax highlighting
@@ -121,6 +126,8 @@ nnoremap <C-e> :Explore<CR>
 " redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
+" paste from outside vim
+nnoremap <leader>p "+gp
 
 " ===== Plugin: netrw (vim default)
 " use tree view
