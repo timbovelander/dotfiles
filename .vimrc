@@ -25,6 +25,7 @@ Plugin 'Valloric/MatchTagAlways'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-rvm'
+Plugin 'chrisbra/Colorizer'
 
 " end Vundle
 call vundle#end()
@@ -163,6 +164,11 @@ let delimitMate_expand_cr = 1
 " ===== Plugin: ctrlp
 " make results scrollable
 let g:ctrlp_match_window='results:100'
+
+
+" ===== Plugin: Colorizer
+" auto enable colorized for css
+let g:colorizer_auto_filetype='css,less,scss'
 
 
 " ===== Autocmd's
