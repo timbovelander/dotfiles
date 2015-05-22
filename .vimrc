@@ -53,6 +53,9 @@ syntax enable
 colorscheme solarized
 set background=light
 
+" enable ToggleBG function
+call togglebg#map("<F12>")
+
 if has('gui_running')
 
   " set font
@@ -99,9 +102,6 @@ set hlsearch
 
 
 " ===== Custom keybindings
-" change background color light/dark
-map <F12> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
-
 " treat wrapped lines as break lines when moving the cursor
 map <Up> g<Up>
 map <Down> g<Down>
