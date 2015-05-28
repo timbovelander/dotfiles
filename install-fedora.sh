@@ -15,7 +15,7 @@ wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - 
 sudo dnf install -y nodejs npm
 
 # Install ViM
-sudo dnf install -y vim-X11
+sudo dnf install -y vim-X11 vim-enhanced
 
 # Clone dotfiles and copy
 git clone https://github.com/timbovelander/dotfiles.git $HOME/.dotfiles
@@ -26,7 +26,5 @@ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
 # Install RVM
-sudo dnf install -y patch libyaml-devel autoconf patch readline-devel \
-libffi-devel automake libtool bison sqlite-devel
 gpg2 --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-wget https://get.rvm.io -O - | sh -s stable
+wget https://get.rvm.io -O - | bash -s stable --ruby
