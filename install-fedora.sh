@@ -13,7 +13,7 @@ wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - 
 
 # Install NodeJS
 sudo dnf install -y nodejs npm
-npm install -g bower grunt-cli gulp jshint yo
+sudo npm install -g bower grunt-cli gulp jshint yo
 
 # Install ViM
 sudo dnf install -y vim-X11 vim-enhanced
