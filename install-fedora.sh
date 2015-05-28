@@ -8,6 +8,7 @@ sudo dnf install -y git rsync
 
 # Install ZSH
 sudo dnf install -y zsh autojump-zsh
+sudo chsh $USER -s /bin/zsh
 wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
 
 # Install NodeJS
@@ -25,5 +26,7 @@ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
 # Install RVM
+sudo dnf install -y patch libyaml-devel autoconf patch readline-devel \
+libffi-devel automake libtool bison sqlite-devel
 gpg2 --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 wget https://get.rvm.io -O - | sh -s stable
