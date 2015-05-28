@@ -13,6 +13,7 @@ wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - 
 
 # Install NodeJS
 sudo dnf install -y nodejs npm
+npm install -g bower grunt-cli gulp jshint yo
 
 # Install ViM
 sudo dnf install -y vim-X11 vim-enhanced
@@ -21,10 +22,12 @@ sudo dnf install -y vim-X11 vim-enhanced
 git clone https://github.com/timbovelander/dotfiles.git $HOME/.dotfiles
 rsync -r --exclude-from "$HOME/.dotfiles/exclude-files" $HOME/.dotfiles/ $HOME/
 
-# Install Vundles
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
-
 # Install RVM
 gpg2 --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 wget https://get.rvm.io -O - | bash -s stable --ruby
+source $HOME/.rvm/scripts/rvm
+rvm @global do gem install scss-lint
+
+# Install Vundles
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
