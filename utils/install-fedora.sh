@@ -8,7 +8,7 @@ git clone https://github.com/timbovelander/dotfiles.git "$HOME/.dotfiles"
 sudo dnf install -y google-droid-sans-mono-fonts
 
 # Install ZSH
-sudo dnf install -y zsh autojump-zsh
+sudo dnf install -y zsh
 sh "$HOME/.dotfiles/utils/install-zsh.sh"
 
 # Install NodeJS

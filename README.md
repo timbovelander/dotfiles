@@ -1,4 +1,5 @@
 # dotfiles
-```sh
-wget https://raw.github.com/timbovelander/dotfiles/master/install-fedora.sh -O - | sh
+## Install
+```sh Fedora
+wget https://raw.github.com/timbovelander/dotfiles/master/utils/install-fedora.sh -O - | sh
 ```
