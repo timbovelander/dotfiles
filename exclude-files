@@ -1,4 +1,5 @@
 .git
+.vimrc_vundle
 README.md
 exclude-files
 install-fedora.sh

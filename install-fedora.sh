@@ -4,7 +4,7 @@
 sudo dnf install -y google-droid-sans-mono-fonts
 
 # Install install dependencies
-sudo dnf install -y git rsync
+sudo dnf install -y git rsync cmake python-devel
 
 # Install ZSH
 sudo dnf install -y zsh autojump-zsh
@@ -30,4 +30,4 @@ rvm @global do gem install scss-lint
 
 # Install Vundles
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
+vim -u $HOME/.dotfiles/.vimrc_vundle +PluginInstall +qall
