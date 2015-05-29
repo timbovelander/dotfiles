@@ -16,8 +16,8 @@ sudo dnf install -y nodejs npm
 sh "$HOME/.dotfiles/utils/install-node.sh"
 
 # Install ViM
-sudo dnf install -y vim-X11 vim-enhanced cmake python-devel
-sh "$HOME/.dotfiles/utils/install-vim.sh"
+sudo dnf install -y vim-X11 cmake python-devel
+sh "$HOME/.dotfiles/utils/install-vim.sh" init
 
 # Install RVM
 sh "$HOME/.dotfiles/utils/install-rvm.sh"
