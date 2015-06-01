@@ -44,6 +44,9 @@ set nobackup
 set nowb
 set noswapfile
 
+" set leader key to comma
+let mapleader=","
+
 
 " ===== Theme
 " enable syntax highlighting
