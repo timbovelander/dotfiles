@@ -1,0 +1,16 @@
+linters:
+  # Use editorconfig to set this
+  Indentation:
+    enabled: false
+
+  # Include a leading zero
+  LeadingZero:
+    style: include_zero
+
+  # Use double quotes for stings
+  StringQuotes:
+    style: double_quotes
+
+  # Enable compass
+  Compass::*:
+    enabled: true

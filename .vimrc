@@ -174,6 +174,17 @@ let g:ctrlp_match_window='results:100'
 let g:colorizer_auto_filetype='css,less,scss'
 
 
+" ===== Plugin: Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
 " ===== Autocmd's
 " create an augroup so autocmds are only applied once
 augroup vimrc
