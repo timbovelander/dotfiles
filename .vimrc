@@ -116,6 +116,9 @@ nnoremap <S-Enter> O<Esc>
 " navigate buffers using ctrl-tab
 nnoremap <C-Tab> :bn<CR>
 
+" delete buffer with ctrl-d
+nnoremap <C-d> :lclose<CR>:bdelete<CR>
+
 " navigate windows with ctrl-arrow
 nnoremap <C-Left> <C-W><Left>
 nnoremap <C-Right> <C-W><Right>
