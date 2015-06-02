@@ -198,10 +198,6 @@ augroup vimrc
   " run Rvm on startup to set rvm right
   autocmd VimEnter * Rvm
 
-  " set aliases
-  "autocmd BufRead,BufNewFile *.scss set filetype=scss.css
-  "autocmd BufRead,BufNewFile *.mustache set filetype=html.mustache
-
   " enable omnifunc autocomplete
   autocmd FileType css set omnifunc=csscomplete#CompleteCSS
   autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
