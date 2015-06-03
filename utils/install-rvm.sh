@@ -10,4 +10,4 @@ wget https://get.rvm.io -O - | bash -s stable --ruby
 source "$HOME/.profile"
 
 # Install global gems
-rvm @global do gem install scss-lint
+rvm @global do gem install scss_lint
