@@ -1,27 +1,27 @@
 #!/bin/sh
 
 # Clone dotfiles
-sudo dnf install -y git
+sudo apt-get install -y git
 git clone https://github.com/timbovelander/dotfiles.git "$HOME/.dotfiles"
 
 # Install fonts
-sudo dnf install -y google-droid-sans-mono-fonts
+sudo apt-get install -y fonts-droid
 
 # Install ZSH
-sudo dnf install -y zsh
+sudo apt-get install -y zsh
 sh "$HOME/.dotfiles/utils/install-zsh.sh"
 
 # Install NodeJS
-sudo dnf install -y nodejs npm
+sudo apt-get install -y nodejs npm
 sh "$HOME/.dotfiles/utils/install-node.sh"
 
 # Install ViM
-sudo dnf install -y vim-X11 cmake python-devel
+sudo apt-get install -y vim-gtk cmake python-dev
 sh "$HOME/.dotfiles/utils/install-vim.sh" init
 
 # Install RVM
 sh "$HOME/.dotfiles/utils/install-rvm.sh"
 
 # Copy dotfiles
-sudo dnf install -y rsync
+sudo apt-get install -y rsync
 rsync -r --exclude-from "$HOME/.dotfiles/utils/exclude-files" $HOME/.dotfiles/ $HOME/
