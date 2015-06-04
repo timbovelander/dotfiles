@@ -58,8 +58,12 @@ for i in ${!tag_names[@]} ; do
 done
 
 # cycle through tags
-hc keybind $Mod-$Alt-Down use_index +1 --skip-visible
-hc keybind $Mod-$Alt-Up use_index -1 --skip-visible
+hc keybind $Alt-Control-Down use_index +1 --skip-visible
+hc keybind $Alt-Control-Up use_index -1 --skip-visible
+
+# move window through tags
+hc keybind $Alt-Control-Shift-Down move_index +1 --skip-visible
+hc keybind $Alt-Control-Shift-Up move_index -1 --skip-visible
 
 # layouting
 hc keybind $Mod-r remove
