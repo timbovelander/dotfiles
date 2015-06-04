@@ -26,6 +26,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-rvm'
 Plugin 'chrisbra/Colorizer'
+Plugin 'wesQ3/vim-windowswap'
 
 " end Vundle
 call vundle#end()
@@ -39,7 +40,7 @@ filetype plugin indent on
 set splitbelow
 set splitright
 
-" disable backup. using git & btrfs version control
+" disable backup. using git & btrfs snapshots
 set nobackup
 set nowb
 set noswapfile
@@ -113,32 +114,40 @@ map <Down> g<Down>
 nnoremap <CR> o<Esc>
 nnoremap <S-Enter> O<Esc>
 
-" navigate buffers using ctrl-tab
-nnoremap <C-Tab> :bn<CR>
+" navigate buffers using ctrl-tab and ctrl-shift-tab
+nnoremap <C-Tab> :bnext<CR>
+nnoremap <C-S-Tab> :bprevious<CR>
 
-" delete buffer with ctrl-d
-nnoremap <C-d> :lclose<CR>:bdelete<CR>
+" close buffer
+nnoremap <leader>q :bdelete<CR>
 
 " navigate windows with ctrl-arrow
 nnoremap <C-Left> <C-W><Left>
-nnoremap <C-Right> <C-W><Right>
-nnoremap <C-Up> <C-W><Up>
 nnoremap <C-Down> <C-W><Down>
+nnoremap <C-Up> <C-W><Up>
+nnoremap <C-Right> <C-W><Right>
 
-" create splits with ctrl-shift-arrow
-nnoremap <C-S-Left> :topleft vnew<CR>
-nnoremap <C-S-Right> :botright vnew<CR>
-nnoremap <C-S-Up> :topleft new<CR>
-nnoremap <C-S-Down> :botright new<CR>
+" move buffers around using vim-windowswap
+nnoremap <C-S-Left> :call WindowSwap#EasyWindowSwap()<CR><C-W><Left>:call WindowSwap#EasyWindowSwap()<CR>
+nnoremap <C-S-Down> :call WindowSwap#EasyWindowSwap()<CR><C-W><Down>:call WindowSwap#EasyWindowSwap()<CR>
+nnoremap <C-S-Up> :call WindowSwap#EasyWindowSwap()<CR><C-W><Up>:call WindowSwap#EasyWindowSwap()<CR>
+nnoremap <C-S-Right> :call WindowSwap#EasyWindowSwap()<CR><C-W><Right>:call WindowSwap#EasyWindowSwap()<CR>
+
+" create splits with alt-arrow
+nnoremap <A-Left> :topleft vnew<CR>
+nnoremap <A-Down> :botright new<CR>
+nnoremap <A-Up> :topleft new<CR>
+nnoremap <A-Right> :botright vnew<CR>
 
 " explorer attached to ctrl-e
 nnoremap <C-e> :Explore<CR>
 
-" redraws the screen and removes any search highlighting.
+" redraws the screen and removes any search highlighting
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-" paste from outside vim
+" paste from clipboard
 nnoremap <leader>p "+gp
+
 
 " ===== Plugin: netrw (vim default)
 " use tree view
@@ -188,6 +197,11 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 
+" ===== Plugin: vim-windowswap
+" disable default keymappings
+let g:windowswap_map_keys = 0
+
+
 " ===== Autocmd's
 " create an augroup so autocmds are only applied once
 augroup vimrc
@@ -199,12 +213,12 @@ augroup vimrc
   autocmd VimEnter * Rvm
 
   " enable omnifunc autocomplete
-  autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+  autocmd FileType css,less,scss set omnifunc=csscomplete#CompleteCSS
   autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
   autocmd Filetype javascript set omnifunc=tern#Complete
 
   " enable emmet-completion on TAB
-  autocmd FileType css,html,html.mustache imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+  autocmd FileType css,html,html.mustache,less,scss imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
   " indentation fix for html
   autocmd FileType html,html.mustache imap <expr> <CR> ExpandHtmlTag()

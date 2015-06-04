@@ -14,7 +14,7 @@ Alt=Mod1
 
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
-hc keybind $Mod-Shift-c close
+hc keybind $Mod-q close_or_remove
 
 # basic movement
 # focusing clients
@@ -31,10 +31,10 @@ hc keybind $Mod-Shift-Right shift right
 
 # splitting frames
 # create an empty frame at the specified direction
-hc keybind $Mod-v split vertical 0.5
-hc keybind $Mod-$Alt-v split vertical 0.3
-hc keybind $Mod-h split horizontal 0.5
-hc keybind $Mod-$Alt-h split horizontal 0.3
+hc keybind $Mod-$Alt-Left split left 0.5
+hc keybind $Mod-$Alt-Down split down 0.5
+hc keybind $Mod-$Alt-Up split up 0.5
+hc keybind $Mod-$Alt-Right split right 0.5
 
 # resizing frames
 resizestep=0.05
