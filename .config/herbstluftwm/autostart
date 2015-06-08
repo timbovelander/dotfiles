@@ -32,8 +32,8 @@ hc keybind $Mod-Shift-Right shift right
 # splitting frames
 # create an empty frame at the specified direction
 hc keybind $Mod-$Alt-Left split left 0.5
-hc keybind $Mod-$Alt-Down split down 0.5
-hc keybind $Mod-$Alt-Up split up 0.5
+hc keybind $Mod-$Alt-Down split bottom 0.5
+hc keybind $Mod-$Alt-Up split top 0.5
 hc keybind $Mod-$Alt-Right split right 0.5
 
 # resizing frames
