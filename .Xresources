@@ -64,3 +64,13 @@ URxvt.fading: 0
 URxvt.font: xft:Droid Sans Mono:size=11
 URxvt.loginShell: true
 URxvt.scrollBar: false
+URxvt.dynamicColors: on
+URxvt.perl-ext-common: clipboard,dynamic-colors
+URxvt.keysym.F12: perl:dynamic-colors:cycle
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+#URxvt.keysym.F12: command:\033]11;S_base03\007\033]10;S_base0\007\033]4;0;S_base2\007\033]4;7;S_base02\007\033]4;8;S_base3\007\033]4;10;S_base1\007\033]4;11;S_base0\007\033]4;12;S_base00\007\033]4;14;S_base01\007\033]4;15;S_base03\007
+
+dzen2.font: xft:Droid Sans Mono:size=11
+dzen2.foreground: S_base0
+dzen2.background: S_base03

@@ -1,0 +1,9 @@
+#! perl -w
+
+use strict;
+
+sub cycle {
+  my ($self, $cmd) = @_;
+  my $output = `perl ~/.urxvt/dynamic-colors/dynamic-colors cycle`;
+  $self->cmd_parse($output);
+}
