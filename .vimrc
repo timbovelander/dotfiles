@@ -94,6 +94,7 @@ set showcmd
 set cursorline
 
 " do not show gui toolbar and scroll bars
+set guioptions-=m
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
