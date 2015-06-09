@@ -7,9 +7,6 @@ git clone https://github.com/timbovelander/dotfiles.git "$HOME/.dotfiles"
 # Install fonts
 sudo dnf install -y google-droid-sans-mono-fonts
 
-# Install HTML5 Tidy
-sh "$HOME/.dotfiles/utils/install-html5tidy.sh"
-
 # Install ZSH
 sudo dnf install -y zsh
 sh "$HOME/.dotfiles/utils/install-zsh.sh"
@@ -21,6 +18,9 @@ sh "$HOME/.dotfiles/utils/install-node.sh"
 # Install ViM
 sudo dnf install -y vim-X11 cmake python-devel
 sh "$HOME/.dotfiles/utils/install-vim.sh" init
+
+# Install HTML5 Tidy
+sh "$HOME/.dotfiles/utils/install-html5tidy.sh"
 
 # Install RVM
 sh "$HOME/.dotfiles/utils/install-rvm.sh"
