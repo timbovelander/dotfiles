@@ -84,7 +84,7 @@ hc keybind $Alt-Shift-Tab cycle -1
 
 # applications
 hc keybind $Mod-e spawn nautilus
-hc keybind $Mod-p spawn dmenu_run
+hc keybind $Mod-p spawn dmenu_run -b
 hc keybind $Mod-t spawn urxvt
 hc keybind $Mod-v spawn gvim
 
