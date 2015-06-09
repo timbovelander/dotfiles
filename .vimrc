@@ -197,6 +197,12 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" use html tidy width html5 support
+let g:syntastic_html_tidy_exec = 'tidy5'
+
+" ignore specific html tidy errors
+let g:syntastic_html_tidy_ignore_errors = ['trimming empty <i>']
+
 
 " ===== Plugin: vim-windowswap
 " disable default keymappings
