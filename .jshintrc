@@ -1,4 +1,7 @@
 {
-  "quotmark": "double",
+  "curly": true,
+  "eqeqeq": true,
+  "strict": true,
+  "browser": true,
   "jquery": true
 }
