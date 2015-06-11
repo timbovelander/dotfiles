@@ -146,8 +146,11 @@ nnoremap <C-e> :Explore<CR>
 " redraws the screen and removes any search highlighting
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-" paste from clipboard
+" copy and paste to and from clipboard
 nnoremap <leader>p "+gp
+vnoremap <leader>p "+gp
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
 
 
 " ===== Plugin: netrw (vim default)
