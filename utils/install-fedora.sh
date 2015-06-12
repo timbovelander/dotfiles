@@ -12,7 +12,6 @@ sudo dnf install -y zsh
 sh "$HOME/.dotfiles/utils/install-zsh.sh"
 
 # Install NodeJS
-sudo dnf install -y nodejs npm
 sh "$HOME/.dotfiles/utils/install-node.sh"
 
 # Install ViM

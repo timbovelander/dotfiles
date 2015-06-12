@@ -12,7 +12,6 @@ sudo apt-get install -y zsh
 sh "$HOME/.dotfiles/utils/install-zsh.sh"
 
 # Install NodeJS
-sudo apt-get install -y nodejs npm
 sh "$HOME/.dotfiles/utils/install-node.sh"
 
 # Install ViM
