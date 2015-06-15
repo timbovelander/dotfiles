@@ -45,8 +45,14 @@ set nobackup
 set nowb
 set noswapfile
 
-" set leader key to comma
-let mapleader=","
+" set number of history records
+set history=200
+
+" set nrformats to decimal only, do not use octal or hex notation
+set nrformats=
+
+" hide buffers automatically
+set hidden
 
 
 " ===== Theme
@@ -75,8 +81,8 @@ endif
 " minimal number of screen lines to keep above and below the cursor
 set scrolloff=7
 
-" configure backspace to work the same as in other editors
-set backspace=2
+" configure backspace to delete autoindent, end-of-lines and past insert
+set backspace=indent,eol,start
 
 " ignore case on file & dir completion
 set wildignorecase
@@ -93,7 +99,7 @@ set showcmd
 " highlight current line
 set cursorline
 
-" do not show gui toolbar and scroll bars
+" do not show gui menubar, toolbar and scroll bars
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r
@@ -107,22 +113,22 @@ set hlsearch
 
 
 " ===== Custom keybindings
-" treat wrapped lines as break lines when moving the cursor
-map <Up> g<Up>
-map <Down> g<Down>
-
-" insert a newline with enter & shift-enter
+" insert newlines in normal mode
 nnoremap <CR> o<Esc>
 nnoremap <S-Enter> O<Esc>
 
-" navigate buffers using ctrl-tab and ctrl-shift-tab
-nnoremap <C-Tab> :bnext<CR>
-nnoremap <C-S-Tab> :bprevious<CR>
+" navigate buffers
+nnoremap <silent> <C-Tab> :lclose<CR>:bnext<CR>
+nnoremap <silent> <C-S-Tab> :lclose<CR>:bprevious<CR>
+nnoremap <silent> ]b :lclose<CR>:bnext<CR>
+nnoremap <silent> [b :lclose<CR>:bprevious<CR>
+nnoremap <silent> ]B :lclose<CR>:bfirst<CR>
+nnoremap <silent> [B :lclose<CR>:blast<CR>
 
 " close buffer
-nnoremap <leader>q :bdelete<CR>
+nnoremap <silent> <leader>q :lclose<CR>:bdelete<CR>
 
-" navigate windows with ctrl-arrow
+" navigate windows
 nnoremap <C-Left> <C-W><Left>
 nnoremap <C-Down> <C-W><Down>
 nnoremap <C-Up> <C-W><Up>
@@ -134,23 +140,23 @@ nnoremap <C-S-Down> :call WindowSwap#EasyWindowSwap()<CR><C-W><Down>:call Window
 nnoremap <C-S-Up> :call WindowSwap#EasyWindowSwap()<CR><C-W><Up>:call WindowSwap#EasyWindowSwap()<CR>
 nnoremap <C-S-Right> :call WindowSwap#EasyWindowSwap()<CR><C-W><Right>:call WindowSwap#EasyWindowSwap()<CR>
 
-" create splits with alt-arrow
+" create splits
 nnoremap <A-Left> :topleft vnew<CR>
 nnoremap <A-Down> :botright new<CR>
 nnoremap <A-Up> :topleft new<CR>
 nnoremap <A-Right> :botright vnew<CR>
 
-" explorer attached to ctrl-e
-nnoremap <C-e> :Explore<CR>
+" open file explorer
+nnoremap <silent> <C-e> :Explore<CR>
 
 " redraws the screen and removes any search highlighting
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-" copy and paste to and from clipboard
-nnoremap <leader>p "+gp
-vnoremap <leader>p "+gp
-nnoremap <leader>y "+y
-vnoremap <leader>y "+y
+" copy and paste from clipboard
+nnoremap <silent> <leader>p "+gp
+vnoremap <silent> <leader>p "+gp
+nnoremap <silent> <leader>y "+y
+vnoremap <silent> <leader>y "+y
 
 
 " ===== Plugin: netrw (vim default)
