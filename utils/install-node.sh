@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Download NodeJS
 mkdir /tmp/nodejs && cd /tmp/nodejs

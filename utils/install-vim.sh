@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 init() {
   # Install vundles
