@@ -20,13 +20,13 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'mattn/emmet-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'marijnh/tern_for_vim'
-Plugin 'Raimondi/delimitMate'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-rvm'
 Plugin 'chrisbra/Colorizer'
 Plugin 'wesQ3/vim-windowswap'
+Plugin 'jiangmiao/auto-pairs'
 
 " end Vundle
 call vundle#end()
@@ -179,11 +179,6 @@ let g:ycm_semantic_triggers =  {
   \  'css,scss': ['re!^\s*', 're!:\s*'],
   \  'html': ['<', '</', 're!<.*\s'],
   \}
-
-
-" ===== Plugin: DelimitMate
-" on enter, place cursor in the middle of brackets
-let delimitMate_expand_cr = 1
 
 
 " ===== Plugin: ctrlp
