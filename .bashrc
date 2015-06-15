@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Set default editor to vim
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 # Path to the bash it configuration
 export BASH_IT="$HOME/.bash_it"
 
