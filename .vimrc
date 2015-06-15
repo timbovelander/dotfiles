@@ -20,7 +20,6 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'mattn/emmet-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'marijnh/tern_for_vim'
-Plugin 'Valloric/MatchTagAlways'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-rvm'
@@ -159,7 +158,7 @@ nnoremap <silent> <leader>y "+y
 vnoremap <silent> <leader>y "+y
 
 
-" ===== Plugin: netrw (vim default)
+" ===== Plugin: netrw
 " use tree view
 let g:netrw_liststyle=3
 
@@ -228,7 +227,7 @@ augroup vimrc
   autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
   autocmd Filetype javascript set omnifunc=tern#Complete
 
-  " enable emmet-completion on TAB
+  " enable emmet-completion
   autocmd FileType css,html,html.mustache,less,scss imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
   " indentation fix for html
