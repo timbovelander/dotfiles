@@ -1,0 +1,15 @@
+"*":
+  "exception-reporting":
+    userId: "92d6c42a-ee71-9085-b8bf-c3d44febceda"
+  welcome:
+    showOnStartup: false
+  core:
+    audioBeep: false
+    themes: [
+      "one-light-ui"
+      "solarized-light-syntax"
+    ]
+  editor:
+    invisibles: {}
+    fontFamily: "Droid Sans Mono"
+    fontSize: 14
