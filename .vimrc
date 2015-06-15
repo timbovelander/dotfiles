@@ -140,10 +140,10 @@ nnoremap <C-S-Up> :call WindowSwap#EasyWindowSwap()<CR><C-W><Up>:call WindowSwap
 nnoremap <C-S-Right> :call WindowSwap#EasyWindowSwap()<CR><C-W><Right>:call WindowSwap#EasyWindowSwap()<CR>
 
 " create splits
-nnoremap <A-Left> :topleft vnew<CR>
-nnoremap <A-Down> :botright new<CR>
-nnoremap <A-Up> :topleft new<CR>
-nnoremap <A-Right> :botright vnew<CR>
+nnoremap <A-Left> :topleft vsplit<CR>
+nnoremap <A-Down> :botright split<CR>
+nnoremap <A-Up> :topleft split<CR>
+nnoremap <A-Right> :botright vsplit<CR>
 
 " open file explorer
 nnoremap <silent> <C-e> :Explore<CR>
