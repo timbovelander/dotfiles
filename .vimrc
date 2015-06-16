@@ -26,6 +26,7 @@ Plugin 'tpope/vim-rvm'
 Plugin 'chrisbra/Colorizer'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'moll/vim-bbye'
 
 " end Vundle
 call vundle#end()
@@ -125,7 +126,7 @@ nnoremap <silent> ]B :lclose<CR>:bfirst<CR>
 nnoremap <silent> [B :lclose<CR>:blast<CR>
 
 " close buffer
-nnoremap <silent> <leader>q :lclose<CR>:bdelete<CR>
+nnoremap <silent> <leader>q :lclose<CR>:Bdelete<CR>
 
 " navigate windows
 nnoremap <C-Left> <C-W><Left>
