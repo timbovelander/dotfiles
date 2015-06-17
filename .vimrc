@@ -8,29 +8,35 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Plugins
+" plugin management
 Plugin 'gmarik/Vundle.vim'
+" color scheme
 Plugin 'altercation/vim-colors-solarized'
+" ui utils
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-fugitive'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'hail2u/vim-css3-syntax'
+Plugin 'moll/vim-bbye'
+" vim utils
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+" code syntax
 Plugin 'othree/html5.vim'
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'mattn/emmet-vim'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'groenewege/vim-less'
+Plugin 'pangloss/vim-javascript'
+Plugin 'othree/javascript-libraries-syntax.vim'
+" code completion, extension, linting, ...
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'marijnh/tern_for_vim'
-Plugin 'tpope/vim-surround'
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-rvm'
-Plugin 'chrisbra/Colorizer'
-Plugin 'wesQ3/vim-windowswap'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'moll/vim-bbye'
+Plugin 'mattn/emmet-vim'
 
 " end Vundle
 call vundle#end()
-
 
 " ===== General
 " enable filetype plugins
@@ -54,6 +60,8 @@ set nrformats=
 " hide buffers automatically
 set hidden
 
+" enable omnifunc autocompletion
+set omnifunc=syntaxcomplete#Complete
 
 " ===== Theme
 " enable syntax highlighting
@@ -76,13 +84,12 @@ if has('gui_running')
 
 endif
 
-
 " ===== UI
 " minimal number of screen lines to keep above and below the cursor
 set scrolloff=7
 
 " configure backspace to delete autoindent, end-of-lines and past insert
-set backspace=indent,eol,start
+set backspace=2
 
 " ignore case on file & dir completion
 set wildignorecase
@@ -111,61 +118,53 @@ set incsearch
 " highlight search matches
 set hlsearch
 
-
 " ===== Custom keybindings
 " insert newlines in normal mode
-nnoremap <CR> o<Esc>
-nnoremap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+nmap <S-Enter> O<Esc>
 
 " set home to go to first non-whitespace character
-nnoremap <silent> <HOME> ^
+nmap <HOME> ^
+imap <HOME> <Esc>^i
 
 " navigate buffers
-nnoremap <silent> <C-Tab> :lclose<CR>:bnext<CR>
-nnoremap <silent> <C-S-Tab> :lclose<CR>:bprevious<CR>
-nnoremap <silent> ]b :lclose<CR>:bnext<CR>
-nnoremap <silent> [b :lclose<CR>:bprevious<CR>
-nnoremap <silent> ]B :lclose<CR>:bfirst<CR>
-nnoremap <silent> [B :lclose<CR>:blast<CR>
+nmap <silent> <C-Tab> :lclose<CR>:bnext<CR>
+nmap <silent> <C-S-Tab> :lclose<CR>:bprevious<CR>
+nmap <silent> ]b :lclose<CR>:bnext<CR>
+nmap <silent> [b :lclose<CR>:bprevious<CR>
+nmap <silent> ]B :lclose<CR>:bfirst<CR>
+nmap <silent> [B :lclose<CR>:blast<CR>
 
 " close buffer
 nnoremap <silent> <leader>q :lclose<CR>:Bdelete<CR>
 
 " navigate windows
-nnoremap <C-Left> <C-W><Left>
-nnoremap <C-Down> <C-W><Down>
-nnoremap <C-Up> <C-W><Up>
-nnoremap <C-Right> <C-W><Right>
-
-" move buffers around using vim-windowswap
-nnoremap <C-S-Left> :call WindowSwap#EasyWindowSwap()<CR><C-W><Left>:call WindowSwap#EasyWindowSwap()<CR>
-nnoremap <C-S-Down> :call WindowSwap#EasyWindowSwap()<CR><C-W><Down>:call WindowSwap#EasyWindowSwap()<CR>
-nnoremap <C-S-Up> :call WindowSwap#EasyWindowSwap()<CR><C-W><Up>:call WindowSwap#EasyWindowSwap()<CR>
-nnoremap <C-S-Right> :call WindowSwap#EasyWindowSwap()<CR><C-W><Right>:call WindowSwap#EasyWindowSwap()<CR>
+nmap <C-Left> <C-W><Left>
+nmap <C-Down> <C-W><Down>
+nmap <C-Up> <C-W><Up>
+nmap <C-Right> <C-W><Right>
 
 " create splits
-nnoremap <A-Left> :topleft vsplit<CR>
-nnoremap <A-Down> :botright split<CR>
-nnoremap <A-Up> :topleft split<CR>
-nnoremap <A-Right> :botright vsplit<CR>
+nmap <A-Left> :topleft vsplit<CR>
+nmap <A-Down> :botright split<CR>
+nmap <A-Up> :topleft split<CR>
+nmap <A-Right> :botright vsplit<CR>
 
 " open file explorer
-nnoremap <silent> <C-e> :Explore<CR>
+nmap <silent> <C-e> :Explore<CR>
 
 " redraws the screen and removes any search highlighting
-nnoremap <silent> <C-l> :nohl<CR><C-l>
+nmap <silent> <C-l> :nohl<CR><C-l>
 
 " copy and paste from clipboard
-nnoremap <silent> <leader>p "+gp
-vnoremap <silent> <leader>p "+gp
-nnoremap <silent> <leader>y "+y
-vnoremap <silent> <leader>y "+y
-
+nmap <leader>p "+gp
+vmap <leader>p "+gp
+nmap <leader>y "+y
+vmap <leader>y "+y
 
 " ===== Plugin: netrw
 " use tree view
 let g:netrw_liststyle=3
-
 
 " ===== Plugin: Airline
 " set seperators
@@ -175,24 +174,16 @@ let g:airline_right_sep=' '
 " enable tab line extension
 let g:airline#extensions#tabline#enabled = 1
 
-
 " ===== Plugin: YouCompleteMe
 " create custom semantic triggers to show autocomplete
 let g:ycm_semantic_triggers =  {
-  \  'css,scss': ['re!^\s*', 're!:\s*'],
+  \  'css': ['re!^\s*', 're!:\s*'],
   \  'html': ['<', '</', 're!<.*\s'],
   \}
-
 
 " ===== Plugin: ctrlp
 " make results scrollable
 let g:ctrlp_match_window='results:100'
-
-
-" ===== Plugin: Colorizer
-" auto enable colorized for css
-let g:colorizer_auto_filetype='css,less,scss'
-
 
 " ===== Plugin: Syntastic
 set statusline+=%#warningmsg#
@@ -210,12 +201,6 @@ let g:syntastic_html_tidy_exec = 'tidy5'
 " ignore specific html tidy errors
 let g:syntastic_html_tidy_ignore_errors = ['trimming empty <i>']
 
-
-" ===== Plugin: vim-windowswap
-" disable default keymappings
-let g:windowswap_map_keys = 0
-
-
 " ===== Autocmd's
 " create an augroup so autocmds are only applied once
 augroup vimrc
@@ -223,22 +208,13 @@ augroup vimrc
   " clear all previous autocmd's
   autocmd!
 
-  " run Rvm on startup to set rvm right
-  autocmd VimEnter * Rvm
-
-  " enable omnifunc autocomplete
-  autocmd FileType css,less,scss set omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-  autocmd Filetype javascript set omnifunc=tern#Complete
-
   " enable emmet-completion
-  autocmd FileType css,html,html.mustache,less,scss imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+  autocmd FileType css,html imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
   " indentation fix for html
-  autocmd FileType html,html.mustache imap <expr> <CR> ExpandHtmlTag()
+  autocmd FileType html imap <expr> <CR> ExpandHtmlTag()
 
 augroup END
-
 
 " ===== Functions
 " expand html tag
