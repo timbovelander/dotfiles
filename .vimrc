@@ -12,6 +12,9 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " color scheme
 Plugin 'altercation/vim-colors-solarized'
+" session management
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
 " ui utils
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
@@ -82,6 +85,9 @@ if has('gui_running')
 
   " set linespace
   set linespace=6
+
+  " open maximized
+  set lines=999 columns=999
 
 endif
 
@@ -208,7 +214,6 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
@@ -224,6 +229,13 @@ let g:EasyMotion_do_mapping = 0
 
 " ignore case
 let g:EasyMotion_smartcase = 1
+
+" ===== Plugin: vim-session
+" enable autosave session
+let g:session_autosave = 'yes'
+
+" enable autorestore session
+let g:session_autoload = 'yes'
 
 " ===== Autocmd's
 " create an augroup so autocmds are only applied once
