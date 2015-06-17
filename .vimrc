@@ -120,6 +120,9 @@ set incsearch
 set hlsearch
 
 " ===== Custom keybindings
+" center screen
+nmap <SPACE> zz
+
 " insert newlines in normal mode
 nmap <CR> o<Esc>
 nmap <S-Enter> O<Esc>
@@ -163,11 +166,18 @@ vmap <leader>p "+gp
 nmap <leader>y "+y
 vmap <leader>y "+y
 
-" easymotion mappings
+" easymotion line mappings
+map <leader>h <Plug>(easymotion-linebackward)
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
+map <leader>l <Plug>(easymotion-lineforward)
+map <leader><Left> <leader>h
 map <leader><Down> <leader>j
 map <leader><Up> <leader>k
+map <leader><Right> <leader>l
+
+" easymotion search
+map <leader>f <Plug>(easymotion-s2)
 
 " ===== Plugin: netrw
 " use tree view
