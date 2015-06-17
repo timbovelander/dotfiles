@@ -17,8 +17,9 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'moll/vim-bbye'
 " vim utils
-Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
+Plugin 'wellle/targets.vim'
+Plugin 'Lokaltog/vim-easymotion'
 " code syntax
 Plugin 'othree/html5.vim'
 Plugin 'mustache/vim-mustache-handlebars'
@@ -162,6 +163,12 @@ vmap <leader>p "+gp
 nmap <leader>y "+y
 vmap <leader>y "+y
 
+" easymotion mappings
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
+map <leader><Down> <leader>j
+map <leader><Up> <leader>k
+
 " ===== Plugin: netrw
 " use tree view
 let g:netrw_liststyle=3
@@ -183,7 +190,7 @@ let g:ycm_semantic_triggers =  {
 
 " ===== Plugin: ctrlp
 " make results scrollable
-let g:ctrlp_match_window='results:100'
+let g:ctrlp_match_window='results:20'
 
 " ===== Plugin: Syntastic
 set statusline+=%#warningmsg#
@@ -200,6 +207,13 @@ let g:syntastic_html_tidy_exec = 'tidy5'
 
 " ignore specific html tidy errors
 let g:syntastic_html_tidy_ignore_errors = ['trimming empty <i>']
+
+" ===== Plugin: vim-easymotion
+" disable default mappings
+let g:EasyMotion_do_mapping = 0
+
+" ignore case
+let g:EasyMotion_smartcase = 1
 
 " ===== Autocmd's
 " create an augroup so autocmds are only applied once
