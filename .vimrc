@@ -117,6 +117,9 @@ set hlsearch
 nnoremap <CR> o<Esc>
 nnoremap <S-Enter> O<Esc>
 
+" set home to go to first non-whitespace character
+nnoremap <silent> <HOME> ^
+
 " navigate buffers
 nnoremap <silent> <C-Tab> :lclose<CR>:bnext<CR>
 nnoremap <silent> <C-S-Tab> :lclose<CR>:bprevious<CR>
