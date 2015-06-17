@@ -155,7 +155,7 @@ nmap <A-Right> :botright vsplit<CR>
 nmap <silent> <C-e> :Explore<CR>
 
 " redraws the screen and removes any search highlighting
-nmap <silent> <C-l> :nohl<CR><C-l>
+nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " copy and paste from clipboard
 nmap <leader>p "+gp
