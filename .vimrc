@@ -16,6 +16,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 " ui utils
+Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'moll/vim-bbye'
@@ -160,8 +161,11 @@ nmap <A-Down> :botright split<CR>
 nmap <A-Up> :topleft split<CR>
 nmap <A-Right> :botright vsplit<CR>
 
+" close window
+nmap <A-q> :close<CR>
+
 " open file explorer
-nmap <silent> <C-e> :Explore<CR>
+nmap <silent> <C-e> :NERDTreeCWD<CR>
 
 " redraws the screen and removes any search highlighting
 nnoremap <silent> <C-l> :nohl<CR><C-l>
@@ -184,10 +188,6 @@ map <leader><Right> <leader>l
 
 " easymotion search
 map <leader>f <Plug>(easymotion-s2)
-
-" ===== Plugin: netrw
-" use tree view
-let g:netrw_liststyle=3
 
 " ===== Plugin: Airline
 " set seperators
@@ -231,11 +231,11 @@ let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 
 " ===== Plugin: vim-session
-" enable autosave session
-let g:session_autosave = 'yes'
+" disable autosave session
+let g:session_autosave = 'no'
 
-" enable autorestore session
-let g:session_autoload = 'yes'
+" disable autorestore session
+let g:session_autoload = 'no'
 
 " ===== Autocmd's
 " create an augroup so autocmds are only applied once
