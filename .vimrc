@@ -43,6 +43,9 @@ Plugin 'mattn/emmet-vim'
 " end Vundle
 call vundle#end()
 
+" enable Matchit plugin
+runtime macros/matchit.vim
+
 " ===== General
 " enable filetype plugins
 filetype plugin indent on
