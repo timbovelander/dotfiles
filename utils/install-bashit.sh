@@ -8,11 +8,14 @@ source $HOME/.dotfiles/.bashrc
 
 # Enable aliases
 bash-it enable alias clipboard
+bash-it enable alias general
 bash-it enable alias git
 bash-it enable alias vim
 
 # Enable completions
 bash-it enable completion bash-it
+bash-it enable completion defaults
+bash-it enable completion dirs
 bash-it enable completion git
 bash-it enable completion grunt
 bash-it enable completion gulp
