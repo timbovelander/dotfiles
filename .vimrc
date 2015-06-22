@@ -203,7 +203,7 @@ let g:airline#extensions#tabline#enabled = 1
 " ===== Plugin: YouCompleteMe
 " create custom semantic triggers to show autocomplete
 let g:ycm_semantic_triggers =  {
-  \  'css': ['re!^\s*', 're!:\s*'],
+  \  'css,less,scss': ['re!^\s*', 're!:\s*'],
   \  'html': ['<', '</', 're!<.*\s'],
   \}
 
