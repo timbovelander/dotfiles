@@ -141,6 +141,9 @@ nmap <S-Enter> O<Esc>
 nmap <HOME> ^
 imap <HOME> <Esc>^i
 
+" close buffer
+nnoremap <silent> <C-q> :lclose<CR>:Bdelete<CR>
+
 " navigate buffers
 nmap <silent> <C-Tab> :lclose<CR>:bnext<CR>
 nmap <silent> <C-S-Tab> :lclose<CR>:bprevious<CR>
@@ -149,16 +152,7 @@ nmap <silent> [b :lclose<CR>:bprevious<CR>
 nmap <silent> ]B :lclose<CR>:bfirst<CR>
 nmap <silent> [B :lclose<CR>:blast<CR>
 
-" close buffer
-nnoremap <silent> <leader>q :lclose<CR>:Bdelete<CR>
-
-" navigate windows
-nmap <C-Left> <C-W><Left>
-nmap <C-Down> <C-W><Down>
-nmap <C-Up> <C-W><Up>
-nmap <C-Right> <C-W><Right>
-
-" create splits
+" create window(split)
 nmap <A-Left> :topleft vsplit<CR>
 nmap <A-Down> :botright split<CR>
 nmap <A-Up> :topleft split<CR>
@@ -166,6 +160,24 @@ nmap <A-Right> :botright vsplit<CR>
 
 " close window
 nmap <A-q> :close<CR>
+
+" navigate windows
+nmap <C-Left> <C-W><Left>
+nmap <C-Down> <C-W><Down>
+nmap <C-Up> <C-W><Up>
+nmap <C-Right> <C-W><Right>
+
+" create new tab
+nmap <leader>t :tabnew<CR>
+
+" close tab
+nmap <leader>q :tabclose<CR>
+
+" navigate tabs
+nmap ]t :tabnext<CR>
+nmap [t :tabprevious<CR>
+nmap ]T :tablast<CR>
+nmap [T :tabfirst<CR>
 
 " open file explorer
 nmap <silent> <C-e> :NERDTreeCWD<CR>
@@ -248,7 +260,7 @@ augroup vimrc
   autocmd!
 
   " enable emmet-completion
-  autocmd FileType css,html imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+  autocmd FileType css,html,php imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
   " indentation fix for html
   autocmd FileType html imap <expr> <CR> ExpandHtmlTag()
