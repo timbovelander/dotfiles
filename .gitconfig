@@ -1,0 +1,14 @@
+[push]
+	default = simple
+[user]
+	name = Tim Bovelander
+	email = tim@timenwietske.nl
+[color]
+	ui = true
+[format]
+	pretty = oneline
+[branch]
+	autosetuprebase = always
+[alias]
+	sp = ![[ -z $(git status --porcelain -uno) ]] && git pull || git stash && git pull && git stash pop
+	spp = ![[ -z $(git status --porcelain -uno) ]] && git pull || git stash && git pull && git push && git stash pop
