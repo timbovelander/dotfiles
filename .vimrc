@@ -226,7 +226,14 @@ let g:ycm_semantic_triggers =  {
 
 " ===== Plugin: ctrlp
 " make results scrollable
-let g:ctrlp_match_window='results:20'
+let g:ctrlp_match_window='results:30'
+
+" increase number of results
+let g:ctrlp_max_depth=40
+let g:ctrlp_max_files=0
+
+" check gitignore file and exclude files in ctrlp
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " ===== Plugin: Syntastic
 set statusline+=%#warningmsg#
