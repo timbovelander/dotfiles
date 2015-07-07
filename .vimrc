@@ -20,6 +20,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'moll/vim-bbye'
+Plugin 'mileszs/ack.vim'
 " vim utils
 Plugin 'tpope/vim-surround'
 Plugin 'wellle/targets.vim'
@@ -39,6 +40,7 @@ Plugin 'marijnh/tern_for_vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'mattn/emmet-vim'
+Plugin 'tpope/vim-commentary'
 
 " end Vundle
 call vundle#end()
@@ -91,7 +93,7 @@ if has('gui_running')
   set linespace=6
 
   " open maximized
-  set lines=999 columns=999
+  " set lines=999 columns=999
 
 endif
 
@@ -129,7 +131,7 @@ set incsearch
 " highlight search matches
 set hlsearch
 
-" ===== Custom keybindings
+" ===== Custom mappings
 " center screen
 nmap <SPACE> zz
 
@@ -204,6 +206,9 @@ map <leader><Right> <leader>l
 " easymotion search
 map <leader>f <Plug>(easymotion-s2)
 
+" expand path of the active buffer
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
 " ===== Plugin: Airline
 " set seperators
 let g:airline_left_sep=' '
@@ -252,6 +257,10 @@ let g:session_autosave = 'no'
 " disable autorestore session
 let g:session_autoload = 'no'
 
+" ===== Plugin: mustache
+" enable abbreviations
+let g:mustache_abbreviations = 1
+
 " ===== Autocmd's
 " create an augroup so autocmds are only applied once
 augroup vimrc
@@ -260,10 +269,13 @@ augroup vimrc
   autocmd!
 
   " enable emmet-completion
-  autocmd FileType css,html,php imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+  autocmd FileType css,html,html.handlebars,jsp,php imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
   " indentation fix for html
-  autocmd FileType html imap <expr> <CR> ExpandHtmlTag()
+  autocmd FileType html,html.handlebars,jsp,php imap <expr> <CR> ExpandHtmlTag()
+
+  " Set comments for jsp
+  autocmd FileType jsp set commentstring=<%--%s--%>
 
 augroup END
 
