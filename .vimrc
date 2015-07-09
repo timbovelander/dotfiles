@@ -18,13 +18,16 @@ Plugin 'xolox/vim-session'
 " ui utils
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
+Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'bling/vim-airline'
 Plugin 'moll/vim-bbye'
-Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
 " vim utils
 Plugin 'tpope/vim-surround'
 Plugin 'wellle/targets.vim'
 Plugin 'Lokaltog/vim-easymotion'
+" git integration
+Plugin 'tpope/vim-fugitive'
 " code syntax
 Plugin 'othree/html5.vim'
 Plugin 'mustache/vim-mustache-handlebars'
@@ -226,14 +229,19 @@ let g:ycm_semantic_triggers =  {
 
 " ===== Plugin: ctrlp
 " make results scrollable
-let g:ctrlp_match_window='results:30'
+let g:ctrlp_match_window='results:40'
 
-" increase number of results
+" set max depth to search with ctrlp
 let g:ctrlp_max_depth=40
+
+" set max files as results of ctrlp (0 = unlimited)
 let g:ctrlp_max_files=0
 
-" check gitignore file and exclude files in ctrlp
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" use ag to index files to ctrlp command also ignores files defined in .gitignore
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+" use ctrlp-py-matcher plugin as ctrlp matcher
+let g:ctrlp_match_func = {'match': 'pymatcher#PyMatch'}
 
 " ===== Plugin: Syntastic
 set statusline+=%#warningmsg#
@@ -283,6 +291,10 @@ augroup vimrc
 
   " Set comments for jsp
   autocmd FileType jsp set commentstring=<%--%s--%>
+
+  " In the quickfix window, <CR> is used to jump to the error under the
+  " cursor, so undefine the mapping there.
+  autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
 augroup END
 
