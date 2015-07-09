@@ -1,0 +1,5 @@
+'body':
+  'alt-down': 'pane:split-down'
+  'alt-left': 'pane:split-left'
+  'alt-right': 'pane:split-right'
+  'alt-up': 'pane:split-up'
