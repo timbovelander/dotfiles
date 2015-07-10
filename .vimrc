@@ -21,7 +21,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'bling/vim-airline'
 Plugin 'moll/vim-bbye'
-Plugin 'rking/ag.vim'
+Plugin 'mileszs/ack.vim'
 " vim utils
 Plugin 'tpope/vim-surround'
 Plugin 'wellle/targets.vim'
@@ -135,8 +135,11 @@ set incsearch
 set hlsearch
 
 " ===== Custom mappings
+" map leader key
+let mapleader = "\<Space>"
+
 " center screen
-nmap <SPACE> zz
+nmap <leader><SPACE> zz
 
 " insert newlines in normal mode
 nmap <CR> o<Esc>
@@ -190,9 +193,11 @@ nmap <silent> <C-e> :NERDTreeCWD<CR>
 " redraws the screen and removes any search highlighting
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-" copy and paste from clipboard
-nmap <leader>p "+gp
-vmap <leader>p "+gp
+" cut, copy and paste to/from clipboard
+nmap <leader>d "+d
+vmap <leader>d "+d
+nmap <leader>p "+p
+vmap <leader>p "+p
 nmap <leader>y "+y
 vmap <leader>y "+y
 
@@ -211,6 +216,9 @@ map <leader>f <Plug>(easymotion-s2)
 
 " expand path of the active buffer
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" search in project
+nnoremap \ :Ack<SPACE>
 
 " ===== Plugin: Airline
 " set seperators
@@ -275,6 +283,10 @@ let g:session_autoload = 'no'
 " ===== Plugin: mustache
 " enable abbreviations
 let g:mustache_abbreviations = 1
+
+" ===== Plugin: ack.vim
+" use ag instead of ack
+let g:ackprg = 'ag --vimgrep'
 
 " ===== Autocmd's
 " create an augroup so autocmds are only applied once
