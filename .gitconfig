@@ -1,14 +1,37 @@
+[alias]
+  a = add
+  b = branch -v
+  c = commit
+  co = checkout
+  cb = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+  d = diff
+  dt = difftool
+  l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  pl = pull
+  ps = push
+  s = status
+  ss = stash -u
+  sl = stash list
+  sa = stash apply
+  sd = stash drop
+[branch]
+	autosetuprebase = always
+[color]
+	ui = auto
+[cola]
+	fontdiff = Droid Sans Mono,11,-1,5,50,0,0,0,0,0
+[diff]
+	tool = gvimdiff
+[difftool]
+	prompt = false
+[gui]
+	historybrowser = git-dag
+[merge]
+  tool = gvimdiff
+[mergetool]
+  prompt = false
 [push]
 	default = simple
 [user]
 	name = Tim Bovelander
 	email = tim@timenwietske.nl
-[color]
-	ui = true
-[format]
-	pretty = oneline
-[branch]
-	autosetuprebase = always
-[alias]
-	sp = ![[ -z $(git status --porcelain -uno) ]] && git pull || git stash && git pull && git stash pop
-	spp = ![[ -z $(git status --porcelain -uno) ]] && git pull || git stash && git pull && git push && git stash pop
