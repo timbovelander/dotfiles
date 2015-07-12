@@ -22,10 +22,12 @@ Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'bling/vim-airline'
 Plugin 'moll/vim-bbye'
 Plugin 'mileszs/ack.vim'
+Plugin 'majutsushi/tagbar'
 " vim utils
 Plugin 'tpope/vim-surround'
 Plugin 'wellle/targets.vim'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'terryma/vim-expand-region'
 " git integration
 Plugin 'tpope/vim-fugitive'
 " code syntax
