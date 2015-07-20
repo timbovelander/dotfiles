@@ -26,14 +26,10 @@
 	autosetuprebase = always
 [color]
 	ui = auto
-[cola]
-	fontdiff = Droid Sans Mono,11,-1,5,50,0,0,0,0,0
 [diff]
 	tool = gvimdiff
 [difftool]
 	prompt = false
-[gui]
-	historybrowser = git-dag
 [merge]
   tool = gvimdiff
 [mergetool]
