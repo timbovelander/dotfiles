@@ -3,17 +3,25 @@
   b = branch -v
   c = commit
   co = checkout
-  cb = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+  cob = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
   d = diff
   dt = difftool
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
-  pl = pull
+  pl = pull --rebase --prune
   ps = push
   s = status
   ss = stash -u
-  sl = stash list
-  sa = stash apply
-  sd = stash drop
+  ssl = stash list
+  ssa = stash apply
+  ssd = stash drop
+  ssp = stash pop
+  up = "!f() { \
+    old_stash=$(git rev-parse -q --verify refs/stash); \
+    git stash; \
+    new_stash=$(git rev-parse -q --verify refs/stash); \
+    git pull --rebase --prune; \
+    [ \"$old_stash\" != \"$new_stash\" ] && git stash pop; \
+  }; f"
 [branch]
 	autosetuprebase = always
 [color]
