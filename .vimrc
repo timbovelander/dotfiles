@@ -27,7 +27,6 @@ Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-surround'
 Plugin 'wellle/targets.vim'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'terryma/vim-expand-region'
 " git integration
 Plugin 'tpope/vim-fugitive'
 " code syntax
