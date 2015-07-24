@@ -1,13 +1,23 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Download NodeJS
-mkdir /tmp/nodejs && cd /tmp/nodejs
-wget http://nodejs.org/dist/v0.12.4/node-v0.12.4-linux-x64.tar.gz
-tar xvfz /tmp/nodejs/node-v0.12.4-linux-x64.tar.gz
-sudo mv /tmp/nodejs/node-v0.12.4-linux-x64 /opt/
-sudo ln -s /opt/node-v0.12.4-linux-x64/bin/node /usr/bin/node
-sudo ln -s /opt/node-v0.12.4-linux-x64/bin/npm /usr/bin/npm
-rm -Rf /tmp/nodejs
+# exit when variables are not set
+set -u
 
-# Install global Node modules
-sudo npm install -g npm bower grunt-cli gulp jshint yo
+# install nodejs
+if ! eval "$packagestatus nodejs" 2>/dev/null | eval "$packageinstalled"; then
+  echo "Installing nodejs..."
+  curl -sL "$nodesourceurl" | sudo bash - >/dev/null
+  eval "$packageinstall nodejs"
+fi
+
+# install global Node modules
+if command -v npm &>/dev/null; then
+  while read module; do
+    if ! sudo npm -g list $module --depth=0 &>/dev/null; then
+
+      echo "Installing global node module $module..."
+      sudo npm -g install $module >/dev/null
+
+    fi
+  done <"$HOME/.dotfiles/utils/node-modules"
+fi

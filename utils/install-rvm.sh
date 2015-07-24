@@ -1,13 +1,26 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Add key
-gpg2 --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+if ! command -v rvm &>/dev/null; then
+  # Add key
+  gpg2 --keyserver hkp://keys.gnupg.net --recv-keys
+  409B6B1796C275462A1703113804BB82D39DC0E3 >/dev/null
 
-# Install RVM
-wget https://get.rvm.io -O - | bash -s stable --ruby
+  # Install RVM
+  echo "Installing RVM..."
+  curl -sSL https://get.rvm.io | bash -s stable --ruby >/dev/null
 
-# Source RVM
-source $HOME/.rvm/scripts/rvm
+  # Source RVM
+  source "$HOME/.rvm/scripts/rvm"
+fi
 
 # Install global gems
-rvm @global do gem install scss_lint
+if command -v rvm &>/dev/null; then
+  while read gem; do
+    if ! rvm @global do gem list -i $gem >/dev/null; then
+
+      echo "Installing global gem $gem..."
+      rvm @global do gem install $gem >/dev/null
+
+    fi
+  done <"$HOME/.dotfiles/utils/ruby-gems"
+fi

@@ -1,0 +1,10 @@
+build-essential
+cmake
+curl
+fonts-droid
+python-dev
+python-pip
+rsync
+vim-common
+vim-gnome
+zsh
