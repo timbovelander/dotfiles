@@ -46,6 +46,9 @@ while read package; do
   fi
 done <"$HOME/.dotfiles/utils/packages-$distribution"
 
+# install oh-my-zsh
+source "$HOME/.dotfiles/utils/install-ohmyzsh.sh"
+
 #install fasd
 source "$HOME/.dotfiles/utils/install-fasd.sh"
 
@@ -60,9 +63,6 @@ source "$HOME/.dotfiles/utils/install-html5tidy.sh"
 
 # setup VIM
 source "$HOME/.dotfiles/utils/install-vim.sh" init
-
-# install oh-my-zsh
-source "$HOME/.dotfiles/utils/install-ohmyzsh.sh"
 
 # copy all dotfiles to home
 echo "Copying dotfiles to ~..."

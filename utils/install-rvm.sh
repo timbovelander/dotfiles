@@ -7,7 +7,7 @@ if ! command -v rvm &>/dev/null; then
 
   # Install RVM
   echo "Installing RVM..."
-  curl -sSL https://get.rvm.io | bash -s stable --ruby >/dev/null
+  curl -sSL https://get.rvm.io | bash -s stable
 
   # Source RVM
   source "$HOME/.rvm/scripts/rvm"
