@@ -1,12 +1,11 @@
 # find directories
-function fd {
-  find -type d -name "*$1*"
-}
+alias fd="find -type d -name"
 
 # find files
-function ff {
-  find -type f -name "*$1*"
-}
+alias ff="find -type f -name"
+
+# alias for git
+alias g="git"
 
 # alias less to vimless if available
 if [ -f /usr/share/vim/vim74/macros/less.sh ]; then
@@ -14,12 +13,8 @@ if [ -f /usr/share/vim/vim74/macros/less.sh ]; then
 fi
 
 # show file with pygmentize or cat
-function show {
-  echo ''
-  if command -v pygmentize >/dev/null 2>&1; then
-    pygmentize -g "$1"
-  else
-    cat "$1"
-  fi
-  echo ''
-}
+if command -v pygmentize &>/dev/null; then
+  alias show="pygmentize -g"
+else
+  alias show="cat"
+fi
