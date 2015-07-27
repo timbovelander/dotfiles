@@ -1,6 +1,6 @@
 PROMPT='%{$fg[red]%}%n%{$reset_color%}'
 PROMPT+=' @ '
-PROMPT+='%{$fg[magenta]%}%m%{$reset_color%}'
+PROMPT+='%{$fg[yellow]%}%m%{$reset_color%}'
 PROMPT+=' : '
 PROMPT+='%{$fg[blue]%}%~%{$reset_color%}'
 PROMPT+='$(git_prompt_info)$(git_prompt_status)%{$reset_color%}'
