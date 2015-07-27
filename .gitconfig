@@ -7,9 +7,11 @@
   d = diff
   dt = difftool
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  lm = "!git log --pretty=oneline --graph --abbrev-commit --author=\"$(git config user.name)\""
   pl = pull --rebase --prune
   ps = push
   s = status
+  sh = show
   ss = stash -u
   ssl = stash list
   ssa = stash apply
@@ -26,10 +28,14 @@
 	autosetuprebase = always
 [color]
 	ui = auto
+[cola]
+	fontdiff = Droid Sans Mono,11,-1,5,50,0,0,0,0,0
 [diff]
 	tool = gvimdiff
 [difftool]
 	prompt = false
+[gui]
+	historybrowser = git-dag
 [merge]
   tool = gvimdiff
 [mergetool]
