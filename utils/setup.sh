@@ -52,9 +52,6 @@ source "$HOME/.dotfiles/utils/install-fasd.sh"
 # install node.js
 source "$HOME/.dotfiles/utils/install-node.sh"
 
-# install oh-my-zsh
-source "$HOME/.dotfiles/utils/install-ohmyzsh.sh"
-
 # install RVM
 source "$HOME/.dotfiles/utils/install-rvm.sh"
 
@@ -63,6 +60,9 @@ source "$HOME/.dotfiles/utils/install-html5tidy.sh"
 
 # setup VIM
 source "$HOME/.dotfiles/utils/install-vim.sh" init
+
+# install oh-my-zsh
+source "$HOME/.dotfiles/utils/install-ohmyzsh.sh"
 
 # copy all dotfiles to home
 echo "Copying dotfiles to ~..."
