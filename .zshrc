@@ -14,7 +14,7 @@ HIST_STAMPS="dd.mm.yyyy"
 export PATH="$PATH:$HOME/.rvm/bin"
 
 # enable oh-my-zsh plugins
-plugins=(bower fasd mvn npm rvm sudo vagrant web-search)
+plugins=(autojump bower mvn npm rvm sudo vagrant web-search)
 
 # start oh-my-zsh
 source $ZSH/oh-my-zsh.sh
