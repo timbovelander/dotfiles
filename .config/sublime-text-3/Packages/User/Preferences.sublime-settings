@@ -6,16 +6,15 @@
       "selector": "source.js"
     }
   ],
-  "bold_folder_labels": true,
   "color_scheme": "Packages/Solarized Color Scheme/Solarized (light).tmTheme",
   "font_face": "Droid Sans Mono",
-  "font_size": 8,
-  "line_padding_bottom": 2,
-  "line_padding_top": 2,
+  "font_size": 10,
+  "line_padding_bottom": 4,
+  "line_padding_top": 4,
   "margin": 8,
   "rulers":
   [
-  80
+    80
   ],
   "tern_argument_completion": true,
   "tern_argument_hints": true

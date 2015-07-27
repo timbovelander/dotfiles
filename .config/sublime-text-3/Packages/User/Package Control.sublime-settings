@@ -10,14 +10,17 @@
 		"Emmet",
 		"Git",
 		"GitGutter",
+		"Handlebars",
 		"HTML5",
 		"LESS",
 		"Package Control",
 		"Sass",
 		"Solarized Color Scheme",
 		"SublimeLinter",
+		"SublimeLinter-contrib-scss-lint",
+		"SublimeLinter-html-tidy",
+		"SublimeLinter-jscs",
 		"SublimeLinter-jshint",
-		"Terminal",
 		"tern_for_sublime"
 	]
 }
