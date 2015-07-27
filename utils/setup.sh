@@ -46,6 +46,9 @@ while read package; do
   fi
 done <"$HOME/.dotfiles/utils/packages-$distribution"
 
+#install fasd
+source "$HOME/.dotfiles/utils/install-fasd.sh"
+
 # install node.js
 source "$HOME/.dotfiles/utils/install-node.sh"
 
