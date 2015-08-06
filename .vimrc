@@ -296,6 +296,9 @@ augroup vimrc
   " clear all previous autocmd's
   autocmd!
 
+  " associate unknown file extensions with filetypes
+  autocmd BufRead,BufNewFile *.template setfiletype html.handlebars
+
   " enable emmet-completion
   autocmd FileType css,html,html.handlebars,jsp,php imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
