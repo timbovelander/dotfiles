@@ -1,0 +1,35 @@
+[global_config]
+  title_transmit_fg_color = "#657b83"
+  title_inactive_fg_color = "#657b83"
+  title_receive_bg_color = "#fdf6e3"
+  title_transmit_bg_color = "#eee8d5"
+  title_receive_fg_color = "#dc322f"
+  title_inactive_bg_color = "#fdf6e3"
+[keybindings]
+  go_up = <Primary>Up
+  split_horiz = <Alt>Down
+  go_down = <Primary>Down
+  close_term = <Primary>q
+  split_vert = <Alt>Right
+  go_right = <Primary>Right
+  go_left = <Primary>Left
+[profiles]
+  [[default]]
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    login_shell = True
+    background_image = None
+    use_system_font = False
+    cursor_color = "#93a1a1"
+    foreground_color = "#657b83"
+    font = Droid Sans Mono 11
+    background_color = "#fdf6e3"
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
