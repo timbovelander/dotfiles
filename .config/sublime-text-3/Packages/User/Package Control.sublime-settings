@@ -4,6 +4,7 @@
 	],
 	"installed_packages":
 	[
+		"Base16 Color Schemes",
 		"CSS3",
 		"DocBlockr",
 		"EditorConfig",
@@ -15,7 +16,6 @@
 		"LESS",
 		"Package Control",
 		"Sass",
-		"Solarized Color Scheme",
 		"SublimeLinter",
 		"SublimeLinter-contrib-scss-lint",
 		"SublimeLinter-html-tidy",
