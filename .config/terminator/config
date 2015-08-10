@@ -1,8 +1,8 @@
 [global_config]
-  title_transmit_fg_color = "#c7ccd1"
-  title_inactive_fg_color = "#747c84"
+  title_transmit_fg_color = "#565e65"
+  title_inactive_fg_color = "#c7ccd1"
   title_receive_bg_color = "#393f45"
-  title_transmit_bg_color = "#393f45"
+  title_transmit_bg_color = "#dfe2e5"
   title_receive_fg_color = "#c79595"
   title_inactive_bg_color = "#393f45"
 [keybindings]
@@ -15,7 +15,7 @@
   go_left = <Primary>Left
 [profiles]
   [[default]]
-    palette = "#393f45:#c79595:#aec795:#c7c795:#95aec7:#c795ae:#95c7ae:#dfe2e5:#1c2023:#c7ae95:#565e65:#747c84:#adb3ba:#ae95c7:#c7ccd1:#f3f4f5"
+    palette = "#1c2023:#c79595:#aec795:#c7ae95:#95aec7:#ae95c7:#95c7ae:#dfe2e5:#393f45:#c79595:#aec795:#c7c795:#95aec7:#c795ae:#95c7ae:#f3f4f5"
     login_shell = True
     background_image = None
     use_system_font = False
