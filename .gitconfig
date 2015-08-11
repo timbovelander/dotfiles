@@ -18,11 +18,15 @@
   ssd = stash drop
   ssp = stash pop
   up = "!f() { \
-    old_stash=$(git rev-parse -q --verify refs/stash); \
-    git stash; \
-    new_stash=$(git rev-parse -q --verify refs/stash); \
-    git pull --rebase --prune; \
-    [ \"$old_stash\" != \"$new_stash\" ] && git stash pop; \
+    if [ \"$(git fetch --dry-run)\" ]; then \
+      old_stash=$(git rev-parse -q --verify refs/stash); \
+      git stash; \
+      new_stash=$(git rev-parse -q --verify refs/stash); \
+      git pull --rebase --prune; \
+      [ \"$old_stash\" != \"$new_stash\" ] && git stash pop; \
+    else \
+      echo \"Up to date\"; \
+    fi \
   }; f"
 [branch]
 	autosetuprebase = always
