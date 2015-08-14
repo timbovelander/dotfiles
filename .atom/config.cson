@@ -6,8 +6,8 @@
   core:
     audioBeep: false
     themes: [
-      "one-light-ui"
-      "solarized-light-syntax"
+      "one-dark-ui"
+      "base16-syntax"
     ]
   editor:
     invisibles: {}
