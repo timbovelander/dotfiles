@@ -46,7 +46,6 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-commentary'
-Plugin 'Quramy/tsuquyomi'
 
 " end Vundle
 call vundle#end()
