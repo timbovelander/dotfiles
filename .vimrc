@@ -37,6 +37,7 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'groenewege/vim-less'
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'leafgarland/typescript-vim'
 " code completion, extension, linting, ...
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'Valloric/YouCompleteMe'
@@ -45,6 +46,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-commentary'
+Plugin 'Quramy/tsuquyomi'
 
 " end Vundle
 call vundle#end()

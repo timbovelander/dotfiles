@@ -4,4 +4,6 @@ gulp
 jsctags
 jshint
 npm
+tsd
+typescript
 yo
