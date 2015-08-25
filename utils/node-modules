@@ -1,9 +1,4 @@
 bower
-grunt-cli
 gulp
-jsctags
 jshint
 npm
-tsd
-typescript
-yo
