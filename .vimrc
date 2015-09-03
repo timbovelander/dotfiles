@@ -11,7 +11,7 @@ call vundle#begin()
 " plugin management
 Plugin 'gmarik/Vundle.vim'
 " color scheme
-Plugin 'chriskempson/base16-vim'
+Plugin 'altercation/vim-colors-solarized'
 " session management
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
@@ -83,7 +83,7 @@ set omnifunc=syntaxcomplete#Complete
 syntax enable
 
 " set color scheme
-colorscheme base16-ashes
+colorscheme solarized
 set background=dark
 
 if has('gui_running')
