@@ -1,0 +1,36 @@
+{
+  "javascript": {
+    "snippets": {
+      "cd": "console.dir(${child}|)",
+      "ce": "console.error(${child}|)",
+      "cl": "console.log(${child}|)",
+      "cw": "console.warn(${child}|)",
+      "fe": "|.forEach(function(${1}) {\n\t${child}${2}\n})",
+      "fi": "for (| in ${1}) {\n\t${child}${2}\n}",
+      "fn": "function(|) {\n\t${child}${1}\n}",
+      "fnii": "(function(|) {\n\t${child}${1}\n})(${2})",
+      "if": "if (|) {\n\t${child}${1}\n}",
+      "ife": "if (|) {\n\t${child}${1}\n} else {\n\t${2}\n}",
+      "me": "module.exports = |",
+      "rq": "require('|')",
+      "st": "setTimeout(function(|) {\n\t${child}${1}\n}, ${2:300})",
+      "us": "'use strict';",
+      "v": "var | = ${1}"
+    }
+  },
+  "jsp": {
+    "extends": "html"
+  },
+  "less": {
+    "extends": "css"
+  },
+  "php": {
+    "extends": "html"
+  },
+  "sass": {
+    "extends": "css"
+  },
+  "variables": {
+    "lang": "nl"
+  }
+}

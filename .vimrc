@@ -187,7 +187,8 @@ nmap ]T :tablast<CR>
 nmap [T :tabfirst<CR>
 
 " open file explorer
-nmap <silent> <C-e> :NERDTreeCWD<CR>
+map <silent> <F2> <Esc>:NERDTreeCWD<CR>
+map <silent> <C-F2> <Esc>:NERDTreeFind<CR>
 
 " redraws the screen and removes any search highlighting
 nnoremap <silent> <C-l> :nohl<CR><C-l>
@@ -288,8 +289,12 @@ let g:mustache_abbreviations = 1
 let g:ackprg = 'ag --vimgrep'
 
 " ===== Plugin: emmet.vim
-" load custom snippets json
-let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.emmet/snippets_custom.json')), "\n"))
+" load custom emmet settings
+let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.emmet.json')), "\n"))
+
+" set emmet key bindings
+let g:user_emmet_leader_key = '<C-e>'
+let g:user_emmet_expandabbr_key = '<C-tab>'
 
 " ===== Autocmd's
 " create an augroup so autocmds are only applied once
@@ -301,9 +306,6 @@ augroup vimrc
   " associate unknown file extensions with filetypes
   autocmd BufRead,BufNewFile *.template setfiletype html.handlebars
   autocmd BufRead,BufNewFile *.jspf setfiletype jsp
-
-  " enable emmet-completion
-  autocmd FileType css,html,html.handlebars,jsp,php,javascript imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
   " indentation fix for html
   autocmd FileType html,html.handlebars,jsp,php imap <expr> <CR> ExpandHtmlTag()
