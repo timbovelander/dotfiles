@@ -1,0 +1,21 @@
+{
+  "javascript": {
+    "snippets": {
+      "cd": "console.dir(${child}|)",
+      "ce": "console.error(${child}|)",
+      "cl": "console.log(${child}|)",
+      "cw": "console.warn(${child}|)",
+      "fe": "|.forEach(function() {\n\t${child}\n})",
+      "fi": "for (| in ) {\n\t${child}\n}",
+      "fn": "function(|) {\n\t${child}\n}",
+      "fnii": "(function(|) {\n\t${child}\n})()",
+      "if": "if (|) {\n\t${child}\n}",
+      "ife": "if (|) {\n\t${child}\n} else {\n\t\n}",
+      "me": "module.exports = |",
+      "rq": "require('|')",
+      "st": "setTimeout(function(|) {\n\t${child}\n}, 300)",
+      "us": "'use strict';",
+      "v": "var | = "
+    }
+  }
+}

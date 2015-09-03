@@ -44,6 +44,7 @@ Plugin 'marijnh/tern_for_vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'mattn/emmet-vim'
+Plugin 'mattn/webapi-vim'
 Plugin 'tpope/vim-commentary'
 
 " end Vundle
@@ -286,6 +287,10 @@ let g:mustache_abbreviations = 1
 " use ag instead of ack
 let g:ackprg = 'ag --vimgrep'
 
+" ===== Plugin: emmet.vim
+" load custom snippets json
+let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.emmet/snippets_custom.json')), "\n"))
+
 " ===== Autocmd's
 " create an augroup so autocmds are only applied once
 augroup vimrc
@@ -298,7 +303,7 @@ augroup vimrc
   autocmd BufRead,BufNewFile *.jspf setfiletype jsp
 
   " enable emmet-completion
-  autocmd FileType css,html,html.handlebars,jsp,php imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+  autocmd FileType css,html,html.handlebars,jsp,php,javascript imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
   " indentation fix for html
   autocmd FileType html,html.handlebars,jsp,php imap <expr> <CR> ExpandHtmlTag()
