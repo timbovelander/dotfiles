@@ -29,6 +29,14 @@ update() {
     fi
   fi
 
+  # update git repositories
+  if command -v git &>/dev/null; then
+    if [ -d "$HOME/.oh-my-zsh" ]; then
+      cd "$HOME/.oh-my-zsh"
+      git up
+    fi
+  fi
+
   # change back to working directory
   cd $pwd
 }
