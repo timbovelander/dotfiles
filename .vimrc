@@ -89,7 +89,7 @@ set background=dark
 if has('gui_running')
 
   " set font
-  set guifont=Droid\ Sans\ Mono\ 10
+  set guifont=Droid\ Sans\ Mono\ 12
 
   " set linespace
   set linespace=6

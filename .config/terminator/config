@@ -22,7 +22,7 @@
     use_system_font = False
     cursor_color = "#839496"
     foreground_color = "#839496"
-    font = Droid Sans Mono 11
+    font = Droid Sans Mono 12
     background_color = "#002b36"
 [layouts]
   [[default]]
