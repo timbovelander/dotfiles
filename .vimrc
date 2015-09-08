@@ -218,7 +218,7 @@ map <leader>f <Plug>(easymotion-s2)
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " search in project
-nnoremap \ :Ack<SPACE>
+nnoremap \ :Ack!<SPACE>
 
 " ===== Plugin: Airline
 " set seperators
@@ -287,6 +287,9 @@ let g:mustache_abbreviations = 1
 " ===== Plugin: ack.vim
 " use ag instead of ack
 let g:ackprg = 'ag --vimgrep'
+
+" close quickfix list when opening a result
+let g:ack_autoclose = 1
 
 " ===== Plugin: emmet.vim
 " load custom emmet settings
