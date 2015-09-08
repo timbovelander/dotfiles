@@ -7,9 +7,8 @@
     audioBeep: false
     themes: [
       "one-dark-ui"
-      "base16-syntax"
+      "Solarized Color Scheme",
     ]
   editor:
     invisibles: {}
     fontFamily: "Droid Sans Mono"
-    fontSize: 14

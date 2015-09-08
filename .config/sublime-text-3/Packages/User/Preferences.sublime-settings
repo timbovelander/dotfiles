@@ -6,7 +6,7 @@
 			"selector": "source.js"
 		}
 	],
-	"color_scheme": "Packages/Base16 Color Schemes/base16-ashes.dark.tmTheme",
+	"color_scheme": "Packages/Solarized Color Scheme/Solarized (dark).tmTheme",
 	"font_face": "Droid Sans Mono",
 	"font_size": 11,
 	"ignored_packages":
