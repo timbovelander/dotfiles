@@ -187,7 +187,7 @@ nmap ]T :tablast<CR>
 nmap [T :tabfirst<CR>
 
 " open file explorer
-map <silent> <F2> <Esc>:NERDTreeCWD<CR>
+map <silent> <F2> <Esc>:NERDTreeToggle<CR>
 map <silent> <C-F2> <Esc>:NERDTreeFind<CR>
 
 " redraws the screen and removes any search highlighting
