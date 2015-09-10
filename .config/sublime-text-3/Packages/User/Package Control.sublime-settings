@@ -21,6 +21,7 @@
 		"SublimeLinter-html-tidy",
 		"SublimeLinter-jscs",
 		"SublimeLinter-jshint",
-		"tern_for_sublime"
+		"tern_for_sublime",
+		"Vintageous"
 	]
 }
