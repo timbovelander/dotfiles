@@ -1,0 +1,4 @@
+[
+  { "keys": ["ctrl+q"], "command": "close" },
+  { "keys": ["ctrl+shift+q"], "command": "close_all" },
+]
