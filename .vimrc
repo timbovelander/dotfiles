@@ -202,6 +202,10 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " search in project
 nnoremap \ :Ack!<SPACE>
 
+" open external applications
+" open terminal emulator in directory of current buffer
+nmap  <silent> <leader>xt :silent !x-terminal-emulator --working-directory=%:p:h &<CR>
+
 " ===== Plugin: Airline
 " set seperators
 let g:airline_left_sep=' '
@@ -235,6 +239,9 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 " use ctrlp-py-matcher plugin as ctrlp matcher
 let g:ctrlp_match_func = {'match': 'pymatcher#PyMatch'}
+
+" search by filename instead of full path name
+let g:ctrlp_by_filename = 1
 
 " ===== Plugin: Syntastic
 set statusline+=%#warningmsg#
