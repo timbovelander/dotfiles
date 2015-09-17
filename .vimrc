@@ -22,11 +22,9 @@ Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'bling/vim-airline'
 Plugin 'moll/vim-bbye'
 Plugin 'mileszs/ack.vim'
-Plugin 'majutsushi/tagbar'
 " vim utils
 Plugin 'tpope/vim-surround'
 Plugin 'wellle/targets.vim'
-Plugin 'Lokaltog/vim-easymotion'
 " git integration
 Plugin 'tpope/vim-fugitive'
 " code syntax
@@ -227,6 +225,9 @@ let g:airline_right_sep=' '
 
 " enable tab line extension
 let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " ===== Plugin: YouCompleteMe
 " create custom semantic triggers to show autocomplete
