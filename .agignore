@@ -1,0 +1,12 @@
+*.bat
+*.class
+*.gif
+*.jar
+*.jpg
+*.jpeg
+*.pdf
+*.png
+*.swf
+*.zip
+dist
+node_modules
