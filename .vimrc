@@ -59,7 +59,7 @@ filetype plugin indent on
 set splitbelow
 set splitright
 
-" disable backup. using git & btrfs snapshots
+" disable backup. using git
 set nobackup
 set nowb
 set noswapfile
@@ -91,9 +91,6 @@ if has('gui_running')
 
   " set linespace
   set linespace=6
-
-  " open maximized
-  " set lines=999 columns=999
 
 endif
 
@@ -199,19 +196,6 @@ vmap <leader>p "+p
 nmap <leader>y "+y
 vmap <leader>y "+y
 
-" easymotion line mappings
-map <leader>h <Plug>(easymotion-linebackward)
-map <leader>j <Plug>(easymotion-j)
-map <leader>k <Plug>(easymotion-k)
-map <leader>l <Plug>(easymotion-lineforward)
-map <leader><Left> <leader>h
-map <leader><Down> <leader>j
-map <leader><Up> <leader>k
-map <leader><Right> <leader>l
-
-" easymotion search
-map <leader>f <Plug>(easymotion-s2)
-
 " expand path of the active buffer
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
@@ -266,13 +250,6 @@ let g:syntastic_html_tidy_exec = 'tidy5'
 
 " ignore specific html tidy errors
 let g:syntastic_html_tidy_ignore_errors = ['trimming empty <i>']
-
-" ===== Plugin: vim-easymotion
-" disable default mappings
-let g:EasyMotion_do_mapping = 0
-
-" ignore case
-let g:EasyMotion_smartcase = 1
 
 " ===== Plugin: vim-session
 " disable autosave session

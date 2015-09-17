@@ -1,5 +1,5 @@
 [
   { "keys": ["ctrl+q"], "command": "close" },
   { "keys": ["ctrl+shift+q"], "command": "close_all" },
-  { "keys": ["ctrl+e"], "command": "toggle_side_bar" },
+  { "keys": ["f2"], "command": "toggle_side_bar" },
 ]
