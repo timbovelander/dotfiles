@@ -17,7 +17,7 @@ update() {
 
   # update vim
   if command -v gvim &>/dev/null; then
-    gvim +PluginUpdate +qall
+    gvim +PluginUpdate -c "!cd $HOME/.vim/bundle/vimproc.vim && make" +qall
   fi
 
   # update node modules

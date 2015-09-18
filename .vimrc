@@ -17,12 +17,12 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 " ui utils
 Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'bling/vim-airline'
 Plugin 'moll/vim-bbye'
-Plugin 'mileszs/ack.vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc.vim'
 " vim utils
+Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'wellle/targets.vim'
 " git integration
@@ -133,78 +133,81 @@ set hlsearch
 let mapleader = "\<Space>"
 
 " center screen
-nmap <leader><SPACE> zz
+nnoremap <leader><SPACE> zz
 
 " insert newlines in normal mode
-nmap <CR> o<Esc>
-nmap <S-Enter> O<Esc>
+nnoremap <CR> o<Esc>
+nnoremap <S-CR> O<Esc>
 
 " set home to go to first non-whitespace character
-nmap <HOME> ^
-imap <HOME> <Esc>^i
+nnoremap <HOME> ^
+inoremap <HOME> <C-O>^
 
 " close buffer
 nnoremap <silent> <C-q> :lclose<CR>:Bdelete<CR>
 
 " navigate buffers
-nmap <silent> <C-Tab> :lclose<CR>:bnext<CR>
-nmap <silent> <C-S-Tab> :lclose<CR>:bprevious<CR>
-nmap <silent> ]b :lclose<CR>:bnext<CR>
-nmap <silent> [b :lclose<CR>:bprevious<CR>
-nmap <silent> ]B :lclose<CR>:bfirst<CR>
-nmap <silent> [B :lclose<CR>:blast<CR>
+nnoremap <silent> <C-Tab> :lclose<CR>:bnext<CR>
+nnoremap <silent> <C-S-Tab> :lclose<CR>:bprevious<CR>
+nnoremap <silent> ]b :lclose<CR>:bnext<CR>
+nnoremap <silent> [b :lclose<CR>:bprevious<CR>
+nnoremap <silent> ]B :lclose<CR>:bfirst<CR>
+nnoremap <silent> [B :lclose<CR>:blast<CR>
 
 " create window(split)
-nmap <A-Left> :topleft vsplit<CR>
-nmap <A-Down> :botright split<CR>
-nmap <A-Up> :topleft split<CR>
-nmap <A-Right> :botright vsplit<CR>
+nnoremap <silent> <A-Left> :topleft vsplit<CR>
+nnoremap <silent> <A-Down> :botright split<CR>
+nnoremap <silent> <A-Up> :topleft split<CR>
+nnoremap <silent> <A-Right> :botright vsplit<CR>
 
 " close window
-nmap <A-q> :close<CR>
+nnoremap <silent> <A-q> :close<CR>
 
 " navigate windows
-nmap <C-Left> <C-W><Left>
-nmap <C-Down> <C-W><Down>
-nmap <C-Up> <C-W><Up>
-nmap <C-Right> <C-W><Right>
+nnoremap <C-Left> <C-W><Left>
+nnoremap <C-Down> <C-W><Down>
+nnoremap <C-Up> <C-W><Up>
+nnoremap <C-Right> <C-W><Right>
 
 " create new tab
-nmap <leader>t :tabnew<CR>
+nnoremap <silent> <leader>t :tabnew<CR>
 
 " close tab
-nmap <leader>q :tabclose<CR>
+nnoremap <silent> <leader>q :tabclose<CR>
 
 " navigate tabs
-nmap ]t :tabnext<CR>
-nmap [t :tabprevious<CR>
-nmap ]T :tablast<CR>
-nmap [T :tabfirst<CR>
+nnoremap <silent> ]t :tabnext<CR>
+nnoremap <silent> [t :tabprevious<CR>
+nnoremap <silent> ]T :tablast<CR>
+nnoremap <silent> [T :tabfirst<CR>
 
 " open file explorer
-map <silent> <F2> <Esc>:NERDTreeToggle<CR>
-map <silent> <C-F2> <Esc>:NERDTreeFind<CR>
+nnoremap <silent> <F2> :NERDTreeToggle<CR>
+nnoremap <silent> <C-F2> :NERDTreeFind<CR>
 
 " redraws the screen and removes any search highlighting
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " cut, copy and paste to/from clipboard
-nmap <leader>d "+d
-vmap <leader>d "+d
-nmap <leader>p "+p
-vmap <leader>p "+p
-nmap <leader>y "+y
-vmap <leader>y "+y
+nnoremap <leader>d "+d
+vnoremap <leader>d "+d
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
 
 " expand path of the active buffer
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+" fuzzy finder
+nnoremap <silent> <C-p> :Unite -buffer-name=files -direction=botright -start-insert -winheight=10 file_rec/async<CR>
+
 " search in project
-nnoremap \ :Ack!<SPACE>
+nnoremap <silent> \ :Unite -buffer-name=files -no-split -auto-preview grep:.<CR>
 
 " open external applications
 " open terminal emulator in directory of current buffer
-nmap  <silent> <leader>xt :silent !x-terminal-emulator --working-directory=%:p:h &<CR>
+nnoremap <silent> <leader>xt :silent !x-terminal-emulator --working-directory=%:p:h &<CR>
 
 " ===== Plugin: Airline
 " set seperators
@@ -223,25 +226,6 @@ let g:ycm_semantic_triggers =  {
   \  'css,less,scss': ['re!^\s*', 're!:\s*'],
   \  'html': ['<', '</', 're!<.*\s'],
   \}
-
-" ===== Plugin: ctrlp
-" make results scrollable
-let g:ctrlp_match_window='results:40'
-
-" set max depth to search with ctrlp
-let g:ctrlp_max_depth=40
-
-" set max files as results of ctrlp (0 = unlimited)
-let g:ctrlp_max_files=0
-
-" use ag to index files to ctrlp command also ignores files defined in .gitignore
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-" use ctrlp-py-matcher plugin as ctrlp matcher
-let g:ctrlp_match_func = {'match': 'pymatcher#PyMatch'}
-
-" search by filename instead of full path name
-let g:ctrlp_by_filename = 1
 
 " ===== Plugin: Syntastic
 set statusline+=%#warningmsg#
@@ -269,13 +253,6 @@ let g:session_autoload = 'no'
 " enable abbreviations
 let g:mustache_abbreviations = 1
 
-" ===== Plugin: ack.vim
-" use ag instead of ack
-let g:ackprg = 'ag --vimgrep'
-
-" close quickfix list when opening a result
-let g:ack_autoclose = 1
-
 " ===== Plugin: emmet.vim
 " load custom emmet settings
 let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.emmet.json')), "\n"))
@@ -283,6 +260,18 @@ let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.emmet.js
 " set emmet key bindings
 let g:user_emmet_leader_key = '<C-e>'
 let g:user_emmet_expandabbr_key = '<C-tab>'
+
+" ===== Plugin: unite.vim
+" do not skip first result
+let g:unite_enable_auto_select = 0
+
+" set date format
+let g:unite_source_buffer_time_format = "(%d-%m-%Y %H:%M:%S) "
+
+" use ag command (automatically ignores files in .agignore and .gitignore)
+let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '-g', '']
+let g:unite_source_grep_command = "ag"
+let g:unite_source_grep_default_opts = "--line-numbers --nocolor --nogroup"
 
 " ===== Autocmd's
 " create an augroup so autocmds are only applied once

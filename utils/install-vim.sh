@@ -10,12 +10,16 @@ init() {
 
 build() {
   # Build Vundle YouCompleteMe
-  mkdir /tmp/ycm_build && cd /tmp/ycm_build
-  cmake -G "Unix Makefiles" . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
+  mkdir "/tmp/ycm_build" && cd "/tmp/ycm_build"
+  cmake -G "Unix Makefiles" . "$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp"
   make ycm_support_libs
 
+  # Build vimproc
+  cd "$HOME/.vim/bundle/vimproc.vim"
+  make
+
   # Build Vundle tern_for_vim
-  cd $HOME/.vim/bundle/tern_for_vim
+  cd "$HOME/.vim/bundle/tern_for_vim"
   npm install
 }
 
