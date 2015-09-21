@@ -28,13 +28,7 @@ Plugin 'wellle/targets.vim'
 " git integration
 Plugin 'tpope/vim-fugitive'
 " code syntax
-Plugin 'othree/html5.vim'
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'groenewege/vim-less'
-Plugin 'othree/yajs.vim'
-Plugin 'othree/javascript-libraries-syntax.vim'
 " code completion, extension, linting, ...
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'Valloric/YouCompleteMe'
