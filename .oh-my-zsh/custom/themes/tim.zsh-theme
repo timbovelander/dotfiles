@@ -1,3 +1,5 @@
+RPS1='$(vi_mode_prompt_info)'
+
 PROMPT='%{$fg[red]%}%n%{$reset_color%}'
 PROMPT+=' @ '
 PROMPT+='%{$fg[yellow]%}%m%{$reset_color%}'
