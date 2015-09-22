@@ -203,6 +203,20 @@ nnoremap <silent> \ :Unite -buffer-name=files -no-split -auto-preview grep:.<CR>
 " open terminal emulator in directory of current buffer
 nnoremap <silent> <leader>xt :silent !x-terminal-emulator --working-directory=%:p:h &<CR>
 
+" enter visual mode from normal and insert mode
+nnoremap <S-Left> v<left>
+nnoremap <S-Down> v<Down>
+nnoremap <S-Up> v<Up>
+nnoremap <S-Right> v<Right>
+inoremap <S-Left> <Esc>v<left>
+inoremap <S-Down> <Esc>v<Down>
+inoremap <S-Up> <Esc>v<Up>
+inoremap <S-Right> <Esc>v<Right>
+vnoremap <S-Left> <left>
+vnoremap <S-Down> <Down>
+vnoremap <S-Up> <Up>
+vnoremap <S-Right> <Right>
+
 " ===== Plugin: Airline
 " set seperators
 let g:airline_left_sep=' '
@@ -235,6 +249,9 @@ let g:syntastic_html_tidy_exec = 'tidy5'
 
 " ignore specific html tidy errors
 let g:syntastic_html_tidy_ignore_errors = ['trimming empty <i>']
+
+" enable file type checkers
+let g:syntastic_javascript_checkers = ['jshint', 'jscs']
 
 " ===== Plugin: vim-session
 " disable autosave session
