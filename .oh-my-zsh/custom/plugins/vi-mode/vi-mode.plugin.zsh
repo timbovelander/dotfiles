@@ -10,7 +10,7 @@ zle -N zle-keymap-select
 
 # define normal mode indicator
 if [[ "$ZSH_THEME_VI_MODE_NORMAL" == "" ]]; then
-  ZSH_THEME_VI_MODE_NORMAL="%{$bg[white]$fg_bold[black]%} NORMAL %{$reset_color%}"
+  ZSH_THEME_VI_MODE_NORMAL="%{$bg[magenta]$fg_bold[white]%} NORMAL %{$reset_color%}"
 fi
 
 # define insert mode indicator
