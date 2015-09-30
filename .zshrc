@@ -1,3 +1,6 @@
+# enable xterm with 256 color support
+export TERM=xterm-256color
+
 # set the oh-my-zsh location
 export ZSH=$HOME/.oh-my-zsh
 
