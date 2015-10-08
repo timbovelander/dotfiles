@@ -6,8 +6,8 @@
   cob = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
   d = diff
   dt = difftool
-  l = log --pretty=oneline -n 20 --graph --abbrev-commit
-  lm = "!git log --pretty=oneline --graph --abbrev-commit --author=\"$(git config user.name)\""
+  l = log --pretty=format:'%C(Yellow)%h%C(reset) - %C(cyan)%cr%C(reset) : %C(blue)%an%C(reset)%C(auto)%d%C(reset)%n%s%n' --graph
+  lm = "!git log --pretty=format:'%C(Yellow)%h%C(reset) - %C(cyan)%cr%C(reset) : %C(blue)%an%C(reset)%C(auto)%d%C(reset)%n%s%n' --graph --abbrev-commit --author=\"$(git config user.name)\""
   pl = pull --rebase --prune
   ps = push
   s = status
