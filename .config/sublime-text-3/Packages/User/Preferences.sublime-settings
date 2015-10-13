@@ -11,7 +11,6 @@
 	"font_size": 11,
 	"ignored_packages":
 	[
-		"Vintage"
 	],
 	"line_padding_bottom": 4,
 	"line_padding_top": 4,
@@ -21,5 +20,6 @@
 		80
 	],
 	"tern_argument_completion": true,
-	"tern_argument_hints": true
+	"tern_argument_hints": true,
+  "vintage_start_in_command_mode": true,
 }
