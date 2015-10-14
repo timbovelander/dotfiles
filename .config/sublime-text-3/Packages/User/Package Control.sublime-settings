@@ -21,6 +21,7 @@
 		"SublimeLinter-html-tidy",
 		"SublimeLinter-jscs",
 		"SublimeLinter-jshint",
+		"Surround",
 		"tern_for_sublime",
 		"Vintage Surround"
 	]
