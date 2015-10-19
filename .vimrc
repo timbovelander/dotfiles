@@ -13,14 +13,14 @@ Plugin 'gmarik/Vundle.vim'
 " color scheme
 Plugin 'altercation/vim-colors-solarized'
 " session management
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-session'
+Plugin 'tpope/vim-obsession'
+Plugin 'tungd/unite-session'
 " ui utils
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'moll/vim-bbye'
-Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/unite.vim'
 " vim utils
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
@@ -32,7 +32,7 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 " code completion, extension, linting, ...
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/syntastic'
@@ -60,7 +60,7 @@ set nowb
 set noswapfile
 
 " set number of history records
-set history=200
+set history=1000
 
 " set nrformats to decimal only, do not use octal or hex notation
 set nrformats=
@@ -70,6 +70,16 @@ set hidden
 
 " enable omnifunc autocompletion
 set omnifunc=syntaxcomplete#Complete
+
+" timeout key codes
+set ttimeout
+set ttimeoutlen=100
+
+" autoread files when they have changed outside of ViM
+set autoread
+
+" show lastline instead of @-lines
+set display=lastline
 
 " ===== Theme
 " enable syntax highlighting
@@ -108,9 +118,6 @@ set number
 " show command in bottom bar
 set showcmd
 
-" highlight current line
-set cursorline
-
 " do not show gui menubar, toolbar and scroll bars
 set guioptions-=m
 set guioptions-=T
@@ -123,7 +130,13 @@ set incsearch
 " highlight search matches
 set hlsearch
 
-" ===== Custom mappings
+" enable smarttab
+set smarttab
+
+" enable wildmenu (command mode completion)
+set wildmenu
+
+" ===== Custom key mappings
 " map leader key
 let mapleader = "\<Space>"
 
@@ -159,10 +172,10 @@ nnoremap <silent> <A-Right> :botright vsplit<CR>
 nnoremap <silent> <A-q> :close<CR>
 
 " navigate windows
-nnoremap <C-Left> <C-W><Left>
-nnoremap <C-Down> <C-W><Down>
-nnoremap <C-Up> <C-W><Up>
-nnoremap <C-Right> <C-W><Right>
+nnoremap <silent> <C-Left> :wincmd h<CR>
+nnoremap <silent> <C-Down> :wincmd j<CR>
+nnoremap <silent> <C-Up> :wincmd k<CR>
+nnoremap <silent> <C-Right> :wincmd l<CR>
 
 " create new tab
 nnoremap <silent> <leader>t :tabnew<CR>
@@ -175,6 +188,9 @@ nnoremap <silent> ]t :tabnext<CR>
 nnoremap <silent> [t :tabprevious<CR>
 nnoremap <silent> ]T :tablast<CR>
 nnoremap <silent> [T :tabfirst<CR>
+
+" new session
+nnoremap <silent> <leader>s :Obsession "$HOME/.vim/sessions/" .  matchstr(getcwd(),"[^/]*$")<CR>
 
 " open file explorer
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
@@ -195,7 +211,8 @@ vnoremap <leader>y "+y
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " fuzzy finder
-nnoremap <silent> <C-p> :Unite -buffer-name=files -direction=botright -start-insert -winheight=10 file_rec/async<CR>
+nnoremap <silent> <C-p> :Unite -buffer-name=files -direction=botright -start-insert -winheight=10 buffer file_rec/async<CR>
+nnoremap <silent> <C-A-p> :Unite -buffer-name=sessions -direction=botright -start-insert -winheight=10 session<CR>
 
 " search in project
 nnoremap <silent> \ :Unite -buffer-name=files -no-split -auto-preview grep:.<CR>
@@ -223,18 +240,11 @@ vnoremap <S-Right> <Right>
 let g:airline_left_sep=' '
 let g:airline_right_sep=' '
 
-" enable tab line extension
+" enable tabline extension
 let g:airline#extensions#tabline#enabled = 1
 
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
-
-" ===== Plugin: YouCompleteMe
-" create custom semantic triggers to show autocomplete
-let g:ycm_semantic_triggers =  {
-  \  'css,less,scss': ['re!^\s*', 're!:\s*'],
-  \  'html': ['<', '</', 're!<.*\s'],
-  \}
 
 " ===== Plugin: Syntastic
 set statusline+=%#warningmsg#
@@ -245,21 +255,15 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" use html tidy width html5 support
+" use html tidy with html5 support
 let g:syntastic_html_tidy_exec = 'tidy5'
 
 " ignore specific html tidy errors
 let g:syntastic_html_tidy_ignore_errors = ['trimming empty <i>']
 
-" enable file type checkers
-let g:syntastic_javascript_checkers = ['jshint', 'jscs']
-
-" ===== Plugin: vim-session
-" disable autosave session
-let g:session_autosave = 'no'
-
-" disable autorestore session
-let g:session_autoload = 'no'
+" use eslint_d as javascript linter
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
 " ===== Plugin: mustache
 " enable abbreviations
@@ -284,6 +288,10 @@ let g:unite_source_buffer_time_format = "(%d-%m-%Y %H:%M:%S) "
 let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '-g', '']
 let g:unite_source_grep_command = "ag"
 let g:unite_source_grep_default_opts = "--line-numbers --nocolor --nogroup"
+
+" ===== Plugin: unite-session
+" do not autosave session, this is done by Obsession plugin
+let g:unite_session_force_no_update = 1
 
 " ===== Autocmd's
 " create an augroup so autocmds are only applied once
@@ -311,11 +319,11 @@ augroup END
 " ===== Functions
 " expand html tag
 function! ExpandHtmlTag()
-  let line   = getline(".")
-  let col    = col(".")
-  let first  = line[col-2]
+  let line = getline(".")
+  let col = col(".")
+  let first = line[col-2]
   let second = line[col-1]
-  let third  = line[col]
+  let third = line[col]
 
   if first ==# ">"
     if second ==# "<" && third ==# "/"
