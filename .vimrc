@@ -215,7 +215,7 @@ nnoremap <silent> <C-p> :Unite -buffer-name=files -direction=botright -start-ins
 nnoremap <silent> <C-A-p> :Unite -buffer-name=sessions -direction=botright -start-insert -winheight=10 session<CR>
 
 " search in project
-nnoremap <silent> \ :Unite -buffer-name=files -no-split -auto-preview grep:.<CR>
+nnoremap <silent> \ :Unite -buffer-name=files -no-split grep:.<CR>
 
 " open external applications
 " open terminal emulator in directory of current buffer
