@@ -7,6 +7,6 @@ python-dev
 python-pip
 rsync
 silversearcher-ag
-vim-common
+vim
 xsel
 zsh
