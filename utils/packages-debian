@@ -1,4 +1,5 @@
 build-essential
+cmake
 curl
 fonts-droid
 perl
