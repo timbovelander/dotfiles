@@ -1,10 +1,11 @@
 build-essential
-cmake
 curl
 fonts-droid
+perl
 python-dev
 python-pip
 rsync
+silversearcher-ag
 vim-common
-vim-gnome
+xsel
 zsh
