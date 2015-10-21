@@ -293,6 +293,10 @@ let g:unite_source_grep_default_opts = "--line-numbers --nocolor --nogroup"
 " do not autosave session, this is done by Obsession plugin
 let g:unite_session_force_no_update = 1
 
+" ===== Plugin: NeoComplete
+" enable NeoComplete when vim starts
+let g:neocomplete#enable_at_startup = 1
+
 " ===== Autocmd's
 " create an augroup so autocmds are only applied once
 augroup vimrc
