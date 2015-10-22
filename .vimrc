@@ -31,7 +31,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'othree/html5.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'hail2u/vim-css3-syntax'
-Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'othree/yajs.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
 " code completion, extension, linting, ...
@@ -286,7 +285,7 @@ let g:user_emmet_expandabbr_key = '<C-tab>'
 let g:unite_enable_auto_select = 0
 
 " set date format
-let g:unite_source_buffer_time_format = "(%d-%m-%Y %H:%M:%S) "
+let g:unite_source_buffer_time_format = "(%d-%m-%Y %H:%M:%S)"
 
 " use ag command (automatically ignores files in .agignore and .gitignore)
 let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '-g', '']
