@@ -12,6 +12,9 @@ if [ -f /usr/share/vim/vim74/macros/less.sh ]; then
   alias less="/usr/share/vim/vim74/macros/less.sh"
 fi
 
+# alias for searching with ag, result in pager
+alias search="ag --pager 'less'"
+
 # show file with pygmentize or cat
 if command -v pygmentize &>/dev/null; then
   alias show="pygmentize -g"

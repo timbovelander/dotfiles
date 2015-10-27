@@ -16,8 +16,8 @@ update() {
   sudo apt-get dist-upgrade
 
   # update vim
-  if command -v gvim &>/dev/null; then
-    gvim +PluginUpdate -c "!cd $HOME/.vim/bundle/vimproc.vim && make" +qall
+  if command -v vim &>/dev/null; then
+    vim +PluginUpdate -c "!cd $HOME/.vim/bundle/vimproc.vim && make" +qall
   fi
 
   # update node modules
@@ -39,4 +39,8 @@ update() {
 
   # change back to working directory
   cd $pwd
+}
+
+replace() {
+  ag -l "$1" | xargs perl -pi -E "s/$1/$2/g"
 }
