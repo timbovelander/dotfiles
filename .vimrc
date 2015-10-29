@@ -14,11 +14,9 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 " session management
 Plugin 'tpope/vim-obsession'
-Plugin 'tungd/unite-session'
 " ui utils
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
-Plugin 'moll/vim-bbye'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
 " vim utils
@@ -143,9 +141,6 @@ set wildmenu
 " map leader key
 let mapleader = "\<Space>"
 
-" center screen
-nnoremap <leader><SPACE> zz
-
 " insert newlines in normal mode
 nnoremap <CR> o<Esc>
 nnoremap <S-CR> O<Esc>
@@ -154,54 +149,6 @@ nnoremap <S-CR> O<Esc>
 nnoremap <HOME> ^
 inoremap <HOME> <C-O>^
 
-" close buffer
-nnoremap <silent> <C-q> :lclose<CR>:Bdelete<CR>
-
-" navigate buffers
-nnoremap <silent> <C-Tab> :lclose<CR>:bnext<CR>
-nnoremap <silent> <C-S-Tab> :lclose<CR>:bprevious<CR>
-nnoremap <silent> ]b :lclose<CR>:bnext<CR>
-nnoremap <silent> [b :lclose<CR>:bprevious<CR>
-nnoremap <silent> ]B :lclose<CR>:bfirst<CR>
-nnoremap <silent> [B :lclose<CR>:blast<CR>
-
-" create window(split)
-nnoremap <silent> <A-Left> :topleft vsplit<CR>
-nnoremap <silent> <A-Down> :botright split<CR>
-nnoremap <silent> <A-Up> :topleft split<CR>
-nnoremap <silent> <A-Right> :botright vsplit<CR>
-
-" close window
-nnoremap <silent> <A-q> :close<CR>
-
-" navigate windows
-nnoremap <silent> <C-Left> :wincmd h<CR>
-nnoremap <silent> <C-Down> :wincmd j<CR>
-nnoremap <silent> <C-Up> :wincmd k<CR>
-nnoremap <silent> <C-Right> :wincmd l<CR>
-
-" create new tab
-nnoremap <silent> <leader>t :tabnew<CR>
-
-" close tab
-nnoremap <silent> <leader>q :tabclose<CR>
-
-" navigate tabs
-nnoremap <silent> ]t :tabnext<CR>
-nnoremap <silent> [t :tabprevious<CR>
-nnoremap <silent> ]T :tablast<CR>
-nnoremap <silent> [T :tabfirst<CR>
-
-" new session
-nnoremap <silent> <leader>s :Obsession "$HOME/.vim/sessions/" .  matchstr(getcwd(),"[^/]*$")<CR>
-
-" open file explorer
-nnoremap <silent> <F2> :NERDTreeToggle<CR>
-nnoremap <silent> <C-F2> :NERDTreeFind<CR>
-
-" redraws the screen and removes any search highlighting
-nnoremap <silent> <C-l> :nohl<CR><C-l>
-
 " cut, copy and paste to/from clipboard
 nnoremap <leader>d "+d
 vnoremap <leader>d "+d
@@ -209,20 +156,6 @@ nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
-
-" expand path of the active buffer
-cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-
-" fuzzy finder
-nnoremap <silent> <C-p> :Unite -buffer-name=files -direction=botright -start-insert -winheight=10 buffer file_rec/async<CR>
-nnoremap <silent> <C-A-p> :Unite -buffer-name=sessions -direction=botright -start-insert -winheight=10 session<CR>
-
-" search in project
-nnoremap <silent> \ :Unite -buffer-name=files -no-split grep:.<CR>
-
-" open external applications
-" open terminal emulator in directory of current buffer
-nnoremap <silent> <leader>xt :silent !x-terminal-emulator --working-directory=%:p:h &<CR>
 
 " enter visual mode from normal and insert mode
 nnoremap <S-Left> v<left>
@@ -238,16 +171,77 @@ vnoremap <S-Down> <Down>
 vnoremap <S-Up> <Up>
 vnoremap <S-Right> <Right>
 
+" redraws the screen and removes any search highlighting
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+
+" navigation
+" close anything
+nnoremap <silent> <C-q> :close<CR>
+" navigate buffers
+nnoremap <silent> ]b :lclose<Bar>bnext<CR>
+nnoremap <silent> [b :lclose<Bar>bprevious<CR>
+nnoremap <silent> ]B :lclose<Bar>bfirst<CR>
+nnoremap <silent> [B :lclose<Bar>blast<CR>
+nnoremap <silent> <leader>qb :lclose<Bar>bdelete<CR>
+" navigate location list
+nnoremap <silent> ]l :lnext<CR>
+nnoremap <silent> [l :lprevious<CR>
+nnoremap <silent> ]L :lfirst<CR>
+nnoremap <silent> [L :llast<CR>
+nnoremap <silent> <leader>ql :lclose<CR>
+" navigate quickfix list
+nnoremap <silent> ]q :cnext<CR>
+nnoremap <silent> [q :cprevious<CR>
+nnoremap <silent> ]Q :cfirst<CR>
+nnoremap <silent> [Q :clast<CR>
+nnoremap <silent> <leader>qq :qclose<CR>
+" navigate tags
+nnoremap <silent> ]t :tnext<CR>
+nnoremap <silent> [t :tprevious<CR>
+nnoremap <silent> ]T :tfirst<CR>
+nnoremap <silent> [T :tlast<CR>
+" window keybindings
+nnoremap <silent> <A-Left> :topleft vsplit<CR>
+nnoremap <silent> <A-Down> :botright split<CR>
+nnoremap <silent> <A-Up> :topleft split<CR>
+nnoremap <silent> <A-Right> :botright vsplit<CR>
+nnoremap <silent> <C-Left> :wincmd h<CR>
+nnoremap <silent> <C-Down> :wincmd j<CR>
+nnoremap <silent> <C-Up> :wincmd k<CR>
+nnoremap <silent> <C-Right> :wincmd l<CR>
+" tabs keybindings
+nnoremap <silent> <leader>t :tabnew<CR>
+nnoremap <silent> <C-Tab> :tabnext<CR>
+nnoremap <silent> <C-S-Tab> :tabprevious<CR>
+nnoremap <silent> <leader>qt :tabclose<CR>
+
+" open or start session
+nnoremap <leader>s :call Session()<CR>
+
+" function key bindings
+" open file explorer
+nnoremap <silent> <F2> :NERDTreeToggle<CR>
+nnoremap <silent> <C-F2> :NERDTreeFind<CR>
+" show buffer fullscreen
+nnoremap <silent> <F11> :only<CR>
+
+" expand path of the active buffer
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" fuzzy finder
+nnoremap <silent> <C-p> :Unite -buffer-name=files -direction=botright -start-insert -winheight=10 buffer file_rec/async<CR>
+
+" search in project
+nnoremap <silent> \ :Unite -buffer-name=files -no-split grep:.<CR>
+
+" open external applications
+" open terminal emulator in directory of current buffer
+nnoremap <silent> <leader>xt :silent !x-terminal-emulator --working-directory=%:p:h &<CR>
+
 " ===== Plugin: Airline
 " set seperators
 let g:airline_left_sep=' '
 let g:airline_right_sep=' '
-
-" enable tabline extension
-let g:airline#extensions#tabline#enabled = 1
-
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
 
 " ===== Plugin: Syntastic
 set statusline+=%#warningmsg#
@@ -321,6 +315,9 @@ augroup vimrc
   " cursor, so undefine the mapping there.
   autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
+  " automatically remove fugitive buffers
+  autocmd BufReadPost fugitive://* set bufhidden=delete
+
 augroup END
 
 " ===== Functions
@@ -340,5 +337,17 @@ function! ExpandHtmlTag()
     endif
   else
     return "\<CR>"
+  endif
+endfunction
+
+" open project session or start a new one
+function! Session()
+  let projectName = matchstr(getcwd(), "[^/]*$")
+  let sessionFile = $HOME . "/.vim/sessions/" . projectName
+
+  if filereadable(sessionFile)
+    execute "source " . sessionFile
+  else
+    execute "Obsession " . sessionFile
   endif
 endfunction
