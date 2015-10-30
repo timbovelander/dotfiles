@@ -177,15 +177,15 @@ vnoremap <S-Right> <Right>
 " redraws the screen and removes any search highlighting
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-" close
-nnoremap <silent> <C-q> :close<CR>
 " buffers
 nnoremap <silent> <leader>b :Unite -buffer-name=buffers -direction=botright -winheight=10 buffer<CR>
+nnoremap <silent> <C-Tab> <C-^>
 nnoremap <silent> ]b :lclose<Bar>bnext<CR>
 nnoremap <silent> [b :lclose<Bar>bprevious<CR>
 nnoremap <silent> ]B :lclose<Bar>bfirst<CR>
 nnoremap <silent> [B :lclose<Bar>blast<CR>
 nnoremap <silent> <leader>qb :lclose<Bar>bdelete<CR>
+nnoremap <silent> <C-q> :lclose<Bar>bdelete<CR>
 " location list
 nnoremap <silent> <leader>l :lopen<CR>
 nnoremap <silent> ]l :lnext<CR>
@@ -200,11 +200,6 @@ nnoremap <silent> [q :cprevious<CR>
 nnoremap <silent> ]Q :cfirst<CR>
 nnoremap <silent> [Q :clast<CR>
 nnoremap <silent> <leader>qq :cclose<CR>
-" tabs
-nnoremap <silent> <leader>t :tabnew<CR>
-nnoremap <silent> <C-Tab> :tabnext<CR>
-nnoremap <silent> <C-S-Tab> :tabprevious<CR>
-nnoremap <silent> <leader>qt :tabclose<CR>
 " windows
 nnoremap <silent> <A-Left> :topleft vsplit<CR>
 nnoremap <silent> <A-Down> :botright split<CR>
@@ -214,11 +209,12 @@ nnoremap <silent> <C-Left> :wincmd h<CR>
 nnoremap <silent> <C-Down> :wincmd j<CR>
 nnoremap <silent> <C-Up> :wincmd k<CR>
 nnoremap <silent> <C-Right> :wincmd l<CR>
+nnoremap <silent> <A-q> :close<CR>
 
 " fugitive git commands
 nnoremap <silent> <leader>gc :Gcommit<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
-nnoremap <silent> <leader>ge :Gedit<Bar>only<CR>
+nnoremap <silent> <leader>ge :Gedit<CR>
 nnoremap <silent> <leader>gl :Glog -- %<CR>
 nnoremap <silent> <leader>gr :Gread<CR>
 nnoremap <silent> <leader>gs :Gstatus<CR>
