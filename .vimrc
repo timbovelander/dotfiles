@@ -55,9 +55,12 @@ filetype plugin indent on
 set splitbelow
 set splitright
 
-" disable backup. using git
-set nobackup
-set nowb
+" enable backup
+set backup
+set backupdir=~/.vim/backup
+set nowritebackup
+
+" disable swap file (recovery)
 set noswapfile
 
 " set number of history records
@@ -174,33 +177,35 @@ vnoremap <S-Right> <Right>
 " redraws the screen and removes any search highlighting
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-" navigation
-" close anything
+" close
 nnoremap <silent> <C-q> :close<CR>
-" navigate buffers
+" buffers
+nnoremap <silent> <leader>b :Unite -buffer-name=buffers -direction=botright -winheight=10 buffer<CR>
 nnoremap <silent> ]b :lclose<Bar>bnext<CR>
 nnoremap <silent> [b :lclose<Bar>bprevious<CR>
 nnoremap <silent> ]B :lclose<Bar>bfirst<CR>
 nnoremap <silent> [B :lclose<Bar>blast<CR>
 nnoremap <silent> <leader>qb :lclose<Bar>bdelete<CR>
-" navigate location list
+" location list
+nnoremap <silent> <leader>l :lopen<CR>
 nnoremap <silent> ]l :lnext<CR>
 nnoremap <silent> [l :lprevious<CR>
 nnoremap <silent> ]L :lfirst<CR>
 nnoremap <silent> [L :llast<CR>
 nnoremap <silent> <leader>ql :lclose<CR>
-" navigate quickfix list
+" quickfix list
+nnoremap <silent> <leader>q :copen<CR>
 nnoremap <silent> ]q :cnext<CR>
 nnoremap <silent> [q :cprevious<CR>
 nnoremap <silent> ]Q :cfirst<CR>
 nnoremap <silent> [Q :clast<CR>
-nnoremap <silent> <leader>qq :qclose<CR>
-" navigate tags
-nnoremap <silent> ]t :tnext<CR>
-nnoremap <silent> [t :tprevious<CR>
-nnoremap <silent> ]T :tfirst<CR>
-nnoremap <silent> [T :tlast<CR>
-" window keybindings
+nnoremap <silent> <leader>qq :cclose<CR>
+" tabs
+nnoremap <silent> <leader>t :tabnew<CR>
+nnoremap <silent> <C-Tab> :tabnext<CR>
+nnoremap <silent> <C-S-Tab> :tabprevious<CR>
+nnoremap <silent> <leader>qt :tabclose<CR>
+" windows
 nnoremap <silent> <A-Left> :topleft vsplit<CR>
 nnoremap <silent> <A-Down> :botright split<CR>
 nnoremap <silent> <A-Up> :topleft split<CR>
@@ -209,11 +214,15 @@ nnoremap <silent> <C-Left> :wincmd h<CR>
 nnoremap <silent> <C-Down> :wincmd j<CR>
 nnoremap <silent> <C-Up> :wincmd k<CR>
 nnoremap <silent> <C-Right> :wincmd l<CR>
-" tabs keybindings
-nnoremap <silent> <leader>t :tabnew<CR>
-nnoremap <silent> <C-Tab> :tabnext<CR>
-nnoremap <silent> <C-S-Tab> :tabprevious<CR>
-nnoremap <silent> <leader>qt :tabclose<CR>
+
+" fugitive git commands
+nnoremap <silent> <leader>gc :Gcommit<CR>
+nnoremap <silent> <leader>gd :Gdiff<CR>
+nnoremap <silent> <leader>ge :Gedit<Bar>only<CR>
+nnoremap <silent> <leader>gl :Glog -- %<CR>
+nnoremap <silent> <leader>gr :Gread<CR>
+nnoremap <silent> <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>gw :Gwrite<CR>
 
 " open or start session
 nnoremap <leader>s :call Session()<CR>
@@ -229,10 +238,11 @@ nnoremap <silent> <F11> :only<CR>
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " fuzzy finder
-nnoremap <silent> <C-p> :Unite -buffer-name=files -direction=botright -start-insert -winheight=10 buffer file_rec/async<CR>
+nnoremap <silent> <C-p> :Unite -buffer-name=files -direction=botright -start-insert -winheight=10 file_rec/async<CR>
 
 " search in project
 nnoremap <silent> \ :Unite -buffer-name=files -no-split grep:.<CR>
+nnoremap <silent> <leader>/ :call ReplaceInBuffer()<CR>
 
 " open external applications
 " open terminal emulator in directory of current buffer
@@ -301,6 +311,11 @@ augroup vimrc
   " clear all previous autocmd's
   autocmd!
 
+  " change backup file extension, add timestamp
+  autocmd BufWritePre * let &backupext = "-" . strftime("%s") . ".vimbackup"
+  " remove old backup files on write file
+  autocmd BufWritePost * call RemoveOldBackupFiles()
+
   " associate unknown file extensions with filetypes
   autocmd BufRead,BufNewFile *.template setfiletype html.handlebars
   autocmd BufRead,BufNewFile *.jspf setfiletype jsp
@@ -350,4 +365,24 @@ function! Session()
   else
     execute "Obsession " . sessionFile
   endif
+endfunction
+
+" search and replace in buffer
+function! ReplaceInBuffer()
+  call inputsave()
+  let search = input('Search: ')
+  let replace = input('Replace with: ')
+  call inputrestore()
+
+  execute "%s/" . search . "/" . replace . "/gc"
+endfunction
+
+function! RemoveOldBackupFiles()
+  let filename = expand('%:t')
+  let find = "find $HOME/.vim/backup -name " . filename . "\\*.vimbackup"
+  let sort = "sort -n"
+  let filter = "head -n -10"
+  let remove = "xargs rm --"
+
+  execute "silent !" . find . " | " . sort . " | " . filter . " | " . remove
 endfunction
