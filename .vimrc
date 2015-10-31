@@ -214,8 +214,8 @@ nnoremap <silent> <A-q> :close<CR>
 " fugitive git commands
 nnoremap <silent> <leader>gc :Gcommit<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
-nnoremap <silent> <leader>ge :Gedit<CR>
-nnoremap <silent> <leader>gl :Glog -- %<CR>
+nnoremap <silent> <leader>ge :if &diff<Bar>Gedit<Bar>only<Bar>else<Bar>Gedit<Bar>endif<CR>
+nnoremap <silent> <leader>gl :silent Glog -- %<CR>
 nnoremap <silent> <leader>gr :Gread<CR>
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>
