@@ -244,6 +244,15 @@ nnoremap <silent> <leader>/ :call ReplaceInBuffer()<CR>
 " open terminal emulator in directory of current buffer
 nnoremap <silent> <leader>xt :silent !x-terminal-emulator --working-directory=%:p:h &<CR>
 
+" adjust font size
+nnoremap <silent> <leader>0 :call AdjustFontSize(0)<CR>
+nnoremap <silent> <leader>- :call AdjustFontSize(-2)<CR>
+nnoremap <silent> <leader>= :call AdjustFontSize(2)<CR>
+
+" ===== Plugin: Solarized
+" map ToggleBG key
+call togglebg#map('<F10>')
+
 " ===== Plugin: Airline
 " set seperators
 let g:airline_left_sep=' '
@@ -381,4 +390,31 @@ function! RemoveOldBackupFiles()
   let remove = "xargs rm --"
 
   execute "silent !" . find . " | " . sort . " | " . filter . " | " . remove
+endfunction
+
+function! AdjustFontSize(amount)
+  if has("gui_gtk2") && has("gui_running")
+    let defaultfontsize = 11
+    let minfontsize = 9
+    let maxfontsize = 19
+    let fontname = substitute(&guifont, '^\(.* \)\([1-9][0-9]*\)$', '\1', '')
+    let cursize = substitute(&guifont, '^\(.* \)\([1-9][0-9]*\)$', '\2', '')
+
+    if a:amount == 0
+      let newsize = defaultfontsize
+    else
+      let newsize = cursize + a:amount
+    endif
+
+    if newsize < minfontsize
+      let newsize = minfontsize
+    elseif newsize > maxfontsize
+      let newsize = maxfontsize
+    endif
+
+    let newfont = fontname . newsize
+    let &guifont = newfont
+  else
+    echoerr "You need to run the GTK2 version of Vim to use this function."
+  endif
 endfunction
