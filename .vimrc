@@ -19,6 +19,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
+Plugin 'moll/vim-bbye'
 " vim utils
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
@@ -179,13 +180,13 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " buffers
 nnoremap <silent> <leader>b :Unite -buffer-name=buffers -direction=botright -winheight=10 buffer<CR>
-nnoremap <silent> <C-Tab> <C-^>
+nnoremap <silent> <C-Tab> :lclose<Bar>bnext<CR>
 nnoremap <silent> ]b :lclose<Bar>bnext<CR>
 nnoremap <silent> [b :lclose<Bar>bprevious<CR>
 nnoremap <silent> ]B :lclose<Bar>bfirst<CR>
 nnoremap <silent> [B :lclose<Bar>blast<CR>
-nnoremap <silent> <leader>qb :lclose<Bar>bdelete<CR>
-nnoremap <silent> <C-q> :lclose<Bar>bdelete<CR>
+nnoremap <silent> <leader>qb :lclose<Bar>Bdelete<CR>
+nnoremap <silent> <C-q> :lclose<Bar>Bdelete<CR>
 " location list
 nnoremap <silent> <leader>l :lopen<CR>
 nnoremap <silent> ]l :lnext<CR>
@@ -322,8 +323,9 @@ augroup vimrc
   autocmd BufWritePost * call RemoveOldBackupFiles()
 
   " associate unknown file extensions with filetypes
-  autocmd BufRead,BufNewFile *.template setfiletype html.handlebars
   autocmd BufRead,BufNewFile *.jspf setfiletype jsp
+  autocmd BufRead,BufNewFile *.template setfiletype html.handlebars
+  autocmd BufRead,BufNewFile *.tag setfiletype html
 
   " indentation fix for html
   autocmd FileType html,html.handlebars,jsp,php imap <expr> <CR> ExpandHtmlTag()
