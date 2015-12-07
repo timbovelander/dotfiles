@@ -12,8 +12,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " color scheme
 Plugin 'altercation/vim-colors-solarized'
-" session management
-Plugin 'tpope/vim-obsession'
 " ui utils
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
@@ -34,7 +32,7 @@ Plugin 'othree/yajs.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
 " code completion, extension, linting, ...
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'Shougo/neocomplete.vim'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/syntastic'
@@ -221,9 +219,6 @@ nnoremap <silent> <leader>gr :Gread<CR>
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>
 
-" open or start session
-nnoremap <leader>s :call Session()<CR>
-
 " function key bindings
 " open file explorer
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
@@ -249,6 +244,10 @@ nnoremap <silent> <leader>xt :silent !x-terminal-emulator --working-directory=%:
 nnoremap <silent> <leader>0 :call AdjustFontSize(0)<CR>
 nnoremap <silent> <leader>- :call AdjustFontSize(-2)<CR>
 nnoremap <silent> <leader>= :call AdjustFontSize(2)<CR>
+
+" emmet key bindings
+imap <C-Tab> <Plug>(emmet-expand-abbr)
+vmap <C-Tab> <Plug>(emmet-expand-abbr)
 
 " ===== Plugin: Solarized
 " map ToggleBG key
@@ -286,9 +285,8 @@ let g:mustache_abbreviations = 1
 " load custom emmet settings
 let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.emmet.json')), "\n"))
 
-" set emmet key bindings
+" set emmet leader key
 let g:user_emmet_leader_key = '<C-e>'
-let g:user_emmet_expandabbr_key = '<C-tab>'
 
 " ===== Plugin: unite.vim
 " do not skip first result
@@ -302,13 +300,12 @@ let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogrou
 let g:unite_source_grep_command = "ag"
 let g:unite_source_grep_default_opts = "--line-numbers --nocolor --nogroup"
 
-" ===== Plugin: unite-session
-" do not autosave session, this is done by Obsession plugin
-let g:unite_session_force_no_update = 1
-
 " ===== Plugin: NeoComplete
-" enable NeoComplete when vim starts
-let g:neocomplete#enable_at_startup = 1
+" add semantic triggers
+let g:ycm_semantic_triggers =  {
+\  'html,html.handlebars,jsp': ['<', 're!<.+\s'],
+\  'css': ['re!{\s', 're!^\s+', 're!:\s'],
+\}
 
 " ===== Autocmd's
 " create an augroup so autocmds are only applied once
@@ -359,18 +356,6 @@ function! ExpandHtmlTag()
     endif
   else
     return "\<CR>"
-  endif
-endfunction
-
-" open project session or start a new one
-function! Session()
-  let projectName = matchstr(getcwd(), "[^/]*$")
-  let sessionFile = $HOME . "/.vim/sessions/" . projectName
-
-  if filereadable(sessionFile)
-    execute "source " . sessionFile
-  else
-    execute "Obsession " . sessionFile
   endif
 endfunction
 
