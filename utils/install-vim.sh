@@ -9,6 +9,12 @@ init() {
 }
 
 build() {
+  # Build YouCompleteMe
+  mkdir "/tmp/ycm"
+  cd "/tmp/ycm"
+  cmake -G "Unix Makefiles" . "$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp"
+  make
+
   # Build vimproc
   cd "$HOME/.vim/bundle/vimproc.vim"
   make
