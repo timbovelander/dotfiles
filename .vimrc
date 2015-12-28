@@ -19,6 +19,7 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'moll/vim-bbye'
 " vim utils
+Plugin 'tpope/vim-rvm'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'wellle/targets.vim'
@@ -277,6 +278,9 @@ let g:syntastic_html_tidy_ignore_errors = ['trimming empty <i>']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
+" use scss-lint as scss linter
+let g:syntastic_scss_checkers = ['scss_lint']
+
 " ===== Plugin: mustache
 " enable abbreviations
 let g:mustache_abbreviations = 1
@@ -313,6 +317,9 @@ augroup vimrc
 
   " clear all previous autocmd's
   autocmd!
+
+  " rvm on vim enter (needed for scss_lint in syntastic)
+  autocmd VimEnter * exec "Rvm"
 
   " change backup file extension, add timestamp
   autocmd BufWritePre * let &backupext = "-" . strftime("%s") . ".vimbackup"
