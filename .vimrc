@@ -381,7 +381,7 @@ function! RemoveOldBackupFiles()
   let find = "find $HOME/.vim/backup -name " . filename . "\\*.vimbackup"
   let sort = "sort -n"
   let filter = "head -n -10"
-  let remove = "xargs rm --"
+  let remove = "xargs rm -f --"
 
   execute "silent !" . find . " | " . sort . " | " . filter . " | " . remove
 endfunction
