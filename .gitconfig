@@ -8,7 +8,7 @@
   dt = difftool
   l = log --pretty=format:'%C(Yellow)%h%C(reset) - %C(cyan)%cr%C(reset) : %C(blue)%an%C(reset)%C(auto)%d%C(reset)%n%s%n' --graph
   lm = "!git log --pretty=format:'%C(Yellow)%h%C(reset) - %C(cyan)%cr%C(reset) : %C(blue)%an%C(reset)%C(auto)%d%C(reset)%n%s%n' --graph --abbrev-commit --author=\"$(git config user.name)\""
-  pl = pull --rebase --prune
+  pl = pull
   ps = push
   s = status
   sh = show
@@ -21,27 +21,28 @@
     old_stash=$(git rev-parse -q --verify refs/stash); \
     git stash; \
     new_stash=$(git rev-parse -q --verify refs/stash); \
-    git pull --rebase --prune; \
+    git pull; \
     [ \"$old_stash\" != \"$new_stash\" ] && git stash pop; \
   }; f"
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
 [color]
-	ui = auto
+  ui = auto
 [cola]
-	fontdiff = Droid Sans Mono,11,-1,5,50,0,0,0,0,0
+  fontdiff = Droid Sans Mono,11,-1,5,50,0,0,0,0,0
 [diff]
-	tool = gvimdiff
+  tool = vimdiff
+  guitool = gvimdiff
 [difftool]
-	prompt = false
+  prompt = false
 [gui]
-	historybrowser = git-dag
+  historybrowser = git-dag
 [merge]
-  tool = gvimdiff
+  tool = vimdiff
 [mergetool]
   prompt = false
 [push]
-	default = simple
+  default = simple
 [user]
-	name = Tim Bovelander
-	email = tim@timenwietske.nl
+  name = Tim Bovelander
+  email = tim@timenwietske.nl
