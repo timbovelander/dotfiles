@@ -60,14 +60,15 @@ Xft.antialias: true
 Xft.hinting: true
 
 !! URxvt settings
-URxvt.cursorBlink: true
+URxvt.cursorBlink: false
 URxvt.cursorUnderline: false
 URxvt.fading: 0
 URxvt.font: xft:Droid Sans Mono:size=11
 URxvt.loginShell: true
 URxvt.scrollBar: false
 URxvt.perl-lib: .config/urxvt/perl
-URxvt.perl-ext-common: clipboard
+URxvt.perl-ext-common: clipboard,keyboard-select
 URxvt.keysym.Control-C: perl:clipboard:copy
 URxvt.keysym.Control-V: perl:clipboard:paste
+URxvt.keysym.Control-Escape: perl:keyboard-select:activate
 URxvt.iso14755: false
