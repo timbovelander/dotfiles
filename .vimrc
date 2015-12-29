@@ -160,20 +160,6 @@ vnoremap <leader>p "+p
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 
-" enter visual mode from normal and insert mode
-nnoremap <S-Left> v<left>
-nnoremap <S-Down> v<Down>
-nnoremap <S-Up> v<Up>
-nnoremap <S-Right> v<Right>
-inoremap <S-Left> <Esc>v<left>
-inoremap <S-Down> <Esc>v<Down>
-inoremap <S-Up> <Esc>v<Up>
-inoremap <S-Right> <Esc>v<Right>
-vnoremap <S-Left> <left>
-vnoremap <S-Down> <Down>
-vnoremap <S-Up> <Up>
-vnoremap <S-Right> <Right>
-
 " redraws the screen and removes any search highlighting
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
@@ -205,10 +191,18 @@ nnoremap <silent> <A-Left> :topleft vsplit<CR>
 nnoremap <silent> <A-Down> :botright split<CR>
 nnoremap <silent> <A-Up> :topleft split<CR>
 nnoremap <silent> <A-Right> :botright vsplit<CR>
+nnoremap <silent> <A-h> :topleft vsplit<CR>
+nnoremap <silent> <A-j> :botright split<CR>
+nnoremap <silent> <A-k> :topleft split<CR>
+nnoremap <silent> <A-l> :botright vsplit<CR>
 nnoremap <silent> <C-Left> :wincmd h<CR>
 nnoremap <silent> <C-Down> :wincmd j<CR>
 nnoremap <silent> <C-Up> :wincmd k<CR>
 nnoremap <silent> <C-Right> :wincmd l<CR>
+nnoremap <silent> <C-h> :wincmd h<CR>
+nnoremap <silent> <C-j> :wincmd j<CR>
+nnoremap <silent> <C-k> :wincmd k<CR>
+nnoremap <silent> <C-l> :wincmd l<CR>
 nnoremap <silent> <A-q> :close<CR>
 
 " fugitive git commands
