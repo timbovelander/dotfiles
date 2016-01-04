@@ -38,9 +38,10 @@ battery 0 {
   format = "%status %percentage"
   status_bat = "🔋"
   status_chr = "⚡"
-  status_full = "🔋"
+  status_full = "☻"
   low_threshold = 10
   threshold_type = "time"
+  integer_battery_capacity = true
 }
 
 tztime local {
