@@ -21,7 +21,7 @@ if [ "$distribution" == "debian" ]; then
   packageuninstall="sudo apt-get purge -y -qq"
   packagestatus="dpkg-query --status"
   packageinstalled="grep -q 'ok installed'"
-  nodesourceurl="https://deb.nodesource.com/setup_0.12"
+  nodesourceurl="https://deb.nodesource.com/setup_4.x"
 fi
 
 # update package repository
@@ -65,6 +65,4 @@ source "$HOME/.dotfiles/utils/install-html5tidy.sh"
 source "$HOME/.dotfiles/utils/install-vim.sh" init
 
 # copy all dotfiles to home
-echo "Copying dotfiles to ~..."
-rsync -q -r --exclude-from "$HOME/.dotfiles/utils/exclude-files" \
-  "$HOME/.dotfiles/" "$HOME/"
+source "$HOME/.dotfiles/utils/copy-files.sh"
