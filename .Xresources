@@ -64,6 +64,7 @@ URxvt.cursorBlink: false
 URxvt.cursorUnderline: false
 URxvt.fading: 0
 URxvt.font: xft:Droid Sans Mono:size=11
+URxvt.boldFont: xft:Droid Sans Mono:size=11
 URxvt.loginShell: true
 URxvt.scrollBar: false
 URxvt.perl-lib: .config/urxvt/perl
