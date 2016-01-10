@@ -19,7 +19,6 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'moll/vim-bbye'
 " vim utils
-Plugin 'tpope/vim-rvm'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'wellle/targets.vim'
@@ -31,6 +30,7 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'othree/yajs.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'dag/vim-fish'
 " code completion, extension, linting, ...
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'Valloric/YouCompleteMe'
@@ -50,6 +50,9 @@ runtime macros/matchit.vim
 " ===== General
 " enable filetype plugins
 filetype plugin indent on
+
+" set shell to bash
+set shell=bash
 
 " change split behaviour, split right and below
 set splitbelow
@@ -311,9 +314,6 @@ augroup vimrc
 
   " clear all previous autocmd's
   autocmd!
-
-  " rvm on vim enter (needed for scss_lint in syntastic)
-  autocmd VimEnter * exec "Rvm"
 
   " change backup file extension, add timestamp
   autocmd BufWritePre * let &backupext = "-" . strftime("%s") . ".vimbackup"

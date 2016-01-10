@@ -1,6 +1,8 @@
+autojump
 build-essential
 cmake
 curl
+fish
 fonts-droid
 perl
 python-dev
@@ -8,5 +10,5 @@ python-pip
 rsync
 silversearcher-ag
 vim
+vim-nox
 xsel
-zsh

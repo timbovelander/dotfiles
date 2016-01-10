@@ -28,7 +28,7 @@ fi
 echo "Updating package repository..."
 eval "$packageupdate"
 
-# install git if not yes installed
+# install git if not yet installed
 if ! command -v git &>/dev/null; then
   echo "Installing git..."
   eval "$packageinstall git"
@@ -46,17 +46,14 @@ while read package; do
   fi
 done <"$HOME/.dotfiles/utils/packages-$distribution"
 
-# install oh-my-zsh
-source "$HOME/.dotfiles/utils/install-ohmyzsh.sh"
-
-#install fasd
-source "$HOME/.dotfiles/utils/install-fasd.sh"
+# change shell
+chsh -s "/usr/bin/fish"
 
 # install node.js
 source "$HOME/.dotfiles/utils/install-node.sh"
 
-# install RVM
-source "$HOME/.dotfiles/utils/install-rvm.sh"
+# install rbenv
+source "$HOME/.dotfiles/utils/install-rbenv.sh"
 
 # install tidy-html5
 source "$HOME/.dotfiles/utils/install-html5tidy.sh"
