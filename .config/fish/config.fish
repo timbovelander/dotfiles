@@ -49,8 +49,10 @@ if test -e /usr/share/autojump/autojump.fish
 end
 
 # rbenv
-set PATH "$HOME/.rbenv/bin" $PATH
-status --is-interactive; and . (rbenv init -|psub)
+if test -d "$HOME/.rbenv"
+  set PATH "$HOME/.rbenv/bin" $PATH
+  status --is-interactive; and . (rbenv init -|psub)
+end
 
 # aliases
 alias fd "find -type d -name"
