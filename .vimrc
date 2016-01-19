@@ -163,9 +163,6 @@ vnoremap <leader>p "+p
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 
-" redraws the screen and removes any search highlighting
-nnoremap <silent> <C-l> :nohl<CR><C-l>
-
 " buffers
 nnoremap <silent> <leader>b :Unite -buffer-name=buffers -direction=botright -winheight=10 buffer<CR>
 nnoremap <silent> <C-Tab> :lclose<Bar>bnext<CR>
@@ -247,6 +244,10 @@ nnoremap <silent> <leader>= :call AdjustFontSize(2)<CR>
 imap <C-Tab> <Plug>(emmet-expand-abbr)
 vmap <C-Tab> <Plug>(emmet-expand-abbr)
 
+" ===== Commands
+" redraws the screen and removes any search highlighting
+command Clear nohl<Bar>redraw
+
 " ===== Plugin: Solarized
 " map ToggleBG key
 call togglebg#map('<F10>')
@@ -322,6 +323,7 @@ augroup vimrc
 
   " associate unknown file extensions with filetypes
   autocmd BufRead,BufNewFile *.jspf setfiletype jsp
+  autocmd BufRead,BufNewFile *.schema setfiletype json
   autocmd BufRead,BufNewFile *.template setfiletype html.handlebars
   autocmd BufRead,BufNewFile *.tag setfiletype html
 
