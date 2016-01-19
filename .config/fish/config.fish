@@ -41,7 +41,7 @@ set __fish_git_prompt_color cyan
 # environment variables
 set -x TERM "xterm-256color"
 set -x EDITOR "vim"
-set -x VISUAL "gvim"
+set -x VISUAL "vim"
 
 # autojump
 if test -e /usr/share/autojump/autojump.fish
