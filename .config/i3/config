@@ -19,6 +19,7 @@ floating_modifier $win
 
 # start a terminal
 bindsym $win+t exec i3-sensible-terminal
+bindsym $win+v exec gvim
 
 # kill focused window
 bindsym $win+q kill
