@@ -14,14 +14,12 @@ build() {
   cd "/tmp/ycm"
   cmake -G "Unix Makefiles" . "$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp"
   make
+  cd "$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/tern"
+  npm install --production
 
   # Build vimproc
   cd "$HOME/.vim/bundle/vimproc.vim"
   make
-
-  # Build Vundle tern_for_vim
-  cd "$HOME/.vim/bundle/tern_for_vim"
-  npm install
 }
 
 # Call arguments function
