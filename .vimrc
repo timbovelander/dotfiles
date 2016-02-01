@@ -14,7 +14,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 " ui utils
 Plugin 'scrooloose/nerdtree'
-Plugin 'bling/vim-airline'
+Plugin 'itchyny/lightline.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'moll/vim-bbye'
@@ -34,7 +34,6 @@ Plugin 'dag/vim-fish'
 " code completion, extension, linting, ...
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'marijnh/tern_for_vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'mattn/emmet-vim'
@@ -252,16 +251,64 @@ command Clear nohl<Bar>redraw
 " map ToggleBG key
 call togglebg#map('<F10>')
 
-" ===== Plugin: Airline
-" set seperators
-let g:airline_left_sep=' '
-let g:airline_right_sep=' '
+" ===== Plugin: Lightline
+let g:lightline = {
+\ 'colorscheme': 'solarized',
+\ 'active': {
+\   'left': [
+\     ['mode'],
+\     ['fugitive'],
+\     ['filename']
+\   ],
+\   'right': [
+\     ['syntastic', 'lineinfo'],
+\     ['percent'],
+\     ['fileformat', 'fileencoding', 'filetype']
+\   ]
+\ },
+\ 'component_function': {
+\   'fugitive': 'LightLineFugitive',
+\   'filename': 'LightLineFilename',
+\   'mode': 'LightLineMode'
+\ },
+\ 'component_expand': {
+\   'syntastic': 'SyntasticStatuslineFlag'
+\ },
+\ 'component_type': {
+\   'syntastic': 'error'
+\ }
+\}
+
+function! LightLineMode()
+  let fname = expand('%:t')
+  return fname =~ 'NERD_tree' ? 'NERDTree' :
+        \ &ft == 'unite' ? 'Unite' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! LightLineFilename()
+  let fname = expand('%:t')
+  return &ft == 'unite' ? unite#get_status_string() :
+        \ ('' != fname ? fname : '[No Name]') .
+        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
+
+function! LightLineModified()
+  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightLineFugitive()
+  try
+    if expand('%:t') !~? 'NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
+      let _ = fugitive#head()
+      return strlen(_) ? _ : ''
+    endif
+  catch
+  endtry
+  return ''
+endfunction
 
 " ===== Plugin: Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
@@ -302,11 +349,13 @@ let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogrou
 let g:unite_source_grep_command = "ag"
 let g:unite_source_grep_default_opts = "--line-numbers --nocolor --nogroup"
 
-" ===== Plugin: NeoComplete
+let g:unite_force_overwrite_statusline = 0
+
+" ===== Plugin: YouCompleteMe
 " add semantic triggers
-let g:ycm_semantic_triggers =  {
-\  'html,html.handlebars,jsp': ['<', 're!<.+\s'],
-\  'css': ['re!{\s', 're!^\s+', 're!:\s'],
+let g:ycm_semantic_triggers = {
+\ 'html,html.handlebars,jsp': ['<', 're!<.+\s'],
+\ 'css': ['re!{\s', 're!^\s+', 're!:\s']
 \}
 
 " ===== Autocmd's
