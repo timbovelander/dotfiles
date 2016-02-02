@@ -9,7 +9,7 @@ function update
   cd "$HOME/.vim/bundle/vimproc.vim"
   make
 
-  cd "$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/tern"
+  cd "$HOME/.vim/bundle/tern_for_vim"
   npm update
 
   sudo npm -g update
