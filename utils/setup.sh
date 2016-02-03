@@ -55,9 +55,6 @@ source "$HOME/.dotfiles/utils/install-node.sh"
 # install rbenv
 source "$HOME/.dotfiles/utils/install-rbenv.sh"
 
-# install tidy-html5
-source "$HOME/.dotfiles/utils/install-html5tidy.sh"
-
 # setup VIM
 source "$HOME/.dotfiles/utils/install-vim.sh" init
 
