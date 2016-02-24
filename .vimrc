@@ -176,3 +176,5 @@ let g:syntastic_scss_checkers = ['scss_lint']
 
 let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.emmet.json')), "\n"))
 let g:user_emmet_leader_key = '<C-e>'
+
+let g:tern_show_argument_hints = 'on_move'
