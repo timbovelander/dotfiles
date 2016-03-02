@@ -14,5 +14,7 @@ function update
 
   sudo npm -g update
 
+  apm update
+
   cd $current_directory
 end
