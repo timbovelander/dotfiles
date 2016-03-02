@@ -1,7 +1,4 @@
-'atom-text-editor.vim-mode.normal-mode':
-  'enter': 'editor:newline-below'
-  'shift-enter': 'editor:newline-above'
-
+'atom-text-editor.vim-mode:not(.insert-mode)':
   'space d': 'core:cut'
   'space y': 'core:copy'
   'space p': 'core:paste'
@@ -28,10 +25,13 @@
   'ctrl-right': 'window:focus-pane-on-right'
   'alt-q': 'pane:close'
 
-'atom-text-editor.vim-mode.visual-mode':
-  'space d': 'core:cut'
-  'space y': 'core:copy'
-  'space p': 'core:paste'
+  '%': 'bracket-matcher:go-to-matching-bracket'
+
+  'g c c': 'editor:toggle-line-comments'
+
+'atom-text-editor.vim-mode.normal-mode':
+  'enter': 'editor:newline-below'
+  'shift-enter': 'editor:newline-above'
 
 'atom-text-editor.vim-mode.insert-mode':
   'tab': 'snippets:next-tab-stop'
