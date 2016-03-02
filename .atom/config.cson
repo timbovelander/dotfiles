@@ -1,14 +1,14 @@
 "*":
-  "exception-reporting":
-    userId: "92d6c42a-ee71-9085-b8bf-c3d44febceda"
-  welcome:
-    showOnStartup: false
   core:
     audioBeep: false
     themes: [
       "one-dark-ui"
-      "Solarized Color Scheme",
+      "solarized-dark-syntax"
     ]
   editor:
-    invisibles: {}
-    fontFamily: "Droid Sans Mono"
+    fontFamily: "Hack"
+    fontSize: 15
+  "vim-mode":
+    useSmartcaseForSearch: true
+  welcome:
+    showOnStartup: false

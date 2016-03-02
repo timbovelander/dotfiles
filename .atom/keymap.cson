@@ -1,5 +1,34 @@
-'body':
-  'alt-down': 'pane:split-down'
+'atom-text-editor.vim-mode.normal-mode':
+  'enter': 'editor:newline'
+  'shift-enter': 'editor:newline-above'
+
+  'space d': 'core:cut'
+  'space y': 'core:copy'
+  'space p': 'core:paste'
+
+  '\\': 'project-find:show'
+
+  'ctrl-q': 'tabs:close-tab'
+
+  'alt-h': 'pane:split-left'
+  'alt-j': 'pane:split-down'
+  'alt-k': 'pane:split-up'
+  'alt-l': 'pane:split-right'
   'alt-left': 'pane:split-left'
-  'alt-right': 'pane:split-right'
+  'alt-down': 'pane:split-down'
   'alt-up': 'pane:split-up'
+  'alt-right': 'pane:split-right'
+  'ctrl-h': 'window:focus-pane-on-left'
+  'ctrl-j': 'window:focus-pane-below'
+  'ctrl-k': 'window:focus-pane-above'
+  'ctrl-l': 'window:focus-pane-on-right'
+  'ctrl-left': 'window:focus-pane-on-left'
+  'ctrl-down': 'window:focus-pane-below'
+  'ctrl-up': 'window:focus-pane-above'
+  'ctrl-right': 'window:focus-pane-on-right'
+  'alt-q': 'pane:close'
+
+'atom-text-editor.vim-mode.visual-mode':
+  'space d': 'core:cut'
+  'space y': 'core:copy'
+  'space p': 'core:paste'
