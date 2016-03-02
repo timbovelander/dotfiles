@@ -1,6 +1,8 @@
 "*":
   core:
-    audioBeep: false
+    audioBeep: false,
+    customFileTypes:
+      "text.html.mustache": ["template"]
     themes: [
       "one-dark-ui"
       "solarized-dark-syntax"

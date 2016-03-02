@@ -1,5 +1,5 @@
 'atom-text-editor.vim-mode.normal-mode':
-  'enter': 'editor:newline'
+  'enter': 'editor:newline-below'
   'shift-enter': 'editor:newline-above'
 
   'space d': 'core:cut'
@@ -32,3 +32,6 @@
   'space d': 'core:cut'
   'space y': 'core:copy'
   'space p': 'core:paste'
+
+'atom-text-editor.vim-mode.insert-mode':
+  'tab': 'snippets:next-tab-stop'
