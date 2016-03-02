@@ -3,7 +3,7 @@ build-essential
 cmake
 curl
 fish
-fonts-droid
+fonts-hack
 perl
 python-dev
 python-pip
