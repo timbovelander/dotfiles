@@ -18,6 +18,8 @@
   ssp = stash pop
 [color]
   ui = auto
+[core]
+	excludesfile = ~/.gitignore
 [diff]
   tool = vimdiff
   guitool = gvimdiff
@@ -31,4 +33,4 @@
   default = simple
 [user]
   name = Tim Bovelander
-  email = tim@timenwietske.nl
+  email = tbovelander@bol.com
