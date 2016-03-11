@@ -55,6 +55,7 @@ if test -d "$HOME/.rbenv"
 end
 
 # aliases
+alias e "emacsclient -c -a emacs"
 alias fd "find -type d -name"
 alias ff "find -type f -name"
 alias g "git"
