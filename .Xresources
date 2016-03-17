@@ -63,8 +63,8 @@ Xft.hinting: true
 URxvt.cursorBlink: false
 URxvt.cursorUnderline: false
 URxvt.fading: 0
-URxvt.font: xft:Droid Sans Mono:size=11
-URxvt.boldFont: xft:Droid Sans Mono:size=11
+URxvt.font: xft:Roboto Mono:size=12
+URxvt.boldFont: xft:Roboto Mono:size=12
 URxvt.loginShell: true
 URxvt.scrollBar: false
 URxvt.perl-lib: .config/urxvt/perl

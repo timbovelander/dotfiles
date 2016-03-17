@@ -4,7 +4,7 @@ set $alt Mod1
 set $win Mod4
 
 # set font
-font pango:Droid Sans Mono 11
+font pango:Roboto Mono 12
 
 # colors
 client.focused #93a1a1 #eee8d5 #657b83 #b58900
@@ -150,7 +150,7 @@ bar {
     urgent_workspace #dc322f #073642 #839496
     binding_mode #b58900 #b58900 #fdf6e3
   }
-  font pango:Droid Sans Mono 11
+  font pango:Roboto Mono 12
   position top
   status_command i3status
   tray_output primary

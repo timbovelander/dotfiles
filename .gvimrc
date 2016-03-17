@@ -1,6 +1,6 @@
 " ===== Appearance
 set linespace=6
-set guifont=Hack\ 11
+set guifont=Roboto\ Mono\ 12
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r

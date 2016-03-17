@@ -8,8 +8,8 @@
       "solarized-dark-syntax"
     ]
   editor:
-    fontFamily: "Hack"
-    fontSize: 15
+    fontFamily: "Roboto Mono"
+    fontSize: 16
   "vim-mode":
     useSmartcaseForSearch: true
   welcome:
