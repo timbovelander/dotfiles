@@ -54,8 +54,11 @@ source "$HOME/.dotfiles/scripts/nodejs.sh"
 # install rbenv
 source "$HOME/.dotfiles/scripts/rbenv.sh"
 
-# setup VIM
-source "$HOME/.dotfiles/scripts/install-vim.sh" init
+# install ViM
+source "$HOME/.dotfiles/scripts/vim.sh" init
+
+# install emacs
+source "$HOME/.dotfiles/scripts/emacs.sh"
 
 # create symlinks for all home dotfiles
 source "$HOME/.dotfiles/scripts/symlinks.sh"
