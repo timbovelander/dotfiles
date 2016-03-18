@@ -21,7 +21,6 @@ if [ "$distribution" == "debian" ]; then
   packageuninstall="sudo apt-get purge -y -qq"
   packagestatus="dpkg-query --status"
   packageinstalled="grep -q 'ok installed'"
-  nodesourceurl="https://deb.nodesource.com/setup_4.x"
 fi
 
 # update package repository
@@ -44,19 +43,19 @@ while read package; do
     echo "Installing $package..."
     eval "$packageinstall $package"
   fi
-done <"$HOME/.dotfiles/utils/packages-$distribution"
+done <"$HOME/.dotfiles/scripts/packages-$distribution"
 
 # change shell
 chsh -s "/usr/bin/fish"
 
 # install node.js
-source "$HOME/.dotfiles/utils/install-node.sh"
+source "$HOME/.dotfiles/scripts/nodejs.sh"
 
 # install rbenv
-source "$HOME/.dotfiles/utils/install-rbenv.sh"
+source "$HOME/.dotfiles/scripts/rbenv.sh"
 
 # setup VIM
-source "$HOME/.dotfiles/utils/install-vim.sh" init
+source "$HOME/.dotfiles/scripts/install-vim.sh" init
 
-# copy all dotfiles to home
-source "$HOME/.dotfiles/utils/copy-files.sh"
+# create symlinks for all home dotfiles
+source "$HOME/.dotfiles/scripts/symlinks.sh"

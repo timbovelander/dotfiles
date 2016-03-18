@@ -6,7 +6,6 @@ set -u
 # install nodejs
 if ! eval "$packagestatus nodejs" 2>/dev/null | eval "$packageinstalled"; then
   echo "Installing nodejs..."
-  curl -sL "$nodesourceurl" | sudo bash - >/dev/null
   eval "$packageinstall nodejs"
 fi
 
@@ -19,5 +18,5 @@ if command -v npm &>/dev/null; then
       sudo npm -g install $module >/dev/null
 
     fi
-  done <"$HOME/.dotfiles/utils/node-modules"
+  done <"$HOME/.dotfiles/scripts/node-modules"
 fi
