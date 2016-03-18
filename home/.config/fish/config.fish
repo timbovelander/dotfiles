@@ -40,8 +40,8 @@ set __fish_git_prompt_color cyan
 
 # environment variables
 set -x TERM "xterm-256color"
-set -x EDITOR "vim"
-set -x VISUAL "vim"
+set -x EDITOR "emacsclient -t -a emacs"
+set -x VISUAL "emacsclient -t -a emacs"
 
 # autojump
 if test -e /usr/share/autojump/autojump.fish
@@ -55,9 +55,12 @@ if test -d "$HOME/.rbenv"
 end
 
 # aliases
-alias e "emacsclient -c -a emacs"
 alias fd "find -type d -name"
 alias ff "find -type f -name"
 alias g "git"
 alias l "ls -la"
 alias search "ag --pager 'less'"
+
+function e
+  emacsclient -c -a emacs $argv &
+end

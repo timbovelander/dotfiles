@@ -19,16 +19,22 @@
 [color]
   ui = auto
 [core]
+  editor = emacsclient -c -a emacs
 	excludesfile = ~/.gitignore
 [diff]
-  tool = vimdiff
-  guitool = gvimdiff
+  tool = ediff
+  guitool = ediff
 [difftool]
   prompt = false
+[difftool "ediff"]
+  cmd = ~/.scripts/ediff.sh $LOCAL $REMOTE $MERGED
 [merge]
-  tool = vimdiff
+  tool = ediff
 [mergetool]
   prompt = false
+[mergetool "ediff"]
+  cmd = ~/.scripts/ediff.sh $LOCAL $REMOTE $MERGED $BASE
+  trustExitCode = true
 [push]
   default = simple
 [user]
