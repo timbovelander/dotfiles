@@ -96,11 +96,11 @@ values."
     dotspacemacs-colorize-cursor-according-to-state t
     ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
     ;; size to make separators look not too crappy.
-    dotspacemacs-default-font '("Hack"
-                                 :size 15
+    dotspacemacs-default-font '("Roboto Mono"
+                                 :size 16
                                  :weight normal
                                  :width normal
-                                 :powerline-scale 1.2)
+                                 :powerline-scale 1.1)
     ;; The leader key
     dotspacemacs-leader-key "SPC"
     ;; The leader key accessible in `emacs state' and `insert state'
@@ -196,14 +196,14 @@ values."
     ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
     ;; derivatives. If set to `relative', also turns on relative line numbers.
     ;; (default nil)
-    dotspacemacs-line-numbers nil
+    dotspacemacs-line-numbers t
     ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
     ;; (default nil)
     dotspacemacs-smartparens-strict-mode nil
     ;; Select a scope to highlight delimiters. Possible values are `any',
     ;; `current', `all' or `nil'. Default is `all' (highlight any scope and
     ;; emphasis the current one). (default 'all)
-    dotspacemacs-highlight-delimiters 'all
+    dotspacemacs-highlight-delimiters nil
     ;; If non nil advises quit functions to keep server open when quitting.
     ;; (default nil)
     dotspacemacs-persistent-server nil
