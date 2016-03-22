@@ -48,6 +48,9 @@ done <"$HOME/.dotfiles/scripts/packages-$distribution"
 # change shell
 chsh -s "/usr/bin/fish"
 
+# install fasd
+source "$HOME/.dotfiles/scripts/fasd.sh"
+
 # install node.js
 source "$HOME/.dotfiles/scripts/nodejs.sh"
 

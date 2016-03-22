@@ -44,9 +44,9 @@ set -x EDITOR "emacsclient -t -a emacs"
 set -x VISUAL "emacsclient -t -a emacs"
 
 # autojump
-if test -e /usr/share/autojump/autojump.fish
-  source /usr/share/autojump/autojump.fish
-end
+# if test -e /usr/share/autojump/autojump.fish
+#   source /usr/share/autojump/autojump.fish
+# end
 
 # rbenv
 if test -d "$HOME/.rbenv"
