@@ -43,10 +43,15 @@ set -x TERM "xterm-256color"
 set -x EDITOR "emacsclient -t -a emacs"
 set -x VISUAL "emacsclient -t -a emacs"
 
-# autojump
-# if test -e /usr/share/autojump/autojump.fish
-#   source /usr/share/autojump/autojump.fish
-# end
+# fasd or autojump
+begin
+  command -s fasd >/dev/null
+  and test -e "$HOME/.local/share/fasd/fasd.fish"
+  and source "$HOME/.local/share/fasd/fasd.fish"
+end; or begin
+  test -e "/usr/share/autojump/autojump.fish"
+  and source "/usr/share/autojump/autojump.fish"
+end
 
 # rbenv
 if test -d "$HOME/.rbenv"
