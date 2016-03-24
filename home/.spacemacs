@@ -18,12 +18,15 @@ values."
     ;; of a list then all discovered layers will be installed.
     dotspacemacs-configuration-layers
     '(
-       auto-completion
+       (auto-completion :variables
+         auto-completion-enable-snippets-in-popup t)
        emacs-lisp
        git
        html
        javascript
        markdown
+       (ruby :variables
+         ruby-version-manager 'rbenv)
        shell-scripts
        syntax-checking
        yaml
@@ -168,7 +171,7 @@ values."
     ;; If non nil a progress bar is displayed when spacemacs is loading. This
     ;; may increase the boot time on some systems and emacs builds, set it to
     ;; nil to boost the loading time. (default t)
-    dotspacemacs-loading-progress-bar t
+    dotspacemacs-loading-progress-bar nil
     ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
     ;; (Emacs 24.4+ only)
     dotspacemacs-fullscreen-at-startup nil
@@ -196,7 +199,7 @@ values."
     ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
     ;; derivatives. If set to `relative', also turns on relative line numbers.
     ;; (default nil)
-    dotspacemacs-line-numbers t
+    dotspacemacs-line-numbers nil
     ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
     ;; (default nil)
     dotspacemacs-smartparens-strict-mode nil
@@ -230,6 +233,7 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  (setq vc-follow-symlinks 1)
   )
 
 (defun dotspacemacs/user-config ()
@@ -239,10 +243,12 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
-
-  (setq vc-follow-symlinks t)
-
   (editorconfig-mode 1)
+  (global-company-mode 1)
+  (global-linum-mode 1)
+  (global-rbenv-mode 1)
+
+  (define-key evil-insert-state-map (kbd "C-SPC") 'company-complete)
 
   (add-to-list 'auto-mode-alist '("\\.schema\\'" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.template\\'" . web-mode))
