@@ -17,7 +17,12 @@ function fasd_cd
   else
     set -l ret (command fasd -e 'printf %s' $argv)
     test -z "$ret"; and return
-    test -d "$ret"; and cd "$ret"; or printf "%s\n" $ret
+    if test -d "$ret"
+      set_color green; echo "$ret"; set_color normal
+      cd "$ret"
+    else
+      set_color red; echo "$ret"; set_color normal
+    end
   end
 end
 
