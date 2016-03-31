@@ -19,7 +19,7 @@
 [color]
   ui = auto
 [core]
-  editor = emacsclient -t -a emacs
+  editor = emacsclient -c -a emacs
 	excludesfile = ~/.gitignore
 [diff]
   tool = ediff

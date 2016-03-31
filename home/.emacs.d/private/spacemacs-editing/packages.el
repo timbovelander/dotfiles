@@ -77,3 +77,68 @@
             (setq ad-return-value (cons new-msg new-bindings)))))
       (setq expand-region-contract-fast-key "V"
             expand-region-reset-fast-key "r"))))
+
+(defun spacemacs-editing/init-smartparens ()
+  (use-package smartparens
+    :defer t
+    :commands (sp-split-sexp sp-newline)
+    :init
+    (progn
+      (spacemacs/add-to-hooks (if dotspacemacs-smartparens-strict-mode
+                                  'smartparens-strict-mode
+                                'smartparens-mode)
+                              '(prog-mode-hook))
+
+      ;; enable smartparens-mode in `eval-expression'
+      (defun conditionally-enable-smartparens-mode ()
+        "Enable `smartparens-mode' in the minibuffer, during `eval-expression'."
+        (if (eq this-command 'eval-expression)
+            (smartparens-mode)))
+
+      (add-hook 'minibuffer-setup-hook 'conditionally-enable-smartparens-mode)
+
+      (spacemacs|add-toggle smartparens
+        :status smartparens-mode
+        :on (smartparens-mode)
+        :off (smartparens-mode -1)
+        :documentation "Enable smartparens."
+        :evil-leader "tp")
+
+      (spacemacs|add-toggle smartparens-globally
+        :status smartparens-mode
+        :on (smartparens-global-mode)
+        :off (smartparens-global-mode -1)
+        :documentation "Enable smartparens globally."
+        :evil-leader "t C-p")
+
+      (setq sp-show-pair-delay 0.2
+            ;; fix paren highlighting in normal mode
+            sp-show-pair-from-inside t
+            sp-cancel-autoskip-on-backward-movement nil)
+
+      (spacemacs/set-leader-keys
+        "J"  'sp-split-sexp
+        "jj" 'sp-newline))
+    :config
+    (progn
+      (require 'smartparens-config)
+      (spacemacs|diminish smartparens-mode " ⓟ" " p")
+
+      (show-smartparens-global-mode +1)
+
+      (defun spacemacs/smartparens-pair-newline (id action context)
+        (save-excursion
+          (newline)
+          (indent-according-to-mode)))
+
+      (defun spacemacs/smartparens-pair-newline-and-indent (id action context)
+        (spacemacs/smartparens-pair-newline id action context)
+        (indent-according-to-mode))
+
+      ;; don't create a pair with single quote in minibuffer
+      (sp-local-pair 'minibuffer-inactive-mode "'" nil :actions nil)
+
+      (sp-pair "{" nil :post-handlers
+               '(:add (spacemacs/smartparens-pair-newline-and-indent "RET")))
+      (sp-pair "[" nil :post-handlers
+               '(:add (spacemacs/smartparens-pair-newline-and-indent "RET"))))))
