@@ -10,7 +10,7 @@ values."
     ;; Base distribution to use. This is a layer contained in the directory
     ;; `+distribution'. For now available distributions are `spacemacs-base'
     ;; or `spacemacs'. (default 'spacemacs)
-    dotspacemacs-distribution 'spacemacs
+    dotspacemacs-distribution 'spacemacs-base
     ;; List of additional paths where to look for configuration layers.
     ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
     dotspacemacs-configuration-layer-path '()
@@ -21,14 +21,22 @@ values."
        (auto-completion :variables
          auto-completion-enable-snippets-in-popup t)
        emacs-lisp
+       evil-commentary
        git
        html
+       java
        javascript
        markdown
+       php
        (ruby :variables
          ruby-version-manager 'rbenv)
+       spacemacs-editing
+       spacemacs-evil
+       spacemacs-helm
+       spacemacs-ui
        shell-scripts
        syntax-checking
+       version-control
        yaml
        )
     ;; List of additional packages that will be installed without being
@@ -93,8 +101,11 @@ values."
     ;; List of themes, the first of the list is loaded when spacemacs starts.
     ;; Press <SPC> T n to cycle to the next theme in the list (works great
     ;; with 2 themes variants, one dark and one light)
-    dotspacemacs-themes '(solarized-dark
-                           solarized-light)
+    dotspacemacs-themes
+    '(
+      solarized-light
+      solarized-dark
+      )
     ;; If non nil the cursor color matches the state color in GUI Emacs.
     dotspacemacs-colorize-cursor-according-to-state t
     ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -234,6 +245,7 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq vc-follow-symlinks 1)
+  (setq rbenv-modeline-function 'rbenv--modeline-plain)
   )
 
 (defun dotspacemacs/user-config ()
@@ -244,9 +256,9 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
   (editorconfig-mode 1)
-  (global-company-mode 1)
   (global-linum-mode 1)
   (global-rbenv-mode 1)
+  (golden-ratio-mode 1)
 
   (define-key evil-insert-state-map (kbd "C-SPC") 'company-complete)
 
