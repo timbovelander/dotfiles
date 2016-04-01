@@ -36,7 +36,8 @@ values."
        spacemacs-ui
        shell-scripts
        syntax-checking
-       version-control
+       (version-control :variables
+         version-control-diff-tool 'git-gutter+)
        yaml
        )
     ;; List of additional packages that will be installed without being
@@ -220,7 +221,7 @@ values."
     dotspacemacs-highlight-delimiters nil
     ;; If non nil advises quit functions to keep server open when quitting.
     ;; (default nil)
-    dotspacemacs-persistent-server nil
+    dotspacemacs-persistent-server t
     ;; List of search tool executable names. Spacemacs uses the first installed
     ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
     ;; (default '("ag" "pt" "ack" "grep"))
