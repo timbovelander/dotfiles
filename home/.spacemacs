@@ -266,10 +266,15 @@ you should place you code here."
   (define-key evil-insert-state-map (kbd "C-SPC") 'company-complete)
 
   (add-to-list 'auto-mode-alist '("\\.schema\\'" . json-mode))
+  (add-to-list 'auto-mode-alist '("\\.tag\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.template\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
 
   (setq web-mode-engines-alist
-    '(("ctemplate" . "\\.template\\'")))
+    '(
+       ("ctemplate" . "\\.template\\'")
+       ("riot" . "\\.tag\\'")
+       ("underscore" . "\\.tpl\\'")))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
