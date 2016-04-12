@@ -30,6 +30,9 @@ values."
        php
        (ruby :variables
          ruby-version-manager 'rbenv)
+       (shell :variables
+         shell-default-shell 'ansi-term
+         shell-default-term-shell "/usr/bin/fish")
        spacemacs-editing
        spacemacs-evil
        spacemacs-helm
