@@ -10,7 +10,7 @@ values."
     ;; Base distribution to use. This is a layer contained in the directory
     ;; `+distribution'. For now available distributions are `spacemacs-base'
     ;; or `spacemacs'. (default 'spacemacs)
-    dotspacemacs-distribution 'spacemacs-base
+    dotspacemacs-distribution 'spacemacs
     ;; List of additional paths where to look for configuration layers.
     ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
     dotspacemacs-configuration-layer-path '()
@@ -33,10 +33,10 @@ values."
        (shell :variables
          shell-default-shell 'ansi-term
          shell-default-term-shell "/usr/bin/fish")
-       spacemacs-editing
-       spacemacs-evil
-       spacemacs-helm
-       spacemacs-ui
+       ;; spacemacs-editing
+       ;; spacemacs-evil
+       ;; spacemacs-helm
+       ;; spacemacs-ui
        shell-scripts
        syntax-checking
        (version-control :variables
@@ -118,7 +118,7 @@ values."
                                  :size 16
                                  :weight normal
                                  :width normal
-                                 :powerline-scale 1.1)
+                                 :powerline-scale 1)
     ;; The leader key
     dotspacemacs-leader-key "SPC"
     ;; The leader key accessible in `emacs state' and `insert state'
