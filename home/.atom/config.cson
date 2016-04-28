@@ -1,16 +1,15 @@
 "*":
   core:
-    audioBeep: false,
-    customFileTypes:
-      "text.html.mustache": ["template"]
+    audioBeep: false
+    destroyEmptyPanes: false
+    projectHome: "~/projects"
     themes: [
-      "one-dark-ui"
-      "solarized-dark-syntax"
+      "one-light-ui"
+      "solarized-light-syntax"
     ]
   editor:
     fontFamily: "Roboto Mono"
     fontSize: 16
-  "vim-mode":
-    useSmartcaseForSearch: true
+    showIndentGuide: true
   welcome:
     showOnStartup: false
