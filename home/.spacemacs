@@ -224,7 +224,7 @@ values."
     dotspacemacs-highlight-delimiters nil
     ;; If non nil advises quit functions to keep server open when quitting.
     ;; (default nil)
-    dotspacemacs-persistent-server t
+    dotspacemacs-persistent-server nil
     ;; List of search tool executable names. Spacemacs uses the first installed
     ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
     ;; (default '("ag" "pt" "ack" "grep"))
@@ -278,6 +278,8 @@ you should place you code here."
        ("ctemplate" . "\\.template\\'")
        ("riot" . "\\.tag\\'")
        ("underscore" . "\\.tpl\\'")))
+
+  (define-key evil-insert-state-map (kbd "TAB") 'hippie-expand)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

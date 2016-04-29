@@ -40,8 +40,8 @@ set __fish_git_prompt_color cyan
 
 # environment variables
 set -x TERM "xterm-256color"
-set -x EDITOR "emacsclient -t -a emacs"
-set -x VISUAL "emacsclient -t -a emacs"
+set -x EDITOR "emacs"
+set -x VISUAL "emacs"
 
 # fasd or autojump
 begin

@@ -55,15 +55,15 @@ function j
 end
 
 function ea
-  command fasd $argv -e "emacsclient -c -a emacs"
+  command fasd $argv -e "emacs"
 end
 
 function ed
-  command fasd -d $argv -e "emacsclient -c -a emacs"
+  command fasd -d $argv -e "emacs"
 end
 
 function ef
-  command fasd -f $argv -e "emacsclient -c -a emacs"
+  command fasd -f $argv -e "emacs"
 end
 
 complete -c fasd -a "(__fasd_print_completions)" -f

@@ -26,8 +26,8 @@ else
   _EVAL="${_EDIFF} \"${_LOCAL}\" \"${_REMOTE}\" nil \"${_MERGED}\""
 fi
 
-# run emacsclient
-emacsclient -c -a emacs -e "(${_EVAL})" 2>&1
+# run emacs
+emacs -e "(${_EVAL})" 2>&1
 
 # check modified file
 if [ ! $(egrep -c '^(<<<<<<<|=======|>>>>>>>|####### Ancestor)' ${_MERGED}) = 0 ]; then
