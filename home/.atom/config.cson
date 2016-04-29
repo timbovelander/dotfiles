@@ -2,6 +2,10 @@
   core:
     audioBeep: false
     destroyEmptyPanes: false
+    packagesWithKeymapsDisabled: [
+      "emmet"
+      "atom-ternjs"
+    ]
     projectHome: "~/projects"
     themes: [
       "one-light-ui"
@@ -11,5 +15,14 @@
     fontFamily: "Roboto Mono"
     fontSize: 16
     showIndentGuide: true
+  "vim-mode-plus":
+    clearHighlightSearchOnResetNormalMode: true
+    flashOnOperate: false
+    flashOnSearch: false
+    flashScreenOnSearchHasNoMatch: false
+    highlightSearch: true
+    incrementalSearch: true
+    useSmartcaseForSearch: true
+    useSmartcaseForSearchCurrentWord: true
   welcome:
     showOnStartup: false

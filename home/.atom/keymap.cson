@@ -1,0 +1,62 @@
+'atom-text-editor.vim-mode-plus.normal-mode':
+  ':': 'command-palette:toggle'
+  'enter': 'editor:newline-below'
+  'shift-enter': 'editor:newline-above'
+
+  # surround
+  'y s': 'vim-mode-plus:surround'
+  'c s': 'vim-mode-plus:change-surround'
+  'd s': 'vim-mode-plus:delete-surround'
+
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'home': 'vim-mode-plus:move-to-first-character-of-line'
+
+  # spacemacs
+  'space /': 'find-and-replace:show'
+  'space tab': 'pane:show-next-recently-used-item'
+
+  # buffers
+  'space b d': 'tabs:close-tab'
+  'space b D': 'tabs:close-all-tabs'
+  'space b k': 'tabs:close-saved-tabs'
+  'space b K': 'tabs:close-other-tabs'
+
+  # projects
+  'space p b': 'fuzzy-finder:toggle-buffer-finder'
+  'space p f': 'fuzzy-finder:toggle-file-finder'
+  'space p p': 'project-manager:list-projects'
+
+  # quit
+  'space q q': 'window:close'
+
+  # search
+  'space s b': 'find-and-replace:show'
+  'space s f': 'fuzzy-finder:toggle-file-finder'
+  'space s p': 'project-find:show'
+
+  # windows
+  'space w h': 'window:focus-pane-on-left'
+  'space w left': 'window:focus-pane-on-left'
+  'space w l': 'window:focus-pane-on-right'
+  'space w right': 'window:focus-pane-on-right'
+  'space w k': 'window:focus-pane-above'
+  'space w up': 'window:focus-pane-above'
+  'space w j': 'window:focus-pane-below'
+  'space w down': 'window:focus-pane-below'
+  'space w tab': 'window:focus-next-pane'
+  'space w c': 'pane:close'
+  'space w -': 'pane:split-down-and-copy-active-item'
+  'space w /': 'pane:split-right-and-copy-active-item'
+
+'atom-text-editor.vim-mode-plus.visual-mode':
+  # expand-region
+  '+': 'expand-region:expand'
+  '=': 'expand-region:expand'
+  '_': 'expand-region:shrink'
+  '-': 'expand-region:shrink'
+
+'atom-pane atom-text-editor[data-grammar~="html"]:not([mini]):not(.autocomplete-active), atom-pane atom-text-editor[data-grammar~="xml"]:not([mini]):not(.autocomplete-active)':
+  'enter': 'emmet:insert-formatted-line-break-only'
+
+'atom-text-editor[data-grammar="text html basic"]:not([mini]), atom-text-editor[data-grammar~="erb"]:not([mini]), atom-text-editor[data-grammar~="jade"]:not([mini]), atom-text-editor[data-grammar~="css"]:not([mini]), atom-text-editor[data-grammar~="stylus"]:not([mini]), atom-text-editor[data-grammar~="sass"]:not([mini]), atom-text-editor[data-grammar~="scss"]:not([mini]), atom-text-editor[data-grammar~="mustache"]:not([mini])':
+  'tab': 'emmet:expand-abbreviation-with-tab'
