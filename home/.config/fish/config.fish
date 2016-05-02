@@ -43,6 +43,11 @@ set -x TERM "xterm-256color"
 set -x EDITOR "emacs"
 set -x VISUAL "emacs"
 
+# fix for fisherman in fish 2.2.0
+for file in ~/.config/fish/conf.d/*.fish
+  source $file
+end
+
 # fasd or autojump
 begin
   command -s fasd >/dev/null
@@ -60,12 +65,9 @@ if test -d "$HOME/.rbenv"
 end
 
 # aliases
+alias e "emacs"
 alias fd "find -type d -name"
 alias ff "find -type f -name"
 alias g "git"
 alias l "ls -la"
 alias search "ag --pager 'less'"
-
-function e
-  emacsclient -c -a emacs $argv &
-end
