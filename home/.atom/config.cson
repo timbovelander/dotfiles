@@ -1,6 +1,14 @@
 "*":
   core:
     audioBeep: false
+    closeEmptyWindows: false
+    customFileTypes:
+      "source.json": [
+        "schema"
+      ]
+      "text.html.mustache": [
+        "template"
+      ]
     destroyEmptyPanes: false
     packagesWithKeymapsDisabled: [
       "emmet"
@@ -15,6 +23,9 @@
     fontFamily: "Roboto Mono"
     fontSize: 16
     showIndentGuide: true
+  "project-manager":
+    closeCurrent: true
+    sortBy: "title"
   "vim-mode-plus":
     clearHighlightSearchOnResetNormalMode: true
     flashOnOperate: false

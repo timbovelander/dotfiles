@@ -1,5 +1,6 @@
 'atom-text-editor.vim-mode-plus.normal-mode':
   ':': 'command-palette:toggle'
+  ': w enter': 'core:save'
   'enter': 'editor:newline-below'
   'shift-enter': 'editor:newline-above'
 
@@ -54,6 +55,9 @@
   '=': 'expand-region:expand'
   '_': 'expand-region:shrink'
   '-': 'expand-region:shrink'
+
+'atom-text-editor[data-grammar~="html"].vim-mode-plus:not(.insert-mode)':
+  '%': 'bracket-matcher:go-to-matching-bracket'
 
 'atom-pane atom-text-editor[data-grammar~="html"]:not([mini]):not(.autocomplete-active), atom-pane atom-text-editor[data-grammar~="xml"]:not([mini]):not(.autocomplete-active)':
   'enter': 'emmet:insert-formatted-line-break-only'
