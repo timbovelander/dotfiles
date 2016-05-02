@@ -4,7 +4,7 @@ function update
   sudo apt-get update
   sudo apt-get dist-upgrade
 
-  sudo npm -g update
+  npm -g update
 
   cd "$HOME/.dotfiles"
   git pull
