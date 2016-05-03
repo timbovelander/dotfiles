@@ -8,10 +8,11 @@
   'space \\': 'project-find:show'
   'space tab': 'pane:show-next-recently-used-item'
 
+  'space b b': 'fuzzy-finder:toggle-buffer-finder'
   'space b d': 'tabs:close-tab'
-  'space b D': 'tabs:close-all-tabs'
-  'space b k': 'tabs:close-saved-tabs'
-  'space b K': 'tabs:close-other-tabs'
+  'space b D': 'tabs:close-other-tabs'
+  'space b n': 'application:new-file'
+  'space b r': 'recent-files-fuzzy-finder:toggle-finder'
 
   'space g a': 'git-plus:add'
   'space g A': 'git-plus:add-all'
@@ -51,12 +52,17 @@
   'enter': 'editor:newline-below'
   'shift-enter': 'editor:newline-above'
 
+  'g c c': 'editor:toggle-line-comments'
+
   'y s': 'vim-mode-plus:surround'
   'c s': 'vim-mode-plus:change-surround'
   'd s': 'vim-mode-plus:delete-surround'
 
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
   'home': 'vim-mode-plus:move-to-first-character-of-line'
+  
+  'g c': 'vim-mode-plus:toggle-line-comments'
+  'g C': 'vim-mode-plus:camel-case'
 
 'atom-text-editor.vim-mode-plus.visual-mode':
   '+': 'expand-region:expand'
@@ -65,10 +71,11 @@
   '-': 'expand-region:shrink'
 
 '.tree-view':
-  '+': 'tree-view:add-folder'
-  'd': 'tree-view:remove'
+  'escape': 'tree-view:toggle'
+  'd': 'tree-view:add-folder'
   'n': 'tree-view:add-file'
   'q': 'tree-view:toggle'
+  'r': 'tree-view:rename'
 
 'atom-text-editor[data-grammar="source diff"],
 .git-plus-log':

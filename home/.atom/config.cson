@@ -12,6 +12,7 @@
     packagesWithKeymapsDisabled: [
       "emmet"
       "atom-ternjs"
+      "recent-files-fuzzy-finder"
     ]
     projectHome: "~/projects"
     themes: [
@@ -29,6 +30,7 @@
     flashScreenOnSearchHasNoMatch: false
     highlightSearch: true
     incrementalSearch: true
+    setCursorToStartOfChangeOnUndoRedo: true
     useSmartcaseForSearch: true
     useSmartcaseForSearchCurrentWord: true
   welcome:
