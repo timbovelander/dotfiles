@@ -14,6 +14,8 @@
   'space b K': 'tabs:close-other-tabs'
 
   'space p b': 'fuzzy-finder:toggle-buffer-finder'
+  'space p d': 'tree-view:reveal-active-file'
+  'space p D': 'tree-view:show'
   'space p f': 'fuzzy-finder:toggle-file-finder'
   'space p p': 'project-manager:list-projects'
 
@@ -35,6 +37,12 @@
   'space w c': 'pane:close'
   'space w -': 'pane:split-down-and-copy-active-item'
   'space w /': 'pane:split-right-and-copy-active-item'
+
+'.tree-view':
+  'escape': 'tree-view:toggle'
+  '+': 'tree-view:add-folder'
+  'd': 'tree-view:remove'
+  'n': 'tree-view:add-file'
 
 'atom-text-editor.vim-mode-plus.normal-mode':
   'enter': 'editor:newline-below'
