@@ -1,9 +1,8 @@
 'atom-text-editor':
-  ':': 'native!'
   'space': 'native!'
 
-'atom-pane, atom-text-editor.vim-mode-plus.normal-mode, .tree-view':
-  ':': 'command-palette:toggle'
+'atom-workspace, atom-text-editor.vim-mode-plus.normal-mode':
+  'space :': 'command-palette:toggle'
 
   'space /': 'find-and-replace:show'
   'space \\': 'project-find:show'
@@ -30,7 +29,7 @@
   'space p d': 'tree-view:reveal-active-file'
   'space p D': 'tree-view:show'
   'space p f': 'fuzzy-finder:toggle-file-finder'
-  'space p p': 'project-manager:list-projects'
+  'space p p': 'project-plus:toggle-project-finder'
   'space p s': 'fuzzy-grep:toggle'
 
   'space q q': 'window:close'
