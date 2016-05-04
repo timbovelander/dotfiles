@@ -23,6 +23,8 @@
     fontFamily: "Roboto Mono"
     fontSize: 16
     showIndentGuide: true
+  "file-icons":
+    coloured: false
   "vim-mode-plus":
     clearHighlightSearchOnResetNormalMode: true
     flashOnOperate: false
