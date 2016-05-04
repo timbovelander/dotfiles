@@ -9,7 +9,7 @@ function fish_prompt --description 'Write out the prompt'
     printf "[$USER]"
     set_color normal
     printf "  "
-  else if set -q SSH_CLIENT | set -q SSH_TTY
+  else if begin set -q SSH_CLIENT; or set -q SSH_TTY; end
     set_color red
     printf "[$USER]"
     set_color normal
@@ -17,7 +17,7 @@ function fish_prompt --description 'Write out the prompt'
   end
 
   # Hostname (remote only)
-  if set -q SSH_CLIENT | set -q SSH_TTY
+  if begin set -q SSH_CLIENT; or set -q SSH_TTY; end
     if not set -q __fish_prompt_hostname
       set -g __fish_prompt_hostname (hostname | cut -d . -f 1)
     end
@@ -40,43 +40,63 @@ function fish_prompt --description 'Write out the prompt'
     printf "  "
   end
 
-  # rbenv
-  if command -s rbenv >/dev/null ^&1
-    set_color green
-    printf "[%s" (rbenv version | grep -Po "^[^\s]+")
-    if rbenv gemset active >/dev/null ^&1
-      printf " %s" (rbenv gemset active | grep -Po "^[^\s]+")
+  # versions
+  if begin command -s node >/dev/null ^&1
+      or command -s rbenv >/dev/null ^&1
     end
+    set_color green
+    printf "["
+
+    # node
+    if command -s node >/dev/null ^&1
+      printf "N:%s" (node -v | grep -Po "[\d.]+")
+    end
+
+    if begin command -s node >/dev/null ^&1
+      and command -s rbenv >/dev/null ^&1
+      end
+      printf " "
+    end
+
+    # rbenv
+    if command -s rbenv >/dev/null ^&1
+      printf "R:%s" (rbenv version | grep -Po "^[^\s]+")
+      if rbenv gemset active >/dev/null ^&1
+        printf "-%s" (rbenv gemset active | grep -Po "^[^\s]+")
+      end
+    end
+
     printf "]"
     set_color normal
     printf "  "
   end
+
+  printf "\n"
 
   # VI mode
   switch "$fish_key_bindings"
   case '*_vi_*' '*_vi'
     switch $fish_bind_mode
     case default
-      set_color --bold red
-      echo -n '[normal]'
-    case insert
-      set_color yellow
-      echo -n '[insert]'
+      set_color --bold white -b yellow
+      echo -n ' NORMAL '
+      set_color normal
+      echo -n '  '
     case visual
-      set_color magenta
-      echo -n '[visual]'
+      set_color --bold white -b magenta
+      echo -n ' VISUAL '
+      set_color normal
+      echo -n '  '
     end
-    set_color normal
-    echo -n '  '
   end
 
   # Suffix
-  set_color white
+  set_color --bold white
   switch $USER
   case root toor
-    printf "\n#"
+    printf "#"
   case '*'
-    printf "\n\$"
+    printf "\$"
   end
 
   set_color normal
