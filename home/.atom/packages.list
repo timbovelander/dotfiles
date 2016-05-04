@@ -1,13 +1,17 @@
+atom-fuzzy-grep@0.13.0
 atom-ternjs@0.14.1
 editorconfig@1.4.1
 emmet@2.4.3
 expand-region@0.2.4
+file-icons@1.7.8
 git-plus@5.13.4
 linter@1.11.4
-linter-eslint@7.2.1
+linter-eslint@7.2.2
 linter-jsonlint@1.2.5
 linter-sass-lint@1.4.2
-project-manager@2.9.7
+minimap@4.23.2
+project-plus@0.8.2
+recent-files-fuzzy-finder@0.2.4
 vim-mode-plus@0.38.0
 
 
