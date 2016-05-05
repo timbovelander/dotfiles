@@ -30,6 +30,7 @@
   'space p d': 'tree-view:reveal-active-file'
   'space p D': 'tree-view:show'
   'space p f': 'fuzzy-finder:toggle-file-finder'
+  'space p o': 'project-plus:open'
   'space p p': 'project-plus:toggle-project-finder'
   'space p s': 'fuzzy-grep:toggle'
 
@@ -60,7 +61,7 @@
 
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
   'home': 'vim-mode-plus:move-to-first-character-of-line'
-  
+
   'g c': 'vim-mode-plus:toggle-line-comments'
   'g C': 'vim-mode-plus:camel-case'
 
