@@ -40,8 +40,8 @@ set __fish_git_prompt_color cyan
 
 # environment variables
 set -x TERM "xterm-256color"
-set -x EDITOR "emacs"
-set -x VISUAL "emacs"
+set -x EDITOR "vim"
+set -x VISUAL "vim"
 
 # fix for fisherman in fish 2.2.0
 for file in ~/.config/fish/conf.d/*.fish
@@ -65,7 +65,6 @@ if test -d "$HOME/.rbenv"
 end
 
 # aliases
-alias e "emacs"
 alias fd "find -type d -name"
 alias ff "find -type f -name"
 alias g "git"

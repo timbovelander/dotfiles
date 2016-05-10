@@ -40,32 +40,21 @@ function fish_prompt --description 'Write out the prompt'
     printf "  "
   end
 
-  # versions
-  if begin command -s node >/dev/null ^&1
-      or command -s rbenv >/dev/null ^&1
-    end
+  # nodejs
+  if command -s node >/dev/null ^&1
     set_color green
-    printf "["
+    printf "[%s]" (node -v | grep -Po "[\d.]+")
+    set_color normal
+    printf "  "
+  end
 
-    # node
-    if command -s node >/dev/null ^&1
-      printf "N:%s" (node -v | grep -Po "[\d.]+")
+  # rbenv
+  if command -s rbenv >/dev/null ^&1
+    set_color yellow
+    printf "[%s" (rbenv version | grep -Po "^[^\s]+")
+    if rbenv gemset active >/dev/null ^&1
+      printf " %s" (rbenv gemset active | grep -Po "^[^\s]+")
     end
-
-    if begin command -s node >/dev/null ^&1
-      and command -s rbenv >/dev/null ^&1
-      end
-      printf " "
-    end
-
-    # rbenv
-    if command -s rbenv >/dev/null ^&1
-      printf "R:%s" (rbenv version | grep -Po "^[^\s]+")
-      if rbenv gemset active >/dev/null ^&1
-        printf "-%s" (rbenv gemset active | grep -Po "^[^\s]+")
-      end
-    end
-
     printf "]"
     set_color normal
     printf "  "
@@ -73,32 +62,24 @@ function fish_prompt --description 'Write out the prompt'
 
   printf "\n"
 
-  # VI mode
+  # VI mode and suffix
+  set_color --bold white
   switch "$fish_key_bindings"
   case '*_vi_*' '*_vi'
     switch $fish_bind_mode
     case default
-      set_color --bold white -b yellow
-      echo -n ' NORMAL '
-      set_color normal
-      echo -n '  '
+      printf "N"
     case visual
-      set_color --bold white -b magenta
-      echo -n ' VISUAL '
-      set_color normal
-      echo -n '  '
+      printf "V"
+    case '*'
+      switch $USER
+      case root toor
+        printf "#"
+      case '*'
+        printf "\$"
+      end
     end
   end
-
-  # Suffix
-  set_color --bold white
-  switch $USER
-  case root toor
-    printf "#"
-  case '*'
-    printf "\$"
-  end
-
   set_color normal
-  echo -n ' '
+  printf " "
 end
