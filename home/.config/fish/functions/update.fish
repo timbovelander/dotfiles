@@ -6,12 +6,11 @@ function update
 
   npm -g update
 
+  apm upgrade -c false
+
   cd "$HOME/.dotfiles"
   git pull
   bash "$HOME/.dotfiles/scripts/symlinks.sh"
-
-  cd "$HOME/.emacs.d"
-  git pull
 
   cd $current_directory
 end
