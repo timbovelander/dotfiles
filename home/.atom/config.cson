@@ -1,6 +1,7 @@
 "*":
   core:
     audioBeep: false
+    autoHideMenuBar: true
     closeEmptyWindows: false
     customFileTypes:
       "source.json": [
@@ -9,9 +10,6 @@
       "text.html.mustache": [
         "template"
       ]
-    disabledPackages: [
-      "tabs"
-    ]
     packagesWithKeymapsDisabled: [
       "emmet"
       "atom-ternjs"
