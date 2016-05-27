@@ -57,8 +57,5 @@ source "$HOME/.dotfiles/scripts/rbenv.sh"
 # install ViM
 source "$HOME/.dotfiles/scripts/vim.sh" init
 
-# install emacs
-source "$HOME/.dotfiles/scripts/emacs.sh"
-
 # create symlinks for all home dotfiles
 source "$HOME/.dotfiles/scripts/symlinks.sh"

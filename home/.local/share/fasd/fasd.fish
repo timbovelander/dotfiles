@@ -54,18 +54,6 @@ function j
   fasd_cd -d $argv
 end
 
-function ea
-  command fasd $argv -e "emacs"
-end
-
-function ed
-  command fasd -d $argv -e "emacs"
-end
-
-function ef
-  command fasd -f $argv -e "emacs"
-end
-
 complete -c fasd -a "(__fasd_print_completions)" -f
 complete -c fasd_cd -a "(__fasd_print_completions -d)" -f -A
 complete -c a -a "(__fasd_print_completions -a)" -f -A
