@@ -4,6 +4,9 @@
     autoHideMenuBar: true
     closeEmptyWindows: false
     customFileTypes:
+      "source.js": [
+        "script"
+      ]
       "source.json": [
         "schema"
       ]
