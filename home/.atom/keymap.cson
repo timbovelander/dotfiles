@@ -73,10 +73,11 @@
 
 '.tree-view':
   'escape': 'tree-view:toggle'
-  'd': 'tree-view:add-folder'
-  'n': 'tree-view:add-file'
+  '+': 'tree-view:add-folder'
+  'e': 'tree-view:add-file'
+  'm': 'tree-view:rename'
   'q': 'tree-view:toggle'
-  'r': 'tree-view:rename'
+  'x': 'tree-view:remove'
 
 'atom-text-editor[data-grammar="source diff"],
 .git-plus-log':

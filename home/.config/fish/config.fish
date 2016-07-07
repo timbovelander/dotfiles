@@ -65,8 +65,10 @@ if test -d "$HOME/.rbenv"
 end
 
 # aliases
+alias a "atom"
+alias e "emacs"
 alias fd "find -type d -name"
 alias ff "find -type f -name"
 alias g "git"
 alias l "ls -la"
-alias search "ag --pager 'less'"
+alias v "vim"
