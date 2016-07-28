@@ -43,11 +43,6 @@ set -x TERM "xterm-256color"
 set -x EDITOR "vim"
 set -x VISUAL "vim"
 
-# fix for fisherman in fish 2.2.0
-for file in ~/.config/fish/conf.d/*.fish
-  source $file
-end
-
 # fasd or autojump
 begin
   command -s fasd >/dev/null
