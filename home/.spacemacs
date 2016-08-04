@@ -112,7 +112,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Roboto Mono"
+   dotspacemacs-default-font '("Space Mono"
                                :size 16
                                :weight normal
                                :width normal
@@ -264,8 +264,8 @@ you should place your code here."
   (golden-ratio-mode t)
 
   (global-set-key (kbd "<home>") 'evil-first-non-blank)
-  ;; (define-key evil-normal-state-map (kbd "<return>") (lambda() (interactive)(evil-open-below 1)(evil-force-normal-state)))
-  ;; (define-key evil-normal-state-map (kbd "<S-return>") (lambda() (interactive)(evil-open-above 1)(evil-force-normal-state)))
+  (define-key evil-normal-state-map (kbd "RET") (lambda() (interactive)(evil-open-below 1)(evil-force-normal-state)))
+  (define-key evil-normal-state-map (kbd "S-RET") (lambda() (interactive)(evil-open-above 1)(evil-force-normal-state)))
   (define-key evil-insert-state-map (kbd "<tab>") 'hippie-expand)
 
   (add-to-list 'auto-mode-alist '("\\.schema\\'" . json-mode))

@@ -24,7 +24,7 @@
       "solarized-light-syntax"
     ]
   editor:
-    fontFamily: "Roboto Mono"
+    fontFamily: "Space Mono"
     fontSize: 16
     showIndentGuide: true
   "file-icons":
