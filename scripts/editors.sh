@@ -2,8 +2,10 @@
 
 set -u
 
-# emacs
-git clone "https://github.com/syl20bnr/spacemacs" "$HOME/.emacs.d"
+if command -s git
+  # emacs
+  git clone "https://github.com/syl20bnr/spacemacs" "$HOME/.emacs.d"
 
-# ViM
-git clone "https://github.com/gmarik/Vundle.vim.git" "$HOME/.vim/bundle/Vundle.vim"
+  # ViM
+  git clone "https://github.com/gmarik/Vundle.vim.git" "$HOME/.vim/bundle/Vundle.vim"
+end

@@ -43,12 +43,8 @@ set -x TERM "xterm-256color"
 set -x EDITOR "vim"
 set -x VISUAL "vim"
 
-# fasd or autojump
-begin
-  command -s fasd >/dev/null
-  and test -e "$HOME/.local/share/fasd/fasd.fish"
-  and source "$HOME/.local/share/fasd/fasd.fish"
-end; or begin
+# autojump
+if test ! (command -s fasd)
   test -e "/usr/share/autojump/autojump.fish"
   and source "/usr/share/autojump/autojump.fish"
 end
@@ -60,10 +56,9 @@ if test -d "$HOME/.rbenv"
 end
 
 # aliases
-alias a "atom"
 alias e "emacs"
-alias fd "find -type d -name"
-alias ff "find -type f -name"
+alias findd "find -type d -name"
+alias findf "find -type f -name"
 alias g "git"
 alias l "ls -la"
 alias v "vim"
