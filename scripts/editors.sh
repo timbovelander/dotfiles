@@ -9,5 +9,6 @@ if command -v git &>/dev/null; then
   git clone "https://github.com/syl20bnr/spacemacs" "$HOME/.emacs.d"
 
   # ViM
+  mv "$HOME/.vim/bundle/Vundle.vim" "$HOME/.vim/bundle/Vundle.vim.bak"
   git clone "https://github.com/gmarik/Vundle.vim.git" "$HOME/.vim/bundle/Vundle.vim"
 fi

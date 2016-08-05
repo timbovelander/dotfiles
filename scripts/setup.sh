@@ -31,28 +31,26 @@ if [ "$distribution" == "opensuse" ]; then
 fi
 
 # update package repository
-echo "Updating package repository..."
 eval "$packageupdate"
 
 # install git if not yet installed
 if ! command -v git &>/dev/null; then
-  echo "Installing git..."
   eval "$packageinstall git"
 fi
 
 # clone dotfiles repository
-echo "Cloning dotfiles to ~/.dotfiles..."
+mv "$HOME/.dotfiles" "$HOME/.dotfiles.bak"
 git clone "https://github.com/timbovelander/dotfiles.git" "$HOME/.dotfiles"
 
 # check and install packages
 while read package; do
   if ! eval "$packagestatus $package" 2>/dev/null | eval "$packageinstalled"; then
-    echo "Installing $package..."
     eval "$packageinstall $package"
   fi
 done <"$HOME/.dotfiles/scripts/packages-$distribution"
 
 # change shell
+echo "Change shell to fish shell"
 chsh -s "/usr/bin/fish"
 
 # install fasd
