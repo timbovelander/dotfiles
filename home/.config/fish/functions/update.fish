@@ -25,7 +25,7 @@ function update
     test -d "$HOME/.rbenv/plugins/rbenv-gemset"
     and git -C "$HOME/.rbenv/plugins/rbenv-gemset" pull
 
-    test -fx "$HOME/.dotfiles/scripts/symlinks.sh"
+    test -f "$HOME/.dotfiles/scripts/symlinks.sh"
     and bash "$HOME/.dotfiles/scripts/symlinks.sh"
   end
 end
