@@ -16,6 +16,10 @@ function update
     apm upgrade -c false
   end
 
+  if command -s fisher >/dev/null ^&1
+    fisher update
+  end
+
   if command -s git >/dev/null ^&1
     test -d "$HOME/.dotfiles"; and git -C "$HOME/.dotfiles" pull
     test -d "$HOME/.emacs.d"; and git -C "$HOME/.emacs.d" pull
