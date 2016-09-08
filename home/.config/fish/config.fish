@@ -43,6 +43,9 @@ set -x TERM "xterm-256color"
 set -x EDITOR "vim"
 set -x VISUAL "vim"
 
+test -e "$HOME/.profile.fish"
+and source "$HOME/.profile.fish"
+
 # autojump
 if test ! (command -s fasd)
   test -e "/usr/share/autojump/autojump.fish"
