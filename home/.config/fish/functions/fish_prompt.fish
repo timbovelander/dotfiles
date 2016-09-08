@@ -43,7 +43,7 @@ function fish_prompt --description 'Write out the prompt'
   # nodejs
   if command -s node >/dev/null ^&1
     set_color green
-    printf "[%s]" (node -v | grep -Po "[\d.]+")
+    printf "[%s]" (node -v | grep -E "(\d|\.)+" -o)
     set_color normal
     printf "  "
   end
