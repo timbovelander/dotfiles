@@ -31,7 +31,6 @@ values."
        java
        javascript
        markdown
-       php
        (ruby :variables
          ruby-version-manager 'rbenv)
        (shell :variables
@@ -265,7 +264,7 @@ you should place your code here."
   (golden-ratio-mode t)
 
   (global-set-key (kbd "<home>") 'evil-first-non-blank)
-  (global-set-key (kbd "<end>") 'evil-last-non-blank)
+  (global-set-key (kbd "<end>") 'end-of-line)
   (define-key evil-normal-state-map (kbd "RET") (lambda() (interactive)(evil-open-below 1)(evil-force-normal-state)))
   (define-key evil-normal-state-map (kbd "S-RET") (lambda() (interactive)(evil-open-above 1)(evil-force-normal-state)))
   (define-key evil-insert-state-map (kbd "<tab>") 'hippie-expand)
