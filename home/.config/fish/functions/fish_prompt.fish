@@ -43,7 +43,7 @@ function fish_prompt --description 'Write out the prompt'
   # nodejs
   if command -s node >/dev/null ^&1
     set_color green
-    printf "[%s]" (node -v | grep -E "(\d|\.)+" -o)
+    printf "[%s]" (node -v | grep -Eo "([0-9]|\.)+")
     set_color normal
     printf "  "
   end
@@ -51,9 +51,9 @@ function fish_prompt --description 'Write out the prompt'
   # rbenv
   if command -s rbenv >/dev/null ^&1
     set_color yellow
-    printf "[%s" (rbenv version | grep -Po "^[^\s]+")
+    printf "[%s" (rbenv version | grep -Eo "^[^[:space:]]+")
     if rbenv gemset active >/dev/null ^&1
-      printf " %s" (rbenv gemset active | grep -Po "^[^\s]+")
+      printf " %s" (rbenv gemset active | grep -Eo "^[^[:space:]]+")
     end
     printf "]"
     set_color normal
