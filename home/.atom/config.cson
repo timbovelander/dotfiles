@@ -17,6 +17,7 @@
       "emmet"
       "atom-ternjs"
       "recent-files-fuzzy-finder"
+      "lipsum"
     ]
     projectHome: "~/projects"
     themes: [
@@ -26,9 +27,8 @@
   editor:
     fontFamily: "Space Mono"
     fontSize: 16
+    lineHeight: 1.75
     showIndentGuide: true
-  "exception-reporting":
-    userId: "a425ba55-b64f-b817-d0d4-8cce44dddf81"
   "file-icons":
     coloured: false
   "vim-mode-plus":
