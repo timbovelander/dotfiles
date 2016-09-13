@@ -10,21 +10,28 @@
 
   'space b b': 'fuzzy-finder:toggle-buffer-finder'
   'space b d': 'tabs:close-tab'
-  'space b D': 'tabs:close-other-tabs'
-  'space b n': 'application:new-file'
-  'space b r': 'recent-files-fuzzy-finder:toggle-finder'
+  'space b k': 'tabs:close-tab'
+  'space b K': 'tabs:close-other-tabs'
+  'space b s': 'application:new-file'
 
-  'space g a': 'git-plus:add'
-  'space g A': 'git-plus:add-all'
+  'space e n': 'linter:next-error'
+  'space e p': 'linter:previous-error'
+
+  'space g b': 'blame:toggle'
   'space g c': 'git-plus:commit'
+  'space g C': 'git-plus:checkout'
   'space g d': 'git-plus:diff'
   'space g D': 'git-plus:diff-all'
+  'space g F': 'git-plus:pull'
   'space g g': 'git-plus:menu'
   'space g l': 'git-plus:log-current-file'
   'space g L': 'git-plus:log'
-  'space g p': 'git-plus:pull'
-  'space g P': 'git-plus:push'
+  'space g p': 'git-plus:push'
   'space g s': 'git-plus:status'
+  'space g S': 'git-plus:add'
+
+  'space i p': 'lipsum:paragraph'
+  'space i s': 'lipsum:sentence'
 
   'space p b': 'fuzzy-finder:toggle-buffer-finder'
   'space p d': 'tree-view:reveal-active-file'
@@ -35,6 +42,8 @@
   'space p s': 'fuzzy-grep:toggle'
 
   'space q q': 'window:close'
+
+  'space v': 'vim-mode-plus:activate-characterwise-visual-mode'
 
   'space w h': 'window:focus-pane-on-left'
   'space w left': 'window:focus-pane-on-left'
@@ -66,18 +75,16 @@
   'g C': 'vim-mode-plus:camel-case'
 
 'atom-text-editor.vim-mode-plus.visual-mode':
-  '+': 'expand-region:expand'
-  '=': 'expand-region:expand'
-  '_': 'expand-region:shrink'
-  '-': 'expand-region:shrink'
+  'v': 'expand-region:expand'
+  'V': 'expand-region:shrink'
 
 '.tree-view':
   'escape': 'tree-view:toggle'
   '+': 'tree-view:add-folder'
   'e': 'tree-view:add-file'
-  'm': 'tree-view:rename'
+  'R': 'tree-view:rename'
   'q': 'tree-view:toggle'
-  'x': 'tree-view:remove'
+  'D': 'tree-view:remove'
 
 'atom-text-editor[data-grammar="source diff"],
 .git-plus-log':

@@ -27,6 +27,8 @@
     fontFamily: "Space Mono"
     fontSize: 16
     showIndentGuide: true
+  "exception-reporting":
+    userId: "a425ba55-b64f-b817-d0d4-8cce44dddf81"
   "file-icons":
     coloured: false
   "vim-mode-plus":
