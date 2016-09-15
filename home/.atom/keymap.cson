@@ -2,6 +2,7 @@
   'space': 'native!'
 
 'atom-workspace, atom-text-editor.vim-mode-plus.normal-mode':
+  'space :': 'command-palette:toggle'
   'space /': 'find-and-replace:show'
   'space \\': 'project-find:show'
   'space tab': 'pane:show-next-recently-used-item'
@@ -14,6 +15,8 @@
 
   'space e n': 'linter:next-error'
   'space e p': 'linter:previous-error'
+
+  'space f': 'easy-motion-redux:words_starting'
 
   'space g b': 'blame:toggle'
   'space g c': 'git-plus:commit'
@@ -37,7 +40,12 @@
   'space p f': 'fuzzy-finder:toggle-file-finder'
   'space p o': 'project-plus:open'
   'space p p': 'project-plus:toggle-project-finder'
-  'space p s': 'fuzzy-grep:toggle'
+
+  'space s /': 'lazy-motion:forward'
+  'space s ?': 'lazy-motion:backward'
+  'space s a': 'narrow:search'
+  'space s b': 'narrow:lines'
+  'space s p': 'narrow:search-current-project'
 
   'space q q': 'window:close'
 
@@ -57,6 +65,8 @@
   'space w /': 'pane:split-right-and-copy-active-item'
 
 'atom-text-editor.vim-mode-plus.normal-mode':
+  ': w enter': 'core:save'
+
   'enter': 'editor:newline-below'
   'shift-enter': 'editor:newline-above'
 
@@ -67,12 +77,8 @@
   'd s': 'vim-mode-plus:delete-surround'
 
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
-  ':': 'command-palette:toggle'
-
   'home': 'vim-mode-plus:move-to-first-character-of-line'
   'end': 'vim-mode-plus:move-to-last-character-of-line'
-  'cmd-left': 'vim-mode-plus:move-to-first-character-of-line'
-  'cmd-right': 'vim-mode-plus:move-to-last-character-of-line'
 
   'g c': 'vim-mode-plus:toggle-line-comments'
   'g C': 'vim-mode-plus:camel-case'
