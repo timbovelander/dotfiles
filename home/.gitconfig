@@ -21,6 +21,5 @@
 	excludesfile = ~/.gitignore
 [push]
   default = simple
-[user]
-  name = Tim Bovelander
-  email = tim@timenwietske.nl
+[include]
+  path = ~/.gitconfig.local
