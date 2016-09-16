@@ -31,6 +31,7 @@ values."
        java
        javascript
        markdown
+       react
        (ruby :variables
          ruby-version-manager 'rbenv)
        (shell :variables
