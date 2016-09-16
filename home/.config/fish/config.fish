@@ -60,8 +60,9 @@ end
 
 # aliases
 alias e "emacs"
-alias findd "find -type d -name"
-alias findf "find -type f -name"
+alias fd "find . -type d -name"
+alias ff "find . -type f -name"
+alias fl "find . -type l -name"
 alias g "git"
 alias l "ls -la"
 alias v "vim"
