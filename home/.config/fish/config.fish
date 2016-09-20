@@ -58,6 +58,10 @@ if test -d "$HOME/.rbenv"
   status --is-interactive; and . (rbenv init -|psub)
 end
 
+# gulp autocomplete
+test (command -s gulp)
+and gulp --completion=fish | source
+
 # aliases
 alias e "emacs"
 alias fd "find . -type d -name"
