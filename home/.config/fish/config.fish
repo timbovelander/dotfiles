@@ -63,7 +63,7 @@ test (command -s gulp)
 and gulp --completion=fish | source
 
 # aliases
-alias e "emacs"
+alias e "emacsclient -a emacs -c"
 alias fd "find . -type d -name"
 alias ff "find . -type f -name"
 alias fl "find . -type l -name"
