@@ -55,6 +55,9 @@ done <"$HOME/.dotfiles/scripts/packages-$distribution"
 echo "Change shell to fish shell"
 chsh -s "/usr/bin/fish"
 
+# install shell plugins
+source "$HOME/.dotfiles/scripts/fisherman.sh"
+
 # install fasd
 source "$HOME/.dotfiles/scripts/fasd.sh"
 
