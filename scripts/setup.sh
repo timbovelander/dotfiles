@@ -39,7 +39,9 @@ if ! command -v git &>/dev/null; then
 fi
 
 # clone dotfiles repository
-mv "$HOME/.dotfiles" "$HOME/.dotfiles.bak"
+if [ -e "$HOME/.dotfiles" ]; then
+  mv "$HOME/.dotfiles" "$HOME/.dotfiles.bak"
+fi
 git clone "https://github.com/timbovelander/dotfiles.git" "$HOME/.dotfiles"
 
 # check and install packages
