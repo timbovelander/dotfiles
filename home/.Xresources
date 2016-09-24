@@ -69,3 +69,4 @@ URxvt.loginShell: true
 URxvt.scrollBar: false
 URxvt.perl-ext-common: selection-to-clipboard
 URxvt.iso14755: false
+URxvt.scrollTtyOutput: false
