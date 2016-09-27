@@ -63,8 +63,8 @@ Xft.hinting: true
 URxvt.cursorBlink: false
 URxvt.cursorUnderline: false
 URxvt.fading: 0
-URxvt.font: xft:Dejavu Sans Mono:size=12
-URxvt.boldFont: xft:Dejavu Sans Mono:size=12
+URxvt.font: xft:Dejavu Sans Mono:size=10
+URxvt.boldFont: xft:Dejavu Sans Mono:size=10
 URxvt.loginShell: true
 URxvt.scrollBar: false
 URxvt.perl-ext-common: selection-to-clipboard
