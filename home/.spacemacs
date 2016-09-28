@@ -112,7 +112,7 @@ values."
     dotspacemacs-colorize-cursor-according-to-state t
     ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
     ;; size to make separators look not too crappy.
-    dotspacemacs-default-font '("Dejavu Sans Mono"
+    dotspacemacs-default-font '("Input Mono"
                                  :size 16
                                  :weight normal
                                  :width normal
@@ -258,7 +258,6 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (setq-default line-spacing 6)
   (setq x-select-enable-clipboard nil)
 
   (editorconfig-mode t)

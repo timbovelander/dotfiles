@@ -26,9 +26,9 @@
       "solarized-light-syntax"
     ]
   editor:
-    fontFamily: "Dejavu Sans Mono"
+    fontFamily: "Input Mono"
     fontSize: 16
-    lineHeight: 1.75
+    lineHeight: 1
     showIndentGuide: true
   "file-icons":
     coloured: false
