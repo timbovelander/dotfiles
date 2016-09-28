@@ -28,7 +28,7 @@
   editor:
     fontFamily: "Input Mono"
     fontSize: 16
-    lineHeight: 1
+    lineHeight: 1.8
     showIndentGuide: true
   "file-icons":
     coloured: false
