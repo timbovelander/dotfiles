@@ -1,4 +1,11 @@
 "*":
+  "autocomplete-plus":
+    suppressActivationForEditorClasses: [
+      "vim-mode-plus.normal-mode"
+      "vim-mode-plus.visual-mode"
+      "vim-mode-plus.operator-pending-mode"
+      "vim-mode-plus.insert-mode.replace"
+    ]
   core:
     audioBeep: false
     autoHideMenuBar: true
@@ -13,6 +20,9 @@
       "text.html.mustache": [
         "template"
       ]
+    disabledPackages: [
+      "whitespace"
+    ]
     packagesWithKeymapsDisabled: [
       "emmet"
       "atom-ternjs"
@@ -21,6 +31,7 @@
       "fuzzy-finder"
     ]
     projectHome: "~/projects"
+    telemetryConsent: "no"
     themes: [
       "one-light-ui"
       "solarized-light-syntax"
