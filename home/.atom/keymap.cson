@@ -18,18 +18,18 @@
 
   'space f': 'easy-motion-redux:words_starting'
 
+  'space g a': 'git-plus:add'
   'space g b': 'blame:toggle'
   'space g c': 'git-plus:commit'
-  'space g C': 'git-plus:checkout'
   'space g d': 'git-plus:diff'
   'space g D': 'git-plus:diff-all'
-  'space g F': 'git-plus:pull'
   'space g g': 'git-plus:menu'
   'space g l': 'git-plus:log-current-file'
   'space g L': 'git-plus:log'
+  'space g o': 'git-plus:checkout'
   'space g p': 'git-plus:push'
+  'space g P': 'git-plus:pull'
   'space g s': 'git-plus:status'
-  'space g S': 'git-plus:add'
 
   'space i p': 'lipsum:paragraph'
   'space i s': 'lipsum:sentence'
@@ -40,6 +40,7 @@
   'space p f': 'fuzzy-finder:toggle-file-finder'
   'space p o': 'project-plus:open'
   'space p p': 'project-plus:toggle-project-finder'
+  'space p tab': 'project-plus:open-next-recently-used-project'
 
   'space s /': 'lazy-motion:forward'
   'space s ?': 'lazy-motion:backward'
@@ -60,7 +61,7 @@
   'space w j': 'window:focus-pane-below'
   'space w down': 'window:focus-pane-below'
   'space w tab': 'window:focus-next-pane'
-  'space w c': 'pane:close'
+  'space w d': 'pane:close'
   'space w -': 'pane:split-down-and-copy-active-item'
   'space w /': 'pane:split-right-and-copy-active-item'
 
