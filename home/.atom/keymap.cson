@@ -88,6 +88,7 @@
   'V': 'expand-region:shrink'
 
 '.tree-view':
+  'enter': 'tree-view:open-and-toggle-tree-view'
   'escape': 'tree-view:toggle'
   '+': 'tree-view:add-folder'
   'e': 'tree-view:add-file'
@@ -116,3 +117,7 @@ atom-text-editor.vim-mode-plus.insert-mode[data-grammar~="sass"]:not([mini]),
 atom-text-editor.vim-mode-plus.insert-mode[data-grammar~="scss"]:not([mini]),
 atom-text-editor.vim-mode-plus.insert-mode[data-grammar~="mustache"]:not([mini])':
   'tab': 'emmet:expand-abbreviation-with-tab'
+
+'.platform-darwin atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'ctrl-a': 'vim-mode-plus:move-to-first-character-of-line'
+  'ctrl-e': 'vim-mode-plus:move-to-last-character-of-line'
