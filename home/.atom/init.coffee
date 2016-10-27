@@ -1,6 +1,4 @@
-atom.commands.add 'atom-text-editor', 'e', ->
-  atom.open()
-
-atom.commands.add 'atom-text-editor', 'w', ->
-  return unless editor = atom.workspace.getActiveTextEditor()
-  editor.save()
+atom.commands.add 'atom-text-editor', 'pane:switch-next-recently-used-item', ->
+  pane = atom.workspace.getActivePane()
+  pane.activateNextRecentlyUsedItem()
+  pane.moveActiveItemToTopOfStack()

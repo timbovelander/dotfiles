@@ -5,7 +5,7 @@
   'space :': 'command-palette:toggle'
   'space /': 'find-and-replace:show'
   'space \\': 'project-find:show'
-  'space tab': 'pane:show-next-recently-used-item'
+  'space tab': 'pane:switch-next-recently-used-item'
 
   'space b b': 'fuzzy-finder:toggle-buffer-finder'
   'space b d': 'tabs:close-tab'
@@ -40,7 +40,6 @@
   'space p f': 'fuzzy-finder:toggle-file-finder'
   'space p o': 'project-plus:open'
   'space p p': 'project-plus:toggle-project-finder'
-  'space p tab': 'project-plus:open-next-recently-used-project'
 
   'space s /': 'lazy-motion:forward'
   'space s ?': 'lazy-motion:backward'
