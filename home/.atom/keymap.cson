@@ -88,7 +88,7 @@
   'V': 'expand-region:shrink'
 
 '.tree-view':
-  'enter': 'tree-view:open-and-toggle-tree-view'
+  'enter': 'tree-view:open-selected-entry-and-toggle'
   'escape': 'tree-view:toggle'
   '+': 'tree-view:add-folder'
   'e': 'tree-view:add-file'

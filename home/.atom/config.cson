@@ -29,6 +29,7 @@
       "recent-files-fuzzy-finder"
       "lipsum"
       "fuzzy-finder"
+      "tree-view"
     ]
     projectHome: "~/projects"
     telemetryConsent: "no"
