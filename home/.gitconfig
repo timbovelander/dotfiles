@@ -4,6 +4,18 @@
   c = commit
   co = checkout
   d = diff
+  f = flow
+  ff = flow feature
+  ffs = flow feature start
+  fff = flow feature finish
+  fh = flow hotfix
+  fhs = flow hotfix start
+  fhf = flow hotfix finish
+  fr = flow release
+  frs = flow release start
+  frf = flow release finish
+  fs = flow support
+  fss = flow support start
   l = log --pretty=format:'%C(Yellow)%h%C(reset) - %C(cyan)%cr%C(reset) : %C(blue)%an%C(reset)%C(auto)%d%C(reset)%n%s%n' --graph
   lm = "!git log --pretty=format:'%C(Yellow)%h%C(reset) - %C(cyan)%cr%C(reset) : %C(blue)%an%C(reset)%C(auto)%d%C(reset)%n%s%n' --graph --abbrev-commit --author=\"$(git config user.name)\""
   m = merge --no-ff

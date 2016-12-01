@@ -2,5 +2,6 @@ fisherman/await
 timbovelander/fasd
 fisherman/fnm
 fisherman/get_file_age
+oh-my-fish/plugin-git-flow
 fisherman/last_job_id
 fisherman/menu
