@@ -20,7 +20,7 @@ function update
     apm upgrade -c false
   end
 
-  if command -s fisher >/dev/null ^&1
+  if type -t fisher >/dev/null ^&1
     fisher update
   end
 
