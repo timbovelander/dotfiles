@@ -7,8 +7,8 @@
       "vim-mode-plus.insert-mode.replace"
     ]
   core:
+    allowPendingPaneItems: false
     audioBeep: false
-    autoHideMenuBar: true
     closeEmptyWindows: false
     customFileTypes:
       "source.js": [
@@ -22,16 +22,43 @@
       ]
     disabledPackages: [
       "whitespace"
+      "about"
+      "autosave"
+      "background-tips"
+      "bookmarks"
+      "dev-live-reload"
+      "exception-reporting"
+      "go-to-line"
+      "line-ending-selector"
+      "metrics"
+      "open-on-github"
+      "package-generator"
+      "styleguide"
+      "symbols-view"
+      "timecop"
+      "update-package-dependencies"
+      "welcome"
     ]
     packagesWithKeymapsDisabled: [
-      "emmet"
-      "atom-ternjs"
-      "recent-files-fuzzy-finder"
-      "lipsum"
+      "bracket-matcher"
+      "command-palette"
+      "encoding-selector"
       "fuzzy-finder"
+      "git-diff"
+      "grammar-selector"
+      "link"
+      "notifications"
+      "open-on-github"
+      "spell-check"
+      "tabs"
+      "autocomplete-plus"
       "tree-view"
+      "git-blame"
+      "emmet"
+      "git-plus"
+      "project-plus"
     ]
-    projectHome: "~/projects"
+    projectHome: "~/Projects"
     telemetryConsent: "no"
     themes: [
       "one-light-ui"
@@ -42,16 +69,34 @@
     fontSize: 16
     lineHeight: 1.8
     showIndentGuide: true
-  "file-icons":
-    coloured: false
+  "expand-region": {}
+  "fuzzy-finder":
+    searchAllPanes: true
+  "git-blame":
+    columnWidth: 300
+    showOnlyLastNames: false
+  "git-plus":
+    showFormat: "none"
+    splitPane: "Right"
+  linter: {}
+  narrow:
+    SearchDefaultAutoPreview: false
+    directionToOpen: "down"
+  "project-plus":
+    projectHome: " ~/Projects"
+    showPath: true
+  "spell-check":
+    locales: [
+      "en-US"
+      "nl-NL"
+    ]
   "vim-mode-plus":
-    clearHighlightSearchOnResetNormalMode: true
     flashOnOperate: false
     flashOnSearch: false
+    flashOnUndoRedo: false
     flashScreenOnSearchHasNoMatch: false
     highlightSearch: true
     incrementalSearch: true
-    setCursorToStartOfChangeOnUndoRedo: true
     useSmartcaseForSearch: true
     useSmartcaseForSearchCurrentWord: true
   welcome:
