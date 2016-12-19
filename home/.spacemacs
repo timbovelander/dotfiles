@@ -269,6 +269,7 @@ you should place your code here."
   (define-key evil-normal-state-map (kbd "S-RET") (lambda() (interactive)(evil-open-above 1)(evil-force-normal-state)))
   (define-key evil-insert-state-map (kbd "<tab>") 'hippie-expand)
 
+  (add-to-list 'auto-mode-alist '("\\.njk\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.schema\\'" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.script\\'" . js2-mode))
   (add-to-list 'auto-mode-alist '("\\.tag\\'" . web-mode))
