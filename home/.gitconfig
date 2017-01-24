@@ -4,6 +4,7 @@
   c = commit
   co = checkout
   d = diff
+  dt = difftool
   f = flow
   ff = flow feature
   ffs = flow feature start
