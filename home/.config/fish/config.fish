@@ -62,6 +62,11 @@ end
 test (command -s gulp)
 and gulp --completion=fish | source
 
+# emacs term support
+if test -n "$EMACS"
+  set -x TERM eterm-color
+end
+
 # aliases
 alias e "emacsclient -a emacs -c"
 alias fd "find . -type d -name"

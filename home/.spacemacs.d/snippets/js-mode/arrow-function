@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: arrow-function
+# key: af
+# --
+${1:(${2:args})} => ${3:{$0}}
