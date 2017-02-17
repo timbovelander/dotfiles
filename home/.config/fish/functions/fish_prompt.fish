@@ -4,7 +4,9 @@ function fish_prompt --description 'Write out the prompt'
   end
 
   # User (not logged in or remote)
-  if not contains (whoami) (who -m | cut -d ' ' -f1)
+  set -l who (who -m | cut -d ' ' -f1)
+  set -l whoami (whoami)
+  if begin test -n "$who" -a -n "$whoami"; and not contains "$whoami" "$who"; end
     set_color red
     printf "[$USER]"
     set_color normal
