@@ -25,8 +25,7 @@
   llm = "!git ll --author=\"$(git config user.name)\""
   m = merge --no-ff
   pl = pull --rebase=preserve --prune
-  ps = "!git push 2>/dev/null || git pso"
-  pso = "!git push -u origin $(git symbolic-ref --short HEAD)"
+  ps = "!git push -q || git push -u origin $(git symbolic-ref --short HEAD)"
   r = reset
   rh = reset --hard
   rv = revert --no-commit
