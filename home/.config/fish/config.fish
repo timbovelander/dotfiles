@@ -43,6 +43,7 @@ set -x TERM "xterm-256color"
 set -x EDITOR "vim"
 set -x VISUAL "vim"
 
+# source ~/.profile.fish
 test -e "$HOME/.profile.fish"
 and source "$HOME/.profile.fish"
 
@@ -73,6 +74,7 @@ alias fd "find . -type d -name"
 alias ff "find . -type f -name"
 alias fl "find . -type l -name"
 alias g "git"
+alias gr "cd (git rev-parse --show-toplevel)"
 alias l "ls -la"
+alias remove "/bin/rm"
 alias v "vim"
-alias waste "/bin/rm"
