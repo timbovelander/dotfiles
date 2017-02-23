@@ -1,10 +1,12 @@
 [alias]
   a = add
   b = branch -v
+  bd = branch -D
   c = commit
+  cl = clone
   co = checkout
+  cp = cherry-pick
   d = diff
-  dt = difftool
   f = flow
   ff = flow feature
   ffs = flow feature start
@@ -17,13 +19,18 @@
   frf = flow release finish
   fs = flow support
   fss = flow support start
-  l = log --pretty=format:'%C(Yellow)%h%C(reset) - %C(cyan)%cr%C(reset) : %C(blue)%an%C(reset)%C(auto)%d%C(reset)%n%s%n' --graph
-  lm = "!git log --pretty=format:'%C(Yellow)%h%C(reset) - %C(cyan)%cr%C(reset) : %C(blue)%an%C(reset)%C(auto)%d%C(reset)%n%s%n' --graph --abbrev-commit --author=\"$(git config user.name)\""
+  l = log --pretty=format:'%C(Yellow)[%h]%C(reset)  %C(cyan)[%cd]%C(reset)  %C(blue)[%an]%C(reset)  %C(auto)%D%C(reset)%n%s%n' --date=format:'%d-%m-%Y %H:%M'
+  lm = "!git l --author=\"$(git config user.name)\""
+  ll = log --pretty=format:'%C(Yellow)[%h]%C(reset)  %C(cyan)[%cd]%C(reset)  %C(blue)[%an]%C(reset)  %C(auto)%D%C(reset)%n%s' --date=format:'%d-%m-%Y %H:%M' --numstat
+  llm = "!git ll --author=\"$(git config user.name)\""
   m = merge --no-ff
   pl = pull --rebase=preserve --prune
-  ps = push
-  r = revert --no-commit
-  s = status
+  ps = "!git push 2>/dev/null || git pso"
+  pso = "!git push -u origin $(git symbolic-ref --short HEAD)"
+  r = reset
+  rh = reset --hard
+  rv = revert --no-commit
+  s = status -s
   sh = show
   ss = stash -u
   ssl = stash list
@@ -31,7 +38,7 @@
   ssd = stash drop
   ssp = stash pop
 [core]
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
 [push]
   default = simple
 [include]
