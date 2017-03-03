@@ -3,8 +3,10 @@
   b = branch -v
   bd = branch -D
   c = commit
+  cd = "!cd $(git rev-parse --show-toplevel)"
   cl = clone
   co = checkout
+  cob = checkout -b
   cp = cherry-pick
   d = diff
   f = flow
@@ -19,13 +21,14 @@
   frf = flow release finish
   fs = flow support
   fss = flow support start
-  l = log --pretty=format:'%C(Yellow)[%h]%C(reset)  %C(cyan)[%cd]%C(reset)  %C(blue)[%an]%C(reset)  %C(auto)%D%C(reset)%n%s%n' --date=format:'%d-%m-%Y %H:%M'
+  l = log --graph --pretty=format:'%C(Yellow)[%h]%C(reset)  %C(cyan)[%cd]%C(reset)  %C(blue)[%an]%C(reset)  %C(auto)%D%C(reset)%n%s%n' --date=format:'%d-%m-%Y %H:%M'
   lm = "!git l --author=\"$(git config user.name)\""
-  ll = log --pretty=format:'%C(Yellow)[%h]%C(reset)  %C(cyan)[%cd]%C(reset)  %C(blue)[%an]%C(reset)  %C(auto)%D%C(reset)%n%s' --date=format:'%d-%m-%Y %H:%M' --numstat
+  ll = log --graph --pretty=format:'%C(Yellow)[%h]%C(reset)  %C(cyan)[%cd]%C(reset)  %C(blue)[%an]%C(reset)  %C(auto)%D%C(reset)%n%s' --date=format:'%d-%m-%Y %H:%M' --numstat
   llm = "!git ll --author=\"$(git config user.name)\""
   m = merge --no-ff
   pl = pull --rebase=preserve --prune
-  ps = "!git push -q || git push -u origin $(git symbolic-ref --short HEAD)"
+  ps = push
+  pso = push --set-upstream origin
   r = reset
   rh = reset --hard
   rv = revert --no-commit
