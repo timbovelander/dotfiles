@@ -3,7 +3,6 @@
   b = branch -v
   bd = branch -D
   c = commit
-  cd = "!cd $(git rev-parse --show-toplevel)"
   cl = clone
   co = checkout
   cob = checkout -b
