@@ -27,7 +27,7 @@
   m = merge --no-ff
   pl = pull --rebase=preserve --prune
   ps = push
-  pso = push --set-upstream origin
+  pso = "!git push --set-upstream origin $(git symbolic-ref --short HEAD)"
   r = reset
   rh = reset --hard
   rv = revert --no-commit
