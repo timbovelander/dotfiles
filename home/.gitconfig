@@ -31,7 +31,7 @@
   r = reset
   rh = reset --hard
   rv = revert --no-commit
-  s = status -s
+  s = status
   sh = show
   ss = stash -u
   ssl = stash list
