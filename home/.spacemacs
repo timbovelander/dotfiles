@@ -52,6 +52,7 @@ values."
     '(
        editorconfig
        graphql-mode
+       hound
        )
     ;; A list of packages and/or extensions that will not be install and loaded.
     dotspacemacs-excluded-packages '()
@@ -250,6 +251,44 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
   (setq vc-follow-symlinks t)
+  (setq hound-host "https://hound.innomate.internal.bol.com")
+  (setq hound-api-port "443")
+  (setq hound-root-directory "~/Projects/bol.com")
+  (setq hound-repo-substitution
+    '(
+       ("analyticsjs" "javascript/analyticsjs")
+       ("frontend-checkout" "javascript/checkout")
+       ("frontend-conversations" "javascript/conversations")
+       ("frontend-expertpages" "javascript/expertpages")
+       ("frontend-explore" "javascript/explore")
+       ("frontend-giftcard" "javascript/giftcard")
+       ("frontend-listpage" "javascript/listpage")
+       ("frontend-pdp-product-images" "javascript/pdp-product-images")
+       ("frontend-product-images-fullscreen" "javascript/product-images-fullscreen")
+       ("frontend-search" "javascript/search")
+       ("frontend-store" "javascript/store")
+       ("frontend-tooltip" "javascript/tooltip")
+       ("frontend-wiki-header" "javascript/wiki-header")
+       ("frontend-wishlist" "javascript/wishlist")
+       ("rnwy-shared" "runway/wsp-rnwy-shared")
+       ("rnwy-account" "runway/wsp-rnwy-account")
+       ("rnwy-addonpage" "runway/wsp-rnwy-addonpage")
+       ("rnwy-basketpage" "runway/wsp-rnwy-basketpage")
+       ("rnwy-brandpage" "runway/wsp-rnwy-brandpage")
+       ("rnwy-checkout" "runway/wsp-rnwy-checkout")
+       ("rnwy-cms" "runway/wsp-rnwy-cms")
+       ("rnwy-conversations" "runway/wsp-rnwy-conversations")
+       ("rnwy-digital" "runway/wsp-rnwy-digital")
+       ("rnwy-expertpages" "runway/wsp-rnwy-expertpages")
+       ("rnwy-explore" "runway/wsp-rnwy-explore")
+       ("rnwy-internal-pages" "runway/wsp-rnwy-internal-pages")
+       ("rnwy-listpage" "runway/wsp-rnwy-listpage")
+       ("rnwy-mods-comps-els" "runway/wsp-rnwy-mods-comps-els")
+       ("rnwy-offercompare" "runway/wsp-rnwy-offercompare")
+       ("rnwy-pages-grids" "runway/wsp-rnwy-pages-grids")
+       ("rnwy-productpage" "runway/wsp-rnwy-productpage")
+       ("rnwy-wishlist" "runway/wsp-rnwy-wishlist")
+       ("wsp" "webshop")))
   )
 
 (defun dotspacemacs/user-config ()
@@ -266,8 +305,8 @@ you should place your code here."
 
   (global-set-key (kbd "<home>") 'evil-first-non-blank)
   (global-set-key (kbd "<end>") 'end-of-line)
-  (define-key evil-normal-state-map (kbd "S-RET") (lambda() (interactive)(evil-open-above 1)(evil-force-normal-state)))
   (define-key evil-normal-state-map (kbd "RET") (lambda() (interactive)(evil-open-below 1)(evil-force-normal-state)))
+  (define-key evil-normal-state-map (kbd "S-<return>") (lambda() (interactive)(evil-open-above 1)(evil-force-normal-state)))
   (define-key evil-insert-state-map (kbd "<tab>") 'hippie-expand)
 
   (add-to-list 'auto-mode-alist '("\\.njk\\'" . web-mode))

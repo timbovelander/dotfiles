@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: require
+# key: req
+# --
+${2:const} ${1:module} = require('${1:$(let ((case-fold-search nil))(setq str(replace-regexp-in-string "\\\\\([a-z0-9]\\\\\)\\\\\([A-Z]\\\\\)" "\\\1-\\\2" yas-text))(downcase str))}');
+$0
