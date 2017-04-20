@@ -2,5 +2,4 @@
 # name: import
 # key: imp
 # --
-import ${1:module} from '${1:$(let ((case-fold-search nil))(setq str(replace-regexp-in-string "\\\\\([a-z0-9]\\\\\)\\\\\([A-Z]\\\\\)" "\\\1-\\\2" yas-text))(downcase str))}';
-$0
+import ${1:module} from '${2:${1:$(let ((case-fold-search nil))(setq str(replace-regexp-in-string "\\\\\([a-z0-9]\\\\\)\\\\\([A-Z]\\\\\)" "\\\1-\\\2" yas-text))(downcase str))}}';$0
