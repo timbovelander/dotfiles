@@ -42,16 +42,16 @@ function fish_prompt --description 'Write out the prompt'
     printf "  "
   end
 
-  # rbenv
-  if command -s rbenv >/dev/null ^&1
-    set_color yellow
-    printf "[%s" (rbenv version | grep -Eo "^[^[:space:]]+")
-    if rbenv gemset active >/dev/null ^&1
-      printf " %s" (rbenv gemset active | grep -Eo "^[^[:space:]]+")
+  # maven project
+  if begin command -s xmllint >/dev/null ^&1; and test -f "pom.xml"; end
+    set -l artifactId (xmllint --xpath '/*[local-name()="project"]/*[local-name()="artifactId"]/text()' pom.xml ^/dev/null)
+    set -l version (xmllint --xpath '/*[local-name()="project"]/*[local-name()="version"]/text()' pom.xml ^/dev/null)
+    if test $status -eq 0
+      set_color yellow
+      printf "[%s %s]" (echo $artifactId) (echo $version)
+      set_color normal
+      printf "  "
     end
-    printf "]"
-    set_color normal
-    printf "  "
   end
 
   # node project
