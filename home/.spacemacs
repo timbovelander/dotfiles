@@ -44,7 +44,8 @@ values."
        html
        java
        javascript
-       markdown
+       (markdown :variables
+         markdown-live-preview-engine 'vmd)
        react
        (ruby :variables
          ruby-version-manager 'rbenv)
