@@ -40,8 +40,8 @@ set __fish_git_prompt_color cyan
 
 # environment variables
 set -x TERM "xterm-256color"
-set -x EDITOR "vim"
-set -x VISUAL "vim"
+set -x EDITOR "nvim"
+set -x VISUAL "nvim"
 
 # source ~/.profile.fish
 test -e "$HOME/.profile.fish"
@@ -77,4 +77,4 @@ alias g "git"
 alias gg "cd (git rev-parse --show-toplevel)"
 alias l "ls -la"
 alias remove "/bin/rm"
-alias v "vim"
+alias v "nvim"
