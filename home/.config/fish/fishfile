@@ -1,4 +1,5 @@
 fisherman/await
+fisherman/docker-completion
 timbovelander/fasd
 fisherman/fnm
 fisherman/get_file_age
