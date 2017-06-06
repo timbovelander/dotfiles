@@ -24,8 +24,8 @@
   lm = "!git l --author=\"$(git config user.name)\""
   ll = log --graph --pretty=format:'%C(Yellow)[%h]%C(reset)  %C(cyan)[%cd]%C(reset)  %C(blue)[%an]%C(reset)  %C(auto)%D%C(reset)%n%s' --date=format:'%d-%m-%Y %H:%M' --numstat
   llm = "!git ll --author=\"$(git config user.name)\""
-  m = merge --no-ff
-  pl = pull --rebase=preserve --prune
+  m = merge
+  pl = pull --prune
   ps = push
   pso = "!git push --set-upstream origin $(git symbolic-ref --short HEAD)"
   r = reset
