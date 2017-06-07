@@ -20,6 +20,8 @@
   frf = flow release finish
   fs = flow support
   fss = flow support start
+  g = grep
+  ga = "!git rev-list --all | xargs git grep"
   l = log --graph --pretty=format:'%C(Yellow)[%h]%C(reset)  %C(cyan)[%cd]%C(reset)  %C(blue)[%an]%C(reset)  %C(auto)%D%C(reset)%n%s%n' --date=format:'%d-%m-%Y %H:%M'
   lm = "!git l --author=\"$(git config user.name)\""
   ll = log --graph --pretty=format:'%C(Yellow)[%h]%C(reset)  %C(cyan)[%cd]%C(reset)  %C(blue)[%an]%C(reset)  %C(auto)%D%C(reset)%n%s' --date=format:'%d-%m-%Y %H:%M' --numstat
