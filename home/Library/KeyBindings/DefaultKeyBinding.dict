@@ -1,0 +1,10 @@
+{
+  "\UF729" = moveToBeginningOfParagraph:;
+  "\UF72B" = moveToEndOfParagraph:;
+  "$\UF729" = moveToBeginningOfParagraphAndModifySelection:;
+  "$\UF72B" = moveToEndOfParagraphAndModifySelection:;
+
+  "^c" = copy:;
+  "^v" = paste:;
+  "^x" = cut:;
+}
