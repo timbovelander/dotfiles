@@ -1,10 +1,20 @@
 {
-  "\UF729" = moveToBeginningOfParagraph:;
-  "\UF72B" = moveToEndOfParagraph:;
-  "$\UF729" = moveToBeginningOfParagraphAndModifySelection:;
-  "$\UF72B" = moveToEndOfParagraphAndModifySelection:;
+  "\UF729" = moveToLeftEndOfLine:;
+  "\UF72B" = moveToRightEndOfLine:;
+  "$\UF729" = moveToLeftEndOfLineAndModifySelection:;
+  "$\UF72B" = moveToRightEndOfLineAndModifySelection:;
 
   "^c" = copy:;
   "^v" = paste:;
   "^x" = cut:;
+
+  "^z" = undo:;
+  "^$z" = redo:;
+
+  "^\UF702" = moveWordBackward:;
+  "^\UF703" = moveWordForward:;
+  "^$\UF702" = moveWordBackwardAndModifySelection:;
+  "^$\UF703" = moveWordForwardAndModifySelection:;
+  "^\U007F" = deleteWordBackward:;
+  "^\UF728" = deleteWordForward:;
 }
