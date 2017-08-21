@@ -38,6 +38,7 @@ values."
        ;; ----------------------------------------------------------------
        (auto-completion :variables
          auto-completion-enable-snippets-in-popup t)
+       docker
        emacs-lisp
        git
        go
@@ -52,10 +53,12 @@ values."
          ruby-version-manager 'rbenv)
        (shell :variables
          shell-default-shell 'multi-term
-         shell-default-term-shell "/usr/bin/fish")
+         shell-default-term-shell "/usr/bin/env fish")
        shell-scripts
        spell-checking
        syntax-checking
+       (typescript :variables
+         typescript-fmt-on-save t)
        (version-control :variables
          version-control-diff-tool 'git-gutter+)
        yaml

@@ -2,6 +2,6 @@
 # name: test
 # key: test
 # --
-test('${1:name}', ${2:{skip: true}, }t => {
+test('${1:name}', () => {
   $0
 });
