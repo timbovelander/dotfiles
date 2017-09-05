@@ -44,11 +44,10 @@ function fish_prompt --description 'Write out the prompt'
 
   # maven project
   if begin command -s xmllint >/dev/null ^&1; and test -f "pom.xml"; end
-    set -l artifactId (xmllint --xpath '/*[local-name()="project"]/*[local-name()="artifactId"]/text()' pom.xml ^/dev/null)
     set -l version (xmllint --xpath '/*[local-name()="project"]/*[local-name()="version"]/text()' pom.xml ^/dev/null)
     if test $status -eq 0
       set_color yellow
-      printf "[%s %s]" (echo $artifactId) (echo $version)
+      printf "[%s]" (echo $version)
       set_color normal
       printf "  "
     end
@@ -59,7 +58,7 @@ function fish_prompt --description 'Write out the prompt'
     set -l packageJson (npm root | sed s/node_modules/package.json/)
     if test -f $packageJson
       set_color green
-      printf "[%s %s]" (cat $packageJson | ramda -o raw "prop \name") (cat $packageJson | ramda -o raw "prop \version")
+      printf "[%s]" (cat $packageJson | ramda -o raw "prop \version")
       set_color normal
       printf "  "
     end
