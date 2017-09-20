@@ -3,11 +3,12 @@
 
 'atom-workspace':
   'space tab': 'pane:switch-next-recently-used-item'
-  'space *': 'lazy-motion:forward-cursor-word'
-  'space /': 'lazy-motion:forward'
-  'space :': 'command-palette:toggle'
+  # 'space *': 'lazy-motion:forward-cursor-word'
+  # 'space /': 'lazy-motion:forward'
+  'space space': 'command-palette:toggle'
 
-  'space a d': 'tree-view:toggle'
+  'space a c': 'application:open-your-config'
+  'space a d': 'tree-view:toggle-focus'
   'space a i': 'application:open-your-init-script'
   'space a k': 'application:open-your-keymap'
   'space a r': 'window:reload'
@@ -23,50 +24,42 @@
   'space b s': 'editor:scratch'
   'space b y': 'editor:copy-all'
 
-  'space e l': 'linter:toggle-panel'
-  'space e n': 'linter:next-error'
-  'space e p': 'linter:previous-error'
+  'space e l': 'diagnostics:toggle-table'
+  'space e f': 'diagnostics:fix-all-in-current-file'
+  'space e n': 'diagnostics:go-to-next-diagnostic'
+  'space e p': 'diagnostics:go-to-previous-diagnostic'
 
   'space f f': 'fuzzy-finder:toggle-file-finder'
   'space f s': 'core:save'
 
-  'space g a': 'git-plus:add'
-  'space g b': 'git-blame:toggle'
-  'space g c': 'git-plus:commit'
-  'space g d': 'git-plus:diff'
-  'space g D': 'git-plus:diff-all'
-  'space g g': 'git-plus:menu'
-  'space g l': 'git-plus:log-current-file'
-  'space g L': 'git-plus:log'
-  'space g o': 'git-plus:checkout'
-  'space g p': 'git-plus:push'
-  'space g P': 'git-plus:pull'
-  'space g s': 'git-plus:status'
+  'space g s': 'github:toggle-git-tab-focus'
 
   'space p b': 'fuzzy-finder:toggle-buffer-finder'
   'space p d': 'tree-view:reveal-active-file'
-  'space p D': 'tree-view:show'
+  'space p D': 'tree-view:toggle-focus'
   'space p f': 'fuzzy-finder:toggle-file-finder'
   'space p o': 'project-plus:open'
   'space p p': 'project-plus:toggle-project-finder'
   'space p r': 'project-plus:remove'
 
-  'space s a': 'narrow:search'
-  'space s b': 'narrow:lines'
-  'space s p': 'narrow:search-current-project'
+  'space m g': 'hyperclick:confirm-cursor'
+
+  # 'space s a': 'narrow:search'
+  # 'space s b': 'narrow:lines'
+  # 'space s p': 'narrow:search-current-project'
 
   'space q q': 'window:close'
 
   'space v': 'vim-mode-plus:activate-characterwise-visual-mode'
 
-  'space w h': 'window:focus-pane-on-left'
   'space w left': 'window:focus-pane-on-left'
-  'space w l': 'window:focus-pane-on-right'
-  'space w right': 'window:focus-pane-on-right'
-  'space w k': 'window:focus-pane-above'
-  'space w up': 'window:focus-pane-above'
-  'space w j': 'window:focus-pane-below'
   'space w down': 'window:focus-pane-below'
+  'space w up': 'window:focus-pane-above'
+  'space w right': 'window:focus-pane-on-right'
+  'space w h': 'window:focus-pane-on-left'
+  'space w j': 'window:focus-pane-below'
+  'space w k': 'window:focus-pane-above'
+  'space w l': 'window:focus-pane-on-right'
   'space w tab': 'window:focus-next-pane'
   'space w d': 'pane:close'
   'space w -': 'pane:split-down-and-copy-active-item'
@@ -95,9 +88,9 @@
   'g c': 'vim-mode-plus:toggle-line-comments'
   'g C': 'vim-mode-plus:camel-case'
 
-'atom-text-editor.vim-mode-plus.visual-mode':
-  'v': 'expand-region:expand'
-  'V': 'expand-region:shrink'
+# 'atom-text-editor.vim-mode-plus.visual-mode':
+  # 'v': 'expand-region:expand'
+  # 'V': 'expand-region:shrink'
 
 '.tree-view':
   'enter': 'tree-view:open-selected-entry-and-toggle'
@@ -108,10 +101,26 @@
   'n': 'tree-view:add-file'
   'R': 'tree-view:rename'
   'q': 'tree-view:toggle'
+  'left': 'tree-view:collapse-directory'
+  'right': 'tree-view:expand-item'
+  'h': 'tree-view:collapse-directory'
+  'j': 'core:move-down'
+  'k': 'core:move-up'
+  'l': 'tree-view:expand-item'
 
-'atom-text-editor[data-grammar="source diff"],
-.git-plus-log':
+'.github-Panel':
+  'escape': 'github:toggle-git-tab'
+  'q': 'github:toggle-git-tab'
+'.github-StagingView':
+  'enter': 'core:move-left'
+'.github-StagingView.unstaged-changes-focused':
+  's': 'core:confirm'
+'.github-StagingView.staged-changes-focused':
+  'u': 'core:confirm'
+'.github-FilePatchView':
+  'escape': 'tabs:close-tab'
   'q': 'tabs:close-tab'
+  'delete': 'github:discard-selected-lines'
 
 'atom-text-editor[data-grammar~="html"].vim-mode-plus:not(.insert-mode),
 atom-text-editor[data-grammar~="xml"].vim-mode-plus:not(.insert-mode)':

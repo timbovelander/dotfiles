@@ -1,9 +1,8 @@
-{File} = require('atom');
+{ File } = require('atom');
 
 scratchPath = "#{process.env.ATOM_HOME}/scratch"
 scratchFile = new File(scratchPath);
-scratchFile.write("").then(() -> 
-  atom.workspace.open(scratchPath));
+scratchFile.write("");
 
 atom.commands.add 'atom-text-editor', 'editor:copy-all', ->
   editor = atom.workspace.getActiveTextEditor()
