@@ -17,4 +17,9 @@ if command -v git &>/dev/null; then
     mv "$HOME/.vim/bundle/Vundle.vim" "$HOME/.vim/bundle/Vundle.vim.bak"
   fi
   git clone "https://github.com/gmarik/Vundle.vim.git" "$HOME/.vim/bundle/Vundle.vim"
+
+  # atom
+  if command -v apm &>/dev/null; then
+    apm install --packages-file "$HOME/.dotfiles/home/.atom/packages.list"
+  fi
 fi

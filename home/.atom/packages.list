@@ -1,11 +1,11 @@
-atom-fuzzy-grep@0.16.0
-atom-ide-ui@0.4.0
-atom-typescript@11.0.9
-editorconfig@2.2.2
-emmet@2.4.3
-ide-typescript@0.6.1
-linter-eslint@8.3.2
-project-plus@1.0.0
-vim-mode-plus@1.8.0
-which-key@0.3.3
+atom-fuzzy-grep
+atom-ide-ui
+atom-typescript
+editorconfig
+emmet
+ide-typescript
+linter-eslint
+project-plus
+vim-mode-plus
+which-key
 
