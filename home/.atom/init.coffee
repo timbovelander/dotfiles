@@ -4,6 +4,12 @@ scratchPath = "#{process.env.ATOM_HOME}/scratch"
 scratchFile = new File(scratchPath);
 scratchFile.write("");
 
+atom.commands.add 'atom-workspace', 'core:close-force', ->
+  if atom.workspace.getActivePaneItem()
+    atom.workspace.getActivePaneItem().destroy()
+  else if atom.workspace.getPanes().length > 1
+    atom.workspace.getActivePane().destroy()
+
 atom.commands.add 'atom-text-editor', 'editor:copy-all', ->
   editor = atom.workspace.getActiveTextEditor()
   editor.selectAll()
@@ -17,7 +23,7 @@ atom.commands.add 'atom-text-editor', 'editor:delete-all', ->
 atom.commands.add 'atom-text-editor', 'editor:scratch', ->
   atom.workspace.open(scratchPath)
 
-atom.commands.add 'atom-text-editor', 'pane:switch-next-recently-used-item', ->
+atom.commands.add 'atom-workspace', 'pane:switch-next-recently-used-item', ->
   pane = atom.workspace.getActivePane()
   pane.activateNextRecentlyUsedItem()
   pane.moveActiveItemToTopOfStack()

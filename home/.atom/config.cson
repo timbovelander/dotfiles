@@ -1,4 +1,6 @@
 "*":
+  "atom-fuzzy-grep":
+    showFullPath: true
   "atom-ide-ui":
     "atom-ide-diagnostics-ui": {}
     hyperclick:
@@ -6,6 +8,7 @@
   "atom-package-deps":
     ignored: [
       "linter-eslint"
+      "atom-typescript"
     ]
   "autocomplete-plus":
     suppressActivationForEditorClasses: [
@@ -44,6 +47,8 @@
       "notifications"
       "open-on-github"
       "tree-view"
+      "atom-typescript"
+      "atom-fuzzy-grep"
     ]
     projectHome: "~/Projects"
     telemetryConsent: "no"

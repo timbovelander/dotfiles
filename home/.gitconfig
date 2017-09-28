@@ -29,6 +29,7 @@
   m = merge
   pl = pull --prune
   ps = push
+  psf = push --force-with-lease
   pso = "!git push --set-upstream origin $(git symbolic-ref --short HEAD)"
   r = reset
   rh = reset --hard

@@ -3,8 +3,7 @@
 
 'atom-workspace':
   'space tab': 'pane:switch-next-recently-used-item'
-  # 'space *': 'lazy-motion:forward-cursor-word'
-  # 'space /': 'lazy-motion:forward'
+  'space /': 'fuzzy-grep:toggle'
   'space space': 'command-palette:toggle'
 
   'space a c': 'application:open-your-config'
@@ -15,7 +14,7 @@
   'space a s': 'application:show-settings'
 
   'space b b': 'fuzzy-finder:toggle-buffer-finder'
-  'space b d': 'tabs:close-tab'
+  'space b d': 'core:close-force'
   'space b e': 'editor:delete-all'
   'space b m': 'tabs:close-other-tabs'
   'space b N': 'application:new-file'
@@ -113,10 +112,13 @@
   'q': 'github:toggle-git-tab'
 '.github-StagingView':
   'enter': 'core:move-left'
+  'c': 'github:toggle-expanded-commit-message-editor'
 '.github-StagingView.unstaged-changes-focused':
   's': 'core:confirm'
 '.github-StagingView.staged-changes-focused':
   'u': 'core:confirm'
+'.github-CommitView-editor':
+  'space': 'native!'
 '.github-FilePatchView':
   'escape': 'tabs:close-tab'
   'q': 'tabs:close-tab'
