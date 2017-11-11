@@ -3,5 +3,5 @@ emacs
 fish
 make
 silversearcher-ag
-vim
+neovim
 xsel

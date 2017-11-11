@@ -68,8 +68,6 @@ if test -n "$EMACS"
   set -x TERM eterm-color
 end
 
-set PATH "$HOME/Library/Python/2.7/bin" $PATH
-
 # aliases
 alias e "emacsclient -a emacs -c"
 alias fd "find . -type d -name"
@@ -80,3 +78,5 @@ alias gg "cd (git rev-parse --show-toplevel)"
 alias l "ls -la"
 alias remove "/bin/rm"
 alias v "nvim"
+alias vi "nvim"
+alias vim "nvim"
