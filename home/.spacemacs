@@ -48,9 +48,9 @@ values."
        javascript
        (markdown :variables
          markdown-live-preview-engine 'vmd)
-       react
        (ruby :variables
          ruby-version-manager 'rbenv)
+       search-engine
        (shell :variables
          shell-default-shell 'multi-term
          shell-default-term-shell "/usr/bin/env fish")
@@ -69,9 +69,11 @@ values."
     ;; configuration in `dotspacemacs/user-config'.
     dotspacemacs-additional-packages
     '(
+       add-node-modules-path
        editorconfig
        graphql-mode
        hound
+       rjsx-mode
        typit
        )
     ;; A list of packages that cannot be updated.
@@ -102,7 +104,7 @@ values."
     ;; This variable has no effect if Emacs is launched with the parameter
     ;; `--insecure' which forces the value of this variable to nil.
     ;; (default t)
-    dotspacemacs-elpa-https t
+    dotspacemacs-elpa-https nil
     ;; Maximum allowed time in seconds to contact an ELPA repository.
     dotspacemacs-elpa-timeout 5
     ;; If non nil then spacemacs will check for updates at startup
@@ -392,6 +394,11 @@ you should place your code here."
        ("riot" . "\\.tag\\'")))
 
   (add-hook 'term-mode-hook 'toggle-truncate-lines)
+  (eval-after-load 'js2-mode
+    '(add-hook 'js2-mode-hook #'add-node-modules-path))
+  (setq-default js2-basic-offset 2)
+  (setq-default js-indent-level 2)
+  (spacemacs/add-flycheck-hook 'rjsx-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
