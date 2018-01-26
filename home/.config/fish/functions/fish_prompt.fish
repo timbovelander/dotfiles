@@ -43,25 +43,44 @@ function fish_prompt --description 'Write out the prompt'
   end
 
   # maven project
-  if begin command -s xmllint >/dev/null ^&1; and test -f "pom.xml"; end
-    set -l version (xmllint --xpath '/*[local-name()="project"]/*[local-name()="version"]/text()' pom.xml ^/dev/null)
-    if test $status -eq 0
-      set_color yellow
-      printf "[%s]" (echo $version)
-      set_color normal
-      printf "  "
+  if begin command -s xmllint >/dev/null ^&1; end
+    set -l dir (pwd)
+    while test (pwd) != "/"
+      if test -f pom.xml
+        set -l version (xmllint --xpath '/*[local-name()="project"]/*[local-name()="version"]/text()' pom.xml ^/dev/null)
+        # set -l version2 (cat pom.xml | grep "<version>" | head -1 | cut -d \> -f2 | cut -d \< -f1)
+        if test -n $version
+          set_color yellow
+          printf "[$version]"
+          set_color normal
+          printf "  "
+        end
+        break
+      else
+        cd ..
+      end
     end
+    cd $dir
   end
 
   # node project
-  if begin command -s npm >/dev/null ^&1; and command -s ramda >/dev/null ^&1; end
-    set -l packageJson (npm root | sed s/node_modules/package.json/)
-    if test -f $packageJson
-      set_color green
-      printf "[%s]" (cat $packageJson | ramda -o raw "prop \version")
-      set_color normal
-      printf "  "
+  if begin command -s node >/dev/null ^&1; end
+    set -l dir (pwd)
+    while test (pwd) != "/"
+      if test -f "package.json"
+        set -l version (node -p "require('./package.json').version")
+        if test $version != "undefined"
+          set_color green
+          printf "[$version]"
+          set_color normal
+          printf "  "
+        end
+        break
+      else
+        cd ..
+      end
     end
+    cd $dir
   end
 
   printf "\n"

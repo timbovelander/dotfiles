@@ -68,11 +68,17 @@ if test -n "$EMACS"
   set -x TERM eterm-color
 end
 
+# nodenv
+if test (command -s nodenv)
+  status --is-interactive; and source (nodenv init -|psub)
+end
+
 # aliases
 alias e "emacsclient -a emacs -c"
-alias fd "find . -type d -name"
-alias ff "find . -type f -name"
-alias fl "find . -type l -name"
+alias f "find (pwd) -name"
+alias fd "find (pwd) -type d -name"
+alias ff "find (pwd) -type f -name"
+alias fl "find (pwd) -type l -name"
 alias g "git"
 alias gg "cd (git rev-parse --show-toplevel)"
 alias l "ls -la"
@@ -80,3 +86,4 @@ alias remove "/bin/rm"
 alias v "nvim"
 alias vi "nvim"
 alias vim "nvim"
+alias view "nvim -R"
