@@ -47,8 +47,7 @@ function fish_prompt --description 'Write out the prompt'
     set -l dir (pwd)
     while test (pwd) != "/"
       if test -f pom.xml
-        set -l version (xmllint --xpath '/*[local-name()="project"]/*[local-name()="version"]/text()' pom.xml ^/dev/null)
-        # set -l version2 (cat pom.xml | grep "<version>" | head -1 | cut -d \> -f2 | cut -d \< -f1)
+        set -l version (xmllint --xpath '/*[local-name()="project"]/*[local-name()="version"]/text()' pom.xml ^/dev/null; or echo "")
         if test -n $version
           set_color yellow
           printf "[$version]"
@@ -68,8 +67,8 @@ function fish_prompt --description 'Write out the prompt'
     set -l dir (pwd)
     while test (pwd) != "/"
       if test -f "package.json"
-        set -l version (node -p "require('./package.json').version")
-        if test $version != "undefined"
+        set -l version (node -p "require('./package.json').version" ^/dev/null; or echo "")
+        if test -n $version
           set_color green
           printf "[$version]"
           set_color normal
