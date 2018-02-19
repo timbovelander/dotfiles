@@ -67,8 +67,8 @@ function fish_prompt --description 'Write out the prompt'
     set -l dir (pwd)
     while test (pwd) != "/"
       if test -f "package.json"
-        set -l version (node -p "require('./package.json').version" ^/dev/null; or echo "")
-        if test -n $version
+        set -l version (node -p "require('./package.json').version" ^/dev/null; or echo "undefined")
+        if test $version != "undefined"
           set_color green
           printf "[$version]"
           set_color normal

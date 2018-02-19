@@ -104,7 +104,7 @@ values."
     ;; This variable has no effect if Emacs is launched with the parameter
     ;; `--insecure' which forces the value of this variable to nil.
     ;; (default t)
-    dotspacemacs-elpa-https nil
+    dotspacemacs-elpa-https t
     ;; Maximum allowed time in seconds to contact an ELPA repository.
     dotspacemacs-elpa-timeout 5
     ;; If non nil then spacemacs will check for updates at startup
@@ -226,7 +226,7 @@ values."
     dotspacemacs-helm-use-fuzzy 'always
     ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
     ;; several times cycle between the kill ring content. (default nil)
-    dotspacemacs-enable-paste-transient-state t
+    dotspacemacs-enable-paste-transient-state nil
     ;; Which-key delay in seconds. The which-key buffer is the popup listing
     ;; the commands bound to the current keystroke sequence. (default 0.4)
     dotspacemacs-which-key-delay 0.4
@@ -238,7 +238,7 @@ values."
     ;; If non nil a progress bar is displayed when spacemacs is loading. This
     ;; may increase the boot time on some systems and emacs builds, set it to
     ;; nil to boost the loading time. (default t)
-    dotspacemacs-loading-progress-bar t
+    dotspacemacs-loading-progress-bar nil
     ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
     ;; (Emacs 24.4+ only)
     dotspacemacs-fullscreen-at-startup nil
@@ -324,44 +324,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
   (setq vc-follow-symlinks t)
-  (setq hound-host "https://hound.innomate.internal.bol.com")
-  (setq hound-api-port "443")
-  (setq hound-root-directory "~/Projects/bol.com")
-  (setq hound-repo-substitution
-    '(
-       ("analyticsjs" "javascript/analyticsjs")
-       ("frontend-checkout" "javascript/checkout")
-       ("frontend-conversations" "javascript/conversations")
-       ("frontend-expertpages" "javascript/expertpages")
-       ("frontend-explore" "javascript/explore")
-       ("frontend-giftcard" "javascript/giftcard")
-       ("frontend-listpage" "javascript/listpage")
-       ("frontend-pdp-product-images" "javascript/pdp-product-images")
-       ("frontend-product-images-fullscreen" "javascript/product-images-fullscreen")
-       ("frontend-search" "javascript/search")
-       ("frontend-store" "javascript/store")
-       ("frontend-tooltip" "javascript/tooltip")
-       ("frontend-wiki-header" "javascript/wiki-header")
-       ("frontend-wishlist" "javascript/wishlist")
-       ("rnwy-shared" "runway/wsp-rnwy-shared")
-       ("rnwy-account" "runway/wsp-rnwy-account")
-       ("rnwy-addonpage" "runway/wsp-rnwy-addonpage")
-       ("rnwy-basketpage" "runway/wsp-rnwy-basketpage")
-       ("rnwy-brandpage" "runway/wsp-rnwy-brandpage")
-       ("rnwy-checkout" "runway/wsp-rnwy-checkout")
-       ("rnwy-cms" "runway/wsp-rnwy-cms")
-       ("rnwy-conversations" "runway/wsp-rnwy-conversations")
-       ("rnwy-digital" "runway/wsp-rnwy-digital")
-       ("rnwy-expertpages" "runway/wsp-rnwy-expertpages")
-       ("rnwy-explore" "runway/wsp-rnwy-explore")
-       ("rnwy-internal-pages" "runway/wsp-rnwy-internal-pages")
-       ("rnwy-listpage" "runway/wsp-rnwy-listpage")
-       ("rnwy-mods-comps-els" "runway/wsp-rnwy-mods-comps-els")
-       ("rnwy-offercompare" "runway/wsp-rnwy-offercompare")
-       ("rnwy-pages-grids" "runway/wsp-rnwy-pages-grids")
-       ("rnwy-productpage" "runway/wsp-rnwy-productpage")
-       ("rnwy-wishlist" "runway/wsp-rnwy-wishlist")
-       ("wsp" "webshop")))
   )
 
 (defun dotspacemacs/user-config ()
@@ -385,19 +347,15 @@ you should place your code here."
   (add-to-list 'auto-mode-alist '("\\.njk\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.schema\\'" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.script\\'" . js2-mode))
-  (add-to-list 'auto-mode-alist '("\\.tag\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.template\\'" . web-mode))
 
   (setq web-mode-engines-alist
     '(
-       ("ctemplate" . "\\.template\\'")
-       ("riot" . "\\.tag\\'")))
+       ("ctemplate" . "\\.template\\'")))
 
   (add-hook 'term-mode-hook 'toggle-truncate-lines)
   (eval-after-load 'js2-mode
     '(add-hook 'js2-mode-hook #'add-node-modules-path))
-  (setq-default js2-basic-offset 2)
-  (setq-default js-indent-level 2)
   (spacemacs/add-flycheck-hook 'rjsx-mode)
   )
 
