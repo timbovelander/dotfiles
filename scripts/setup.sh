@@ -5,7 +5,7 @@ set -e
 
 # prompt for distribution
 echo "Select your linux distribution:"
-select distribution in debian opensuse cancel
+select distribution in debian opensuse osx cancel
 do
   if [ "$distribution" == "cancel" ]; then
     exit 0
@@ -28,6 +28,13 @@ if [ "$distribution" == "opensuse" ]; then
   packageuninstall="sudo zypper remove -y"
   packagestatus="rpm -q"
   packageinstalled="grep -v 'not installed'"
+fi
+if [ "$distribution" == "osx" ]; then
+  packageupdate="brew update"
+  packageinstall="brew install"
+  packageuninstall="brew uninstall --force"
+  packagestatus="brew ls --versions"
+  packageinstalled="grep ."
 fi
 
 # update package repository
@@ -56,15 +63,18 @@ echo "Change shell to fish shell"
 chsh -s "/usr/bin/fish"
 
 # install shell plugins
-source "$HOME/.dotfiles/scripts/fisherman.sh"
+# source "$HOME/.dotfiles/scripts/fisherman.sh"
 
 # install fasd
 source "$HOME/.dotfiles/scripts/fasd.sh"
 
-# install rbenv
-source "$HOME/.dotfiles/scripts/rbenv.sh"
+# install nodenv
+source "$HOME/.dotfiles/scripts/nodenv.sh"
 
-# install editors
+# install rbenv
+# source "$HOME/.dotfiles/scripts/rbenv.sh"
+
+# setup editors
 source "$HOME/.dotfiles/scripts/editors.sh"
 
 # create symlinks for all home dotfiles

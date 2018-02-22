@@ -41,15 +41,12 @@ values."
        docker
        emacs-lisp
        git
-       go
        helm
        html
        java
        javascript
        (markdown :variables
          markdown-live-preview-engine 'vmd)
-       (ruby :variables
-         ruby-version-manager 'rbenv)
        search-engine
        (shell :variables
          shell-default-shell 'multi-term
@@ -57,8 +54,7 @@ values."
        shell-scripts
        spell-checking
        syntax-checking
-       (typescript :variables
-         typescript-fmt-on-save t)
+       typescript
        (version-control :variables
          version-control-diff-tool 'git-gutter+)
        yaml
@@ -71,15 +67,12 @@ values."
     '(
        add-node-modules-path
        editorconfig
-       graphql-mode
-       hound
        rjsx-mode
-       typit
        )
     ;; A list of packages that cannot be updated.
     dotspacemacs-frozen-packages '()
     ;; A list of packages that will not be installed and loaded.
-    dotspacemacs-excluded-packages '(scss-mode)
+    dotspacemacs-excluded-packages '()
     ;; Defines the behaviour of Spacemacs when installing packages.
     ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
     ;; `used-only' installs only explicitly used packages and uninstall any

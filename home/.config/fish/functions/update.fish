@@ -9,7 +9,7 @@ function update
   end
 
   if command -s brew >/dev/null ^&1
-    brew update
+    brew upgrade
   end
 
   if command -s npm >/dev/null ^&1
@@ -30,6 +30,15 @@ function update
 
     test -d "$HOME/.emacs.d"
     and git -C "$HOME/.emacs.d" pull --rebase=preserve --prune
+
+    test -d "$HOME/.nodenv"
+    and git -C "$HOME/.nodenv" pull --rebase=preserve --prune
+
+    test -d "$HOME/.nodenv/plugins/node-build"
+    and git -C "$HOME/.nodenv/plugins/node-build" pull --rebase=preserve --prune
+
+    test -d "$HOME/.nodenv/plugins/nodenv-default-packages"
+    and git -C "$HOME/.nodenv/plugins/nodenv-default-packages" pull --rebase=preserve --prune
 
     test -d "$HOME/.rbenv"
     and git -C "$HOME/.rbenv" pull --rebase=preserve --prune

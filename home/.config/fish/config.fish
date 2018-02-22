@@ -56,7 +56,7 @@ end
 # rbenv
 if test -d "$HOME/.rbenv"
   set PATH "$HOME/.rbenv/bin" $PATH
-  status --is-interactive; and . (rbenv init -|psub)
+  status --is-interactive; and source (rbenv init -|psub)
 end
 
 # gulp autocomplete
