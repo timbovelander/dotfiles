@@ -26,28 +26,28 @@ function update
 
   if command -s git >/dev/null ^&1
     test -d "$HOME/.dotfiles"
-    and git -C "$HOME/.dotfiles" pull --rebase=preserve --prune
+    and git -C "$HOME/.dotfiles" pull --rebase=preserve --prune ^/dev/null
 
     test -d "$HOME/.emacs.d"
-    and git -C "$HOME/.emacs.d" pull --rebase=preserve --prune
+    and git -C "$HOME/.emacs.d" pull --rebase=preserve --prune ^/dev/null
 
     test -d "$HOME/.nodenv"
-    and git -C "$HOME/.nodenv" pull --rebase=preserve --prune
+    and git -C "$HOME/.nodenv" pull --rebase=preserve --prune ^/dev/null
 
     test -d "$HOME/.nodenv/plugins/node-build"
-    and git -C "$HOME/.nodenv/plugins/node-build" pull --rebase=preserve --prune
+    and git -C "$HOME/.nodenv/plugins/node-build" pull --rebase=preserve --prune ^/dev/null
 
     test -d "$HOME/.nodenv/plugins/nodenv-default-packages"
-    and git -C "$HOME/.nodenv/plugins/nodenv-default-packages" pull --rebase=preserve --prune
+    and git -C "$HOME/.nodenv/plugins/nodenv-default-packages" pull --rebase=preserve --prune ^/dev/null
 
     test -d "$HOME/.rbenv"
-    and git -C "$HOME/.rbenv" pull --rebase=preserve --prune
+    and git -C "$HOME/.rbenv" pull --rebase=preserve --prune ^/dev/null
 
     test -d "$HOME/.rbenv/plugins/ruby-build"
-    and git -C "$HOME/.rbenv/plugins/ruby-build" pull --rebase=preserve --prune
+    and git -C "$HOME/.rbenv/plugins/ruby-build" pull --rebase=preserve --prune ^/dev/null
 
     test -d "$HOME/.rbenv/plugins/rbenv-gemset"
-    and git -C "$HOME/.rbenv/plugins/rbenv-gemset" pull --rebase=preserve --prune
+    and git -C "$HOME/.rbenv/plugins/rbenv-gemset" pull --rebase=preserve --prune ^/dev/null
   end
 
   test -f "$HOME/.dotfiles/scripts/symlinks.sh"
