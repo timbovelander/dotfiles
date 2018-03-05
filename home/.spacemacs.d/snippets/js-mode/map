@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+# name: map
+# --
+map(${1:(${3:el, index}) => ${2:{$0}}});

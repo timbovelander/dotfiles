@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: class
+# --
+class ${1:Class}${2: extends ${3:ParentClass}} {
+  ${4:constructor(${5:arg}) {
+    ${6:super($5);}
+    $7
+  }}
+
+  $0
+}

@@ -1,0 +1,4 @@
+# -*- mode: snippet -*-
+# name: reduce
+# --
+reduce(${1:(${3:acc, curr}) => ${2:{$0}}}, ${4:initial});

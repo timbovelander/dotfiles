@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import-member
+# key: imm
+# --
+import { ${2:member} } from '${1:module}';$0
