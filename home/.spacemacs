@@ -44,6 +44,7 @@ values."
        helm
        html
        javascript
+       javascript-custom
        (markdown :variables
          markdown-live-preview-engine 'vmd)
        search-engine
@@ -65,9 +66,7 @@ values."
     ;; configuration in `dotspacemacs/user-config'.
     dotspacemacs-additional-packages
     '(
-       add-node-modules-path
        editorconfig
-       rjsx-mode
        )
     ;; A list of packages that cannot be updated.
     dotspacemacs-frozen-packages '()
@@ -337,7 +336,6 @@ you should place your code here."
   (define-key evil-normal-state-map (kbd "S-<return>") (lambda() (interactive)(evil-open-above 1)(evil-force-normal-state)))
   (define-key evil-insert-state-map (kbd "<tab>") 'hippie-expand)
 
-  (add-to-list 'auto-mode-alist '("\\.njk\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.schema\\'" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.script\\'" . js2-mode))
   (add-to-list 'auto-mode-alist '("\\.template\\'" . web-mode))
@@ -347,9 +345,6 @@ you should place your code here."
        ("ctemplate" . "\\.template\\'")))
 
   (add-hook 'term-mode-hook 'toggle-truncate-lines)
-  (eval-after-load 'js2-mode
-    '(add-hook 'js2-mode-hook #'add-node-modules-path))
-  (spacemacs/add-flycheck-hook 'rjsx-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
