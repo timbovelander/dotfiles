@@ -67,6 +67,7 @@ values."
     dotspacemacs-additional-packages
     '(
        editorconfig
+       graphql-mode
        )
     ;; A list of packages that cannot be updated.
     dotspacemacs-frozen-packages '()
@@ -334,8 +335,9 @@ you should place your code here."
   (global-set-key (kbd "<end>") 'end-of-line)
   (define-key evil-normal-state-map (kbd "RET") (lambda() (interactive)(evil-open-below 1)(evil-force-normal-state)))
   (define-key evil-normal-state-map (kbd "S-<return>") (lambda() (interactive)(evil-open-above 1)(evil-force-normal-state)))
-  (define-key evil-insert-state-map (kbd "<tab>") 'hippie-expand)
+  (define-key evil-insert-state-map (kbd "C-<tab>") 'hippie-expand)
 
+  (add-to-list 'auto-mode-alist '("\\.njk\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.schema\\'" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.script\\'" . js2-mode))
   (add-to-list 'auto-mode-alist '("\\.template\\'" . web-mode))
