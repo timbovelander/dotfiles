@@ -75,10 +75,14 @@ end
 
 # aliases
 alias e "emacsclient -a emacs -c"
-alias f "find (pwd) -name"
-alias fd "find (pwd) -type d -name"
-alias ff "find (pwd) -type f -name"
-alias fl "find (pwd) -type l -name"
+function f --wraps find
+  set -l args $argv[(seq 0 1 (math (count $argv) - 1))]
+  set -l search $argv[(count $argv)]
+  find (pwd) $args -name "*$search*"
+end
+alias fd "f -type d"
+alias ff "f -type f"
+alias fl "f -type l"
 alias g "git"
 alias gg "cd (git rev-parse --show-toplevel)"
 alias l "ls -la"
