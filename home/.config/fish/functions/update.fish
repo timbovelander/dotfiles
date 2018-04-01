@@ -50,6 +50,18 @@ function update
     and git -C "$HOME/.rbenv/plugins/rbenv-gemset" pull --rebase=preserve --prune ^/dev/null
   end
 
+  if test -f "/opt/firefox/firefox"
+    wget "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=nl" -O /tmp/firefox.tar.bz2
+    tar -xjf /tmp/firefox.tar.bz2 -C /tmp
+    set -l current (/opt/firefox/firefox -v)
+    set -l latest (/tmp/firefox/firefox -v)
+    if test $current != $latest
+      set -e current
+      set -e latest
+      sudo cp -R /tmp/firefox/* /opt/firefox/
+    end
+  end
+
   test -f "$HOME/.dotfiles/scripts/symlinks.sh"
   and bash "$HOME/.dotfiles/scripts/symlinks.sh"
 end
