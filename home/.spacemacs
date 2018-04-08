@@ -37,13 +37,15 @@ values."
        ;; <M-m f e R> (Emacs style) to install them.
        ;; ----------------------------------------------------------------
        auto-completion
+       custom-javascript
+       custom-lsp
+       custom-vue
        docker
        emacs-lisp
        git
        helm
        html
        javascript
-       javascript-custom
        (markdown :variables
          markdown-live-preview-engine 'vmd)
        search-engine
