@@ -68,6 +68,10 @@ if test -n "$EMACS"
   set -x TERM eterm-color
 end
 
+function fish_title
+  true
+end
+
 # nodenv
 if test (command -s nodenv)
   status --is-interactive; and source (nodenv init -|psub)

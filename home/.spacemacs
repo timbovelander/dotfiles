@@ -69,6 +69,7 @@ values."
     '(
        editorconfig
        graphql-mode
+       keychain-environment
        )
     ;; A list of packages that cannot be updated.
     dotspacemacs-frozen-packages '()
