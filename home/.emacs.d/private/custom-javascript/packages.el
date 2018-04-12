@@ -1,8 +1,10 @@
-(setq custom-javascript-packages
+(defconst custom-javascript-packages
   '(
      company-lsp
      add-node-modules-path
-     lsp-javascript-typescript))
+     js2-mode
+     lsp-javascript-typescript
+     ))
 
 (defun custom-vue/post-init-company-lsp ()
   (push 'company-lsp company-backends-js2-mode))
@@ -14,6 +16,10 @@
     (progn
       (eval-after-load 'js2-mode
         '(add-hook 'js2-mode #'add-node-modules-path)))))
+
+(defun custom-javascript/post-init-js2-mode ()
+  (setq js2-mode-show-parse-errors nil)
+  (setq js2-mode-show-strict-warnings nil))
 
 (defun custom-javascript/init-lsp-javascript-typescript ()
   (use-package lsp-javascript-typescript

@@ -37,6 +37,7 @@ values."
        ;; <M-m f e R> (Emacs style) to install them.
        ;; ----------------------------------------------------------------
        auto-completion
+       custom-editor
        custom-javascript
        custom-lsp
        custom-vue
@@ -67,9 +68,7 @@ values."
     ;; configuration in `dotspacemacs/user-config'.
     dotspacemacs-additional-packages
     '(
-       editorconfig
        graphql-mode
-       keychain-environment
        )
     ;; A list of packages that cannot be updated.
     dotspacemacs-frozen-packages '()
@@ -257,7 +256,7 @@ values."
     ;; If non nil show the color guide hint for transient state keys. (default t)
     dotspacemacs-show-transient-state-color-guide t
     ;; If non nil unicode symbols are displayed in the mode line. (default t)
-    dotspacemacs-mode-line-unicode-symbols nil
+    dotspacemacs-mode-line-unicode-symbols t
     ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
     ;; scrolling overrides the default behavior of Emacs which recenters point
     ;; when it reaches the top or bottom of the screen. (default t)
@@ -275,7 +274,7 @@ values."
     ;;                       text-mode
     ;;   :size-limit-kb 1000)
     ;; (default nil)
-    dotspacemacs-line-numbers nil
+    dotspacemacs-line-numbers t
     ;; Code folding method. Possible values are `evil' and `origami'.
     ;; (default 'evil)
     dotspacemacs-folding-method 'evil
@@ -316,8 +315,6 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (setq js2-mode-show-parse-errors nil)
-  (setq js2-mode-show-strict-warnings nil)
   (setq vc-follow-symlinks t)
   )
 
@@ -330,23 +327,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq x-select-enable-clipboard nil)
 
-  (editorconfig-mode t)
-  (golden-ratio-mode t)
-
-  (global-set-key (kbd "<home>") 'evil-first-non-blank)
-  (global-set-key (kbd "<end>") 'end-of-line)
-  (define-key evil-normal-state-map (kbd "RET") (lambda() (interactive)(evil-open-below 1)(evil-force-normal-state)))
-  (define-key evil-normal-state-map (kbd "S-<return>") (lambda() (interactive)(evil-open-above 1)(evil-force-normal-state)))
-  (define-key evil-insert-state-map (kbd "C-<tab>") 'hippie-expand)
-
   (add-to-list 'auto-mode-alist '("\\.njk\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.schema\\'" . json-mode))
-  (add-to-list 'auto-mode-alist '("\\.script\\'" . js2-mode))
-  (add-to-list 'auto-mode-alist '("\\.template\\'" . web-mode))
-
-  (setq web-mode-engines-alist
-    '(
-       ("ctemplate" . "\\.template\\'")))
 
   (add-hook 'term-mode-hook 'toggle-truncate-lines)
   )
