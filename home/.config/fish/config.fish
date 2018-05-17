@@ -53,12 +53,6 @@ if test ! (command -s fasd)
   and source "/usr/share/autojump/autojump.fish"
 end
 
-# rbenv
-if test -d "$HOME/.rbenv"
-  set PATH "$HOME/.rbenv/bin" $PATH
-  status --is-interactive; and source (rbenv init -|psub)
-end
-
 # gulp autocomplete
 test (command -s gulp)
 and gulp --completion=fish | source
@@ -72,9 +66,19 @@ function fish_title
   true
 end
 
+# rbenv
+if test (command -s rbenv)
+  status --is-interactive; and source (rbenv init -|psub)
+end
+
 # nodenv
 if test (command -s nodenv)
   status --is-interactive; and source (nodenv init -|psub)
+end
+
+# pyenv
+if test (command -s pyenv)
+  status --is-interactive; and source (pyenv init -|psub)
 end
 
 # aliases

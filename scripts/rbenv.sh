@@ -2,7 +2,7 @@
 
 set -u
 
-if command -v git &>/dev/null; then
+if command -v git &>/dev/null && ! command -v rbenv; then
   if [ -e "$HOME/.rbenv" ]; then
     mv "$HOME/.rbenv" "$HOME/.rbenv.bak"
   fi
@@ -12,4 +12,6 @@ if command -v git &>/dev/null; then
   git clone "https://github.com/jf/rbenv-gemset.git" "$HOME/.rbenv/plugins/rbenv-gemset"
 
   sudo bash "$HOME/.rbenv/plugins/ruby-build/install.sh"
+
+  command -v fish &>/dev/null && fish -c 'set -U fish_user_paths $HOME/.rbenv/bin $fish_user_paths'
 fi
