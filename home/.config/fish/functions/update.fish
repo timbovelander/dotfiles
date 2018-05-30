@@ -12,6 +12,10 @@ function update
     brew upgrade
   end
 
+  if command -s snap >/dev/null ^&1
+    sudo snap refresh
+  end
+
   if command -s npm >/dev/null ^&1
     npm -g update
   end
@@ -51,14 +55,15 @@ function update
   end
 
   if test -f "/opt/firefox/firefox"
-    wget "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=nl" -O /tmp/firefox.tar.bz2
-    tar -xjf /tmp/firefox.tar.bz2 -C /tmp
-    set -l current (/opt/firefox/firefox -v)
-    set -l latest (/tmp/firefox/firefox -v)
-    if test $current != $latest
-      set -e current
-      set -e latest
+    set -l url "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=nl"
+    set -l latest (curl -IS $url | grep Location)
+    set -l match (echo $latest | grep (cat /opt/firefox/version))
+
+    if test -z $match
+      wget "$url" -O /tmp/firefox.tar.bz2
+      tar -xjf /tmp/firefox.tar.bz2 -C /tmp
       sudo cp -R /tmp/firefox/* /opt/firefox/
+      echo $match | sudo tee /opt/firefox/version
     end
   end
 
