@@ -10,7 +10,7 @@ if command -v git &>/dev/null; then
   if [ -e "$HOME/.emacs.d" ]; then
     mv "$HOME/.emacs.d" "$HOME/.emacs.d.bak"
   fi
-  git clone "https://github.com/syl20bnr/spacemacs" "$HOME/.emacs.d"
+  git clone -b develop "https://github.com/syl20bnr/spacemacs" "$HOME/.emacs.d"
 
   # ViM
   if [ -e "$HOME/.vim/bundle/Vundle.vim" ]; then

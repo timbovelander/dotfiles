@@ -1,6 +1,8 @@
-javascript-typescrip-langserver
+flow-language-server
+javascript-typescript-langserver
 jsonlint
 sass
 tern
+typescript
 vmd
 vue-language-server
