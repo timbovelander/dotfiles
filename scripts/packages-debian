@@ -2,6 +2,6 @@ curl
 emacs
 fish
 make
-silversearcher-ag
+ripgrep
 neovim
 xsel

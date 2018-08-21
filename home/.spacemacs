@@ -39,7 +39,8 @@ This function should only modify configuration layer settings."
        ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
        ;; `M-m f e R' (Emacs style) to install them.
        ;; ----------------------------------------------------------------
-       auto-completion
+       (auto-completion :variables
+         auto-completion-enable-snippets-in-popup t)
        custom-vue
        docker
        emacs-lisp
@@ -54,7 +55,8 @@ This function should only modify configuration layer settings."
          markdown-live-preview-engine 'vmd)
        (python :variables
          python-backend 'lsp)
-       shell
+       (shell :variables
+         shell-default-term-shell "/usr/bin/fish")
        shell-scripts
        spell-checking
        syntax-checking
@@ -68,7 +70,7 @@ This function should only modify configuration layer settings."
     ;; To use a local version of a package, use the `:location' property:
     ;; '(your-package :location "~/path/to/your-package/")
     ;; Also include the dependencies as they will not be resolved automatically.
-    dotspacemacs-additional-packages '()
+    dotspacemacs-additional-packages '(exec-path-from-shell speed-type)
 
     ;; A list of packages that cannot be updated.
     dotspacemacs-frozen-packages '()
@@ -475,6 +477,8 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (setq vc-follow-symlinks t)
+
   (global-set-key (kbd "<home>") 'beginning-of-line-text)
   (global-set-key (kbd "<end>") 'end-of-line)
   (define-key evil-normal-state-map (kbd "RET") (lambda() (interactive)(evil-open-below 1)(evil-force-normal-state)))
@@ -486,6 +490,9 @@ before packages are loaded."
 
   (add-to-list 'editorconfig-indentation-alist
     '(fish-mode fish-indent-offset))
+
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
