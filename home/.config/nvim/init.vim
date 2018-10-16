@@ -8,7 +8,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-sensible'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'wellle/targets.vim'
@@ -37,7 +37,7 @@ set splitright
 set wildignorecase
 
 " ===== Appearance
-colorscheme solarized
+colorscheme gruvbox
 
 set background=dark
 set number
