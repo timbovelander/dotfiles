@@ -25,7 +25,8 @@ function update
   end
 
   if type -t fisher >/dev/null ^&1
-    fisher update
+    fisher self-update
+    fisher
   end
 
   if command -s git >/dev/null ^&1
