@@ -41,6 +41,7 @@ This function should only modify configuration layer settings."
        ;; ----------------------------------------------------------------
        (auto-completion :variables
          auto-completion-enable-snippets-in-popup t)
+       colors
        custom-vue
        docker
        emacs-lisp
