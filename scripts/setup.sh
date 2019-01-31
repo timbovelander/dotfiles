@@ -71,9 +71,6 @@ source "$HOME/.dotfiles/scripts/fasd.sh"
 # install nodenv
 source "$HOME/.dotfiles/scripts/nodenv.sh"
 
-# install rbenv
-# source "$HOME/.dotfiles/scripts/rbenv.sh"
-
 # install pyenv
 source "$HOME/.dotfiles/scripts/pyenv.sh"
 

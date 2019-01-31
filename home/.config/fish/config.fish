@@ -66,19 +66,14 @@ function fish_title
   true
 end
 
-# rbenv
-if test (command -s rbenv)
-  status --is-interactive; and source (rbenv init -|psub)
-end
-
 # nodenv
 if test (command -s nodenv)
-  status --is-interactive; and source (nodenv init -|psub)
+  source (nodenv init -|psub)
 end
 
 # pyenv
 if test (command -s pyenv)
-  status --is-interactive; and source (pyenv init -|psub)
+  source (pyenv init -|psub)
 end
 
 # aliases
