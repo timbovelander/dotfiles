@@ -1,7 +1,7 @@
 function update
-  if command -s apt-get >/dev/null ^&1
-    sudo apt-get update
-    sudo apt-get dist-upgrade
+  if command -s apt >/dev/null ^&1
+    sudo apt update
+    sudo apt upgrade
   end
 
   if command -s zypper >/dev/null ^&1

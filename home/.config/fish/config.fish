@@ -77,6 +77,8 @@ if test (command -s pyenv)
 end
 
 # aliases
+alias d "docker"
+alias dc "docker-compose"
 alias e "emacsclient -a emacs -c"
 function find-name --wraps find
   set -l args $argv[(seq 0 1 (math (count $argv) - 1))]
