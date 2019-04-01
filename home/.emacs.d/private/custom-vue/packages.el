@@ -1,24 +1,23 @@
 (defconst custom-vue-packages
   '(
      add-node-modules-path
-     company-lsp
+     company
      emmet-mode
      evil-matchit
      flycheck
-     (lsp-vue :requires lsp-mode)
      smartparens
      web-mode
      yasnippet
      ))
 
 (defun custom-vue/post-init-add-node-modules-path ()
-  (spacemacs/add-to-hooks #'add-node-modules-path '(vue-mode-hook)))
+  (add-hook 'vue-mode-hook #'add-node-modules-path))
 
-(defun custom-vue/post-init-company-lsp ()
+(defun custom-vue/post-init-company ()
   (add-hook 'vue-mode-local-vars-hook #'spacemacs//vue-setup-company))
 
 (defun custom-vue/post-init-emmet-mode ()
-  (spacemacs/add-to-hooks 'emmet-mode '(vue-mode-hook)))
+  (add-hook 'vue-mode-hook 'emmet-mode))
 
 (defun custom-vue/post-init-evil-matchit ()
   (with-eval-after-load 'evil-matchit
@@ -32,10 +31,6 @@
     (flycheck-add-mode 'javascript-eslint 'vue-mode))
   (spacemacs/enable-flycheck 'vue-mode))
 
-(defun custom-vue/init-lsp-vue ()
-  (use-package lsp-vue
-    :commands lsp-vue-enable
-    :defer t))
 
 (defun custom-vue/post-init-smartparens ()
   (if dotspacemacs-smartparens-strict-mode
@@ -47,7 +42,5 @@
   (add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode))
   (add-hook 'vue-mode-local-vars-hook #'spacemacs//vue-setup-backend))
 
-(defun javascript/pre-init-yasnippet ()
-  (spacemacs|use-package-add-hook yasnippet
-    :post-config
-    (yas-activate-extra-mode 'js-mode)))
+(defun custom-vue/post-init-yasnippet ()
+  (add-hook 'vue-mode-hook #'spacemacs//vue-setup-yasnippet))
