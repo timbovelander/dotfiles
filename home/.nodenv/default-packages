@@ -1,8 +1,8 @@
-flow-language-server
+@vue/cli
 javascript-typescript-langserver
 jsonlint
 sass
-tern
 typescript
+typescript-language-server
 vmd
 vue-language-server

@@ -61,6 +61,7 @@ This function should only modify configuration layer settings."
        shell-scripts
        spell-checking
        syntax-checking
+       (typescript :variables typescript-backend 'lsp)
        yaml
        )
 
