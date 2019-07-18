@@ -1,5 +1,6 @@
 (defun spacemacs//vue-setup-backend ()
   "Setup lsp backend."
+  (setq-local lsp-prefer-flymake :none)
   (spacemacs//setup-lsp-jump-handler 'vue-mode)
   (lsp))
 
@@ -11,8 +12,7 @@
     :variables company-minimum-prefix-length 2
     :append-hooks nil
     :call-hooks t)
-  (company-mode)
-  (fix-lsp-company-prefix))
+  (company-mode))
 
 (defun spacemacs//vue-setup-yasnippet ()
   (yas-activate-extra-mode 'js-mode))
