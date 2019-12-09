@@ -1,7 +1,5 @@
 @vue/cli
-javascript-typescript-langserver
 jsonlint
-sass
 typescript
 typescript-language-server
 vmd

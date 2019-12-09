@@ -50,10 +50,12 @@ This function should only modify configuration layer settings."
        html
        (javascript :variables
          javascript-backend 'lsp
+         javascript-lsp-linter nil
          node-add-modules-path t)
        lsp
        (markdown :variables
          markdown-live-preview-engine 'vmd)
+       php
        (python :variables
          python-backend 'lsp)
        (shell :variables
@@ -62,6 +64,7 @@ This function should only modify configuration layer settings."
        spell-checking
        syntax-checking
        (typescript :variables typescript-backend 'lsp)
+       (vue :variables vue-backend 'lsp)
        yaml
        )
 
