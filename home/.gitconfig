@@ -2,6 +2,7 @@
   a = add
   b = branch -v
   bd = branch -D
+  bp = "!git branch --merged master | grep -v '^[ *]*master$' | xargs -r git branch -d"
   c = commit
   cl = clone
   co = checkout
@@ -47,3 +48,5 @@
   default = simple
 [include]
   path = ~/.gitconfig.local
+[pull]
+	rebase = false

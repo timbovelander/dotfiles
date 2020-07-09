@@ -42,7 +42,6 @@ This function should only modify configuration layer settings."
        (auto-completion :variables
          auto-completion-enable-snippets-in-popup t)
        colors
-       custom-vue
        docker
        emacs-lisp
        git
@@ -50,20 +49,29 @@ This function should only modify configuration layer settings."
        html
        (javascript :variables
          javascript-backend 'lsp
+         javascript-fmt-on-save t
+         javascript-fmt-tool 'prettier
          javascript-lsp-linter nil
          node-add-modules-path t)
        lsp
        (markdown :variables
          markdown-live-preview-engine 'vmd)
+       nginx
        php
+       prettier
        (python :variables
          python-backend 'lsp)
+       react
        (shell :variables
          shell-default-term-shell "/usr/bin/fish")
        shell-scripts
        spell-checking
        syntax-checking
-       (typescript :variables typescript-backend 'lsp)
+       (typescript :variables
+         typescript-backend 'lsp
+         typescript-fmt-on-save t
+         typescript-fmt-tool 'prettier
+         typescript-lsp-linter nil)
        (vue :variables vue-backend 'lsp)
        yaml
        )
@@ -497,6 +505,10 @@ before packages are loaded."
 
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize))
+
+  (add-to-list 'auto-mode-alist '("\\.j2\\'" . web-mode))
+  (setq web-mode-engines-alist
+    '(("django"    . "\\.j2\\'")))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
