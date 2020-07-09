@@ -509,7 +509,47 @@ before packages are loaded."
   (add-to-list 'auto-mode-alist '("\\.j2\\'" . web-mode))
   (setq web-mode-engines-alist
     '(("django"    . "\\.j2\\'")))
+
+  (setq create-lockfiles nil)
+
+  ;; Overwrite lsp-ui-flycheck-enable, do not select lsp-ui as default checker for flycheck
+  ;; Add the checker, but append to the list instead
+  ;; https://github.com/emacs-lsp/lsp-ui/blob/master/lsp-ui-flycheck.el
+  (with-eval-after-load 'lsp-ui
+    (defun lsp-ui-flycheck-enable (_)
+      "Enable flycheck integration for the current buffer."
+      (when lsp-ui-flycheck-live-reporting
+        (setq-local flycheck-check-syntax-automatically nil))
+      ;; (setq-local flycheck-checker 'lsp-ui)
+      (lsp-ui-flycheck-add-mode major-mode)
+      (add-to-list 'flycheck-checkers 'lsp-ui t)
+      (add-hook 'lsp-after-diagnostics-hook 'lsp-ui-flycheck--report nil t)))
+
+  ;; ignore lock file errors
+  (defun ask-user-about-lock (file other-user)
+    "A value of t says to grab the lock on the file."
+    t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+  '(package-selected-packages
+     (quote
+       (nginx-mode yasnippet-snippets yapfify yaml-mode xterm-color ws-butler writeroom-mode winum which-key web-mode web-beautify vterm volatile-highlights vmd-mode vi-tilde-fringe uuidgen use-package treemacs-projectile treemacs-persp treemacs-magit treemacs-icons-dired treemacs-evil toc-org tide terminal-here tagedit symon symbol-overlay string-inflection speed-type spaceline-all-the-icons smeargle slim-mode shell-pop scss-mode sass-mode rjsx-mode restart-emacs rainbow-mode rainbow-identifiers rainbow-delimiters pytest pyenv-mode py-isort pug-mode prettier-js posframe popwin pippel pipenv pip-requirements phpunit phpcbf php-extras php-auto-yasnippets pcre2el password-generator paradox overseer org-plus-contrib org-bullets open-junk-file nodejs-repl nameless multi-term move-text mmm-mode markdown-toc magit-svn magit-section magit-gitflow macrostep lsp-ui lsp-python-ms lorem-ipsum livid-mode live-py-mode link-hint json-navigator js2-refactor js-doc insert-shebang indent-guide importmagic impatient-mode hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-lsp helm-ls-git helm-gitignore helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag gruvbox-theme google-translate golden-ratio gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md geben fuzzy font-lock+ flyspell-correct-helm flycheck-pos-tip flycheck-package flycheck-elsa flycheck-bashate flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emr emmet-mode elisp-slime-nav editorconfig dumb-jump drupal-mode dotenv-mode dockerfile-mode docker diminish devdocs define-word dap-mode cython-mode company-web company-shell company-phpactor company-php company-anaconda column-enforce-mode color-identifiers-mode clean-aindent-mode centered-cursor-mode blacken auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent add-node-modules-path ace-link ace-jump-helm-line ac-ispell))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+)
