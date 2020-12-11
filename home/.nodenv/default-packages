@@ -1,6 +1,3 @@
-@vue/cli
 jsonlint
 typescript
 typescript-language-server
-vls
-vmd

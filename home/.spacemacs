@@ -57,10 +57,7 @@ This function should only modify configuration layer settings."
        (markdown :variables
          markdown-live-preview-engine 'vmd)
        nginx
-       php
        prettier
-       (python :variables
-         python-backend 'lsp)
        react
        (shell :variables
          shell-default-term-shell "/usr/bin/fish")
@@ -72,7 +69,6 @@ This function should only modify configuration layer settings."
          typescript-fmt-on-save t
          typescript-fmt-tool 'prettier
          typescript-lsp-linter nil)
-       (vue :variables vue-backend 'lsp)
        yaml
        )
 
@@ -223,7 +219,7 @@ It should only modify the values of Spacemacs settings."
 
     ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
     ;; quickly tweak the mode-line size to make separators look not too crappy.
-    dotspacemacs-default-font '("Fira Mono"
+    dotspacemacs-default-font '("Fira Code"
                                  :size 16
                                  :weight normal
                                  :width normal)
