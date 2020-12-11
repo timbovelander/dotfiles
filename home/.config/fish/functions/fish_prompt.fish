@@ -36,14 +36,14 @@ function fish_prompt --description 'Write out the prompt'
   printf "  "
 
   # GIT
-  if __fish_git_prompt >/dev/null ^&1
+  if __fish_git_prompt >/dev/null 2>&1
     printf "%s" (__fish_git_prompt "[%s]")
     set_color normal
     printf "  "
   end
 
   # maven project
-  if begin command -s xmllint >/dev/null ^&1; end
+  if begin command -s xmllint >/dev/null 2>&1; end
     set -l dir (pwd)
     while test (pwd) != "/"
       if test -f pom.xml
@@ -63,7 +63,7 @@ function fish_prompt --description 'Write out the prompt'
   end
 
   # node project
-  if begin command -s node >/dev/null ^&1; end
+  if begin command -s node >/dev/null 2>&1; end
     set -l dir (pwd)
     while test (pwd) != "/"
       if test -f "package.json"
