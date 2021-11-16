@@ -46,20 +46,21 @@ This function should only modify configuration layer settings."
        emacs-lisp
        git
        helm
-       html
+       (html :variables
+         web-fmt-tool 'prettier
+         html-enable-lsp t)
        (javascript :variables
          javascript-backend 'lsp
          javascript-fmt-on-save t
          javascript-fmt-tool 'prettier
-         javascript-lsp-linter nil
          node-add-modules-path t)
        lsp
        (markdown :variables
          markdown-live-preview-engine 'vmd)
        nginx
        prettier
-       react
        (shell :variables
+         shell-default-shell 'vterm
          shell-default-term-shell "/usr/bin/fish")
        shell-scripts
        spell-checking
@@ -68,7 +69,7 @@ This function should only modify configuration layer settings."
          typescript-backend 'lsp
          typescript-fmt-on-save t
          typescript-fmt-tool 'prettier
-         typescript-lsp-linter nil)
+         typescript-linter 'eslint)
        yaml
        )
 
@@ -505,7 +506,10 @@ before packages are loaded."
   (add-to-list 'auto-mode-alist '("\\.j2\\'" . web-mode))
   (setq web-mode-engines-alist
     '(("django"    . "\\.j2\\'")))
-  )
+
+  (setq web-mode-enable-auto-quoting nil)
+  (setq create-lockfiles nil)
+  (add-hook 'before-save-hook 'lsp-organize-imports))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
