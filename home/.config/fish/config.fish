@@ -44,36 +44,23 @@ set -x EDITOR "vim"
 set -x VISUAL "vim"
 
 # source ~/.profile.fish
-test -e "$HOME/.profile.fish"
-and source "$HOME/.profile.fish"
-
-# autojump
-if test ! (command -s fasd)
-  test -e "/usr/share/autojump/autojump.fish"
-  and source "/usr/share/autojump/autojump.fish"
+if test -e "$HOME/.profile.fish"
+  source "$HOME/.profile.fish"
 end
 
-# gulp autocomplete
-test (command -s gulp)
-and gulp --completion=fish | source
+# autojump
+if test -e "/usr/share/autojump/autojump.fish"
+  source "/usr/share/autojump/autojump.fish"
+end
 
 # emacs term support
 if test -n "$EMACS"
   set -x TERM eterm-color
 end
 
-function fish_title
-  true
-end
-
 # nodenv
 if test (command -s nodenv)
   source (nodenv init -|psub)
-end
-
-# pyenv
-if test (command -s pyenv)
-  source (pyenv init -|psub)
 end
 
 # aliases
@@ -89,8 +76,8 @@ alias fd "find-name -type d"
 alias ff "find-name -type f"
 alias fl "find-name -type l"
 alias g "git"
-alias gg "cd (git rev-parse --show-toplevel)"
+alias gg "cd (command git rev-parse --show-toplevel)"
 alias l "ls -la"
 alias remove "/bin/rm"
 alias v "vim"
-alias view "nvim -R"
+alias view "vim -R"
