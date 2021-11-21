@@ -42,11 +42,9 @@
   ssa = stash apply
   ssd = stash drop
   ssp = stash pop
-[core]
-  excludesfile = ~/.gitignore
 [push]
   default = simple
 [include]
   path = ~/.gitconfig.local
 [pull]
-	rebase = false
+  rebase = false
